@@ -65,4 +65,87 @@ while continueRoutine:
 
 #test
 
+    
+#----Initialize targets for experiment----
+targ_top_right = visual.ShapeStim(
+    win=win, name='targ_top_right',
+    size=(0.2, 0.2), vertices='circle',
+    ori=0.0, pos=(0.3, 0.3), anchor='center',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+    opacity=None, depth=0.0, interpolate=True)
+targ_mid_right = visual.ShapeStim(
+    win=win, name='targ_mid_right',
+    size=(0.2, 0.2), vertices='circle',
+    ori=0.0, pos=(0.3, 0), anchor='center',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+    opacity=None, depth=-1.0, interpolate=True)
+targ_bot_right = visual.ShapeStim(
+    win=win, name='targ_bot_right',
+    size=(0.2, 0.2), vertices='circle',
+    ori=0.0, pos=(0.3, -0.3), anchor='center',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+    opacity=None, depth=-7.0, interpolate=True)
+targ_bot_center = visual.ShapeStim(
+    win=win, name='targ_bot_center',
+    size=(0.2, 0.2), vertices='circle',
+    ori=0.0, pos=(0, -0.3), anchor='center',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+    opacity=None, depth=-2.0, interpolate=True)
+targ_top_center = visual.ShapeStim(
+    win=win, name='targ_top_center',
+    size=(0.2, 0.2), vertices='circle',
+    ori=0.0, pos=(0, 0.3), anchor='center',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+    opacity=None, depth=-3.0, interpolate=True)
+targ_top_left = visual.ShapeStim(
+    win=win, name='targ_top_left',
+    size=(0.2, 0.2), vertices='circle',
+    ori=0.0, pos=(-0.3, 0.3), anchor='center',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+    opacity=None, depth=-4.0, interpolate=True)
+targ_mid_left = visual.ShapeStim(
+    win=win, name='targ_mid_left',
+    size=(0.2, 0.2), vertices='circle',
+    ori=0.0, pos=(-0.3, 0), anchor='center',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+    opacity=None, depth=-5.0, interpolate=True)
+targ_bot_left = visual.ShapeStim(
+    win=win, name='targ_bot_left',
+    size=(0.2, 0.2), vertices='circle',
+    ori=0.0, pos=(-0.3, -0.3), anchor='center',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+    opacity=None, depth=-6.0, interpolate=True)
+    
+# routine timer to track time remaining of each (possibly non-slip) routine
+routineTimer = core.Clock()
+
+#start variables
+targ_top_right.status = STARTED
+targ_top_right.setAutoDraw(True)
+    
+targ_mid_right.status = STARTED
+targ_mid_right.setAutoDraw(True)
+    
+targ_bot_right.status = STARTED
+targ_bot_right.setAutoDraw(True)
+    
+targ_bot_center.status = STARTED
+targ_bot_center.setAutoDraw(True)
+    
+targ_top_center.status = STARTED
+targ_top_center.setAutoDraw(True)
+    
+targ_top_left.status = STARTED
+targ_top_left.setAutoDraw(True)
+    
+targ_mid_left.status = STARTED
+targ_mid_left.setAutoDraw(True)
+    
+targ_bot_left.status = STARTED
+targ_bot_left.setAutoDraw(True)
+
+
+        
+#have it draw the target
+#if targ_top_right.status == STARTED:
 
