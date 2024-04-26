@@ -151,4 +151,5 @@ targ_bot_left.setAutoDraw(True)
         
 #have it draw the target
 #if targ_top_right.status == STARTED:
+#test2
 
