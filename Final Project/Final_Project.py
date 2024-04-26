@@ -24,50 +24,44 @@ name = 'Path Tracing'
 win = visual.Window(size = [900, 900], pos = [0,0], fullscr = False, color = [0,0,0], allowGUI = True)
 framerate = win._monitorFrameRate
 win.MouseVisible = True
-clock = core.Clock()
-t = clock.getTime()
-print(t)
 
 #From Builder code = sets up keyboard to accept responses
-def setupDevices(expInfo, thisExp, win):
+deviceManager = hardware.DeviceManager()
 
-    # --- Setup input devices ---
-    ioConfig = {}
-    
-    # Setup iohub keyboard
-    ioConfig['Keyboard'] = dict(use_keymap='psychopy')
-
-    # store ioServer object in the device manager
-    deviceManager.ioServer = ioServer
-    
-    # create a default keyboard (e.g. to check for escape)
-    if deviceManager.getDevice('defaultKeyboard') is None:
-        deviceManager.addDevice(
-            deviceClass='keyboard', deviceName='defaultKeyboard', backend='iohub'
-        )
-    if deviceManager.getDevice('key_resp') is None:
+if deviceManager.getDevice('defaultKeyboard') is None:
+    deviceManager.addDevice(
+        deviceClass='keyboard', deviceName='defaultKeyboard', backend='iohub'
+    )
+if deviceManager.getDevice('key_resp') is None:
         # initialise key_resp
-        key_resp = deviceManager.addDevice(
-            deviceClass='keyboard',
-            deviceName='key_resp',
-        )
-    # return True if completed successfully
-    return True
+    key_resp = deviceManager.addDevice(
+        deviceClass='keyboard',
+        deviceName='key_resp',
+    )
+
 clock = core.Clock()
-t = clock.getTime()
+time = clock.getTime()
 #create dictionary to store information about experiment
 Info = {'participant': randint(0, 999), 'date':data.getDateStr()}
 key_resp = keyboard.Keyboard(deviceName='key_resp')
 
 #Instruction Page
 instructions = visual.TextBox2(win, text = 'INSTRUCTIONS\nPRESS ANY KEY TO CONTINUE')
+testtext = visual.TextBox2(win, text = 'NEXT')
 thistrial = data.ExperimentHandler(name = name, extraInfo = Info, dataFileName = 'final_project_data')
-
-instructions.draw()
-win.flip()
-
-if len(key_resp.getKeys) > 0:
+continueRoutine = True
+frameN = -1
+while continueRoutine:
+    instructions.draw()
     win.flip()
+    keys = key_resp.getKeys()
+    print(keys)
+    if keys is not None:
+        win.close()
+        #testtext.draw()
+        #win.flip
+
+
 
 #test
 
