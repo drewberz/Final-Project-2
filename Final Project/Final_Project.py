@@ -54,10 +54,11 @@ frameN = -1
 while continueRoutine:
     instructions.draw()
     win.flip()
-    keys = key_resp.getKeys()
-    print(keys)
-    if keys is not None:
-        win.close()
+    #keys.append(key_resp.getKeys())
+    #print(keys)
+    if 'space' in key_resp.getKeys():
+        print('trying to close window')
+        core.quit()
         #testtext.draw()
         #win.flip
 
