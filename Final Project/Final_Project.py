@@ -52,15 +52,17 @@ thistrial = data.ExperimentHandler(name = name, extraInfo = Info, dataFileName =
 continueRoutine = True
 frameN = -1
 while continueRoutine:
-    instructions.draw()
+    instructions.autoDraw = True
     win.flip()
     #keys.append(key_resp.getKeys())
     #print(keys)
     if 'space' in key_resp.getKeys():
         print('trying to close window')
-        core.quit()
-        #testtext.draw()
-        #win.flip
+        #core.quit()
+        instructions.autoDraw = False
+        win.flip()
+        testtext.autoDraw = True
+        win.flip
 
 
 
