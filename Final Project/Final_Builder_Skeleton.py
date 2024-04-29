@@ -474,7 +474,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     t = 0
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
     frameN = -1
-    
+    clicked = False
     # --- Run Routine "Shape_Trial" ---
     routineForceEnded = not continueRoutine
     while continueRoutine:
@@ -494,7 +494,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
         if brush.status == NOT_STARTED:
             brush.status = STARTED
-        clicked = False
+        
         if brush.status == STARTED:
             brush.setAutoDraw(True)
             if mouse.getPressed()[0] == 1:
@@ -535,7 +535,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # refresh the screen
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
-    
+    clicked = False
     # --- Ending Routine "Shape_Trial" ---
     for thisComponent in Shape_TrialComponents:
         if hasattr(thisComponent, "setAutoDraw"):
