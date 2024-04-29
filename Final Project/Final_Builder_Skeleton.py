@@ -30,6 +30,8 @@ from numpy.random import random, randint, normal, shuffle, choice as randchoice
 import os  # handy system and path functions
 import sys  # to get file system encoding
 
+import random as pyrandom
+
 import psychopy.iohub as io
 from psychopy.hardware import keyboard
 
@@ -352,6 +354,64 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "Instruct" ---
     instructions = visual.TextBox2(win, text = 'INSTRUCTIONS\nPRESS ANY KEY TO CONTINUE')
     key_resp = keyboard.Keyboard(deviceName='key_resp')
+    
+        
+    #----Initialize targets for experiment----
+    targ_top_right = visual.ShapeStim(
+        win=win, name='targ_top_right',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(0.3, 0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=0.0, interpolate=True)
+    targ_mid_right = visual.ShapeStim(
+        win=win, name='targ_mid_right',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(0.3, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-1.0, interpolate=True)
+    targ_bot_right = visual.ShapeStim(
+        win=win, name='targ_bot_right',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(0.3, -0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-7.0, interpolate=True)
+    targ_bot_center = visual.ShapeStim(
+        win=win, name='targ_bot_center',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(0, -0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-2.0, interpolate=True)
+    targ_top_center = visual.ShapeStim(
+        win=win, name='targ_top_center',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(0, 0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-3.0, interpolate=True)
+    targ_top_left = visual.ShapeStim(
+        win=win, name='targ_top_left',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(-0.3, 0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-4.0, interpolate=True)
+    targ_mid_left = visual.ShapeStim(
+        win=win, name='targ_mid_left',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(-0.3, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-5.0, interpolate=True)
+    targ_bot_left = visual.ShapeStim(
+        win=win, name='targ_bot_left',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(-0.3, -0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-6.0, interpolate=True)
+        
+    #creating list of targets - written by Andrew
+    target_list = [targ_top_right, targ_mid_right, targ_bot_right, targ_bot_center, 
+    targ_top_center, targ_top_left, targ_mid_left, targ_bot_left]
+    #iterate through list randomly
+    target_displayed = pyrandom.choice(target_list)
+    
     # --- Initialize components for Routine "Shape_Trial" ---
     testtext = visual.TextBox2(win, text = 'WILL BE REPLACED WITH SHAPES')
     brush = visual.Brush(win, lineWidth=3, lineColor=[1, 1, 1,])
@@ -462,7 +522,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # update component parameters for each repeat
     thisExp.addData('Shape_Trial.started', globalClock.getTime(format='float'))
     # keep track of which components have finished
-    Shape_TrialComponents = [testtext, brush]
+    Shape_TrialComponents = [testtext, brush, target_displayed]
     for thisComponent in Shape_TrialComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -491,6 +551,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
         if testtext.status == STARTED:
             pass
+            
+        if target_displayed.status == NOT_STARTED: 
+            target_displayed.status == STARTED
+            target_displayed.setAutoDraw(True)
         
         if brush.status == NOT_STARTED:
             brush.status = STARTED
