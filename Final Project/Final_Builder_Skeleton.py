@@ -415,6 +415,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "Shape_Trial" ---
     testtext = visual.TextBox2(win, text = 'WILL BE REPLACED WITH SHAPES')
     brush = visual.Brush(win, lineWidth=3, lineColor=[1, 1, 1,])
+    
     mouse = event.Mouse()
     # create some handy timers
     
@@ -561,12 +562,18 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
         if brush.status == STARTED:
             brush.setAutoDraw(True)
+            #print(brush.pointer.getPos()[0])
+            if brush.brushDown:
+                brush.brushPos.append((brush.pointer.getPos()) + [0.2])
+                #print('orig', brush.pointer.getPos())
+                
+                #print('add', brush.pointer.getPos()+0.2)
+                #brush.shapes[brush.currentShape].setVertices(brush.brushPos)
+            #else:
+                #brush.atStartPoint = False
             if mouse.getPressed()[0] == 1:
-                clicked = True #this variable changes with mouse.getPressed. won't stay True
-            print(clicked)
+                clicked = True
             if clicked == True and mouse.getPressed()[0] == 0:
-                #if mouse.getPressed()[0] == 0:
-                print("mouse")
                 brush.status == FINISHED
                 continueRoutine = False
         
