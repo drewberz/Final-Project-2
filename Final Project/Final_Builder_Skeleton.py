@@ -10,6 +10,200 @@ If you publish work using this script the most relevant publication is:
         https://doi.org/10.3758/s13428-018-01193-y
 
 """
+from psychopy import event, logging
+from psychopy.visual.shape import ShapeStim
+from psychopy.visual.basevisual import MinimalStim
+
+__author__ = 'David Bridges'
+
+from psychopy.tools.attributetools import attributeSetter
+
+
+class Brush(MinimalStim):
+    """A class for creating a freehand drawing tool.
+
+    """
+    def __init__(self,
+                 win,
+                 lineWidth=1.5,
+                 lineColor=(1.0, 1.0, 1.0),
+                 lineColorSpace='rgb',
+                 opacity=1.0,
+                 closeShape=False,
+                 buttonRequired=True,
+                 name=None,
+                 depth=0,
+                 autoLog=True,
+                 autoDraw=False
+                 ):
+
+        super(Brush, self).__init__(name=name,
+                                    autoLog=False)
+
+        self.win = win
+        self.name = name
+        self.depth = depth
+        self.lineColor = lineColor
+        self.lineColorSpace = lineColorSpace
+        self.lineWidth = lineWidth
+        self.opacity = opacity
+        self.closeShape = closeShape
+        self.buttonRequired = buttonRequired
+        self.pointer = event.Mouse(win=self.win)
+        self.shapes = []
+        self.brushPos = []
+        self.strokeIndex = -1
+        self.atStartPoint = False
+
+        self.autoLog = autoLog
+        self.autoDraw = autoDraw
+
+        if self.autoLog:
+            logging.exp("Created {name} = {obj}".format(name=self.name,
+                                                        obj=str(self)))
+
+    def _resetVertices(self):
+        """
+        Resets list of vertices passed to ShapeStim.
+        """
+        if self.autoLog:
+            logging.exp("Resetting {name} parameter: brushPos.".format(name=self.name))
+        self.brushPos = []
+
+    def _createStroke(self):
+        """
+        Creates ShapeStim for each stroke.
+        """
+        if self.autoLog:
+            logging.exp("Creating ShapeStim for {name}".format(name=self.name))
+
+        self.shapes.append(ShapeStim(self.win,
+                                     vertices=[[0, 0]],
+                                     closeShape=self.closeShape,
+                                     lineWidth=self.lineWidth,
+                                     lineColor=self.lineColor,
+                                     colorSpace=self.lineColorSpace,
+                                     opacity=self.opacity,
+                                     autoLog=False,
+                                     autoDraw=True))
+
+    @property
+    def currentShape(self):
+        """The index of current shape to be drawn.
+
+        Returns
+        -------
+        Int
+            The index as length of shapes attribute - 1.
+        """
+        return len(self.shapes) - 1
+
+    @property
+    def brushDown(self):
+        """
+        Checks whether the mouse button has been clicked in order to start drawing.
+
+        Returns
+        -------
+        Bool
+            True if left mouse button is pressed or if no button press is required, otherwise False.
+        """
+        if self.buttonRequired:
+            return self.pointer.getPressed()[0] == 1
+        else:
+            return True
+
+    def onBrushDown(self):
+        """
+        On first brush stroke, empty pointer position list, and create a new ShapeStim.
+        """
+        if self.brushDown and not self.atStartPoint:
+            self.atStartPoint = True
+            self._resetVertices()
+            self._createStroke()
+
+    def onBrushDrag(self):
+        """
+        Check whether the brush is down. If brushDown is True, the brush path is drawn on screen.
+        """
+        if self.brushDown:
+            self.brushPos.append(self.pointer.getPos()+[0.05,0.05])
+            self.shapes[self.currentShape].setVertices(self.brushPos)
+        else:
+            self.atStartPoint = False
+
+    def draw(self):
+        """
+        Get starting stroke and begin painting on screen.
+        """
+        self.onBrushDown()
+        self.onBrushDrag()
+
+    def reset(self):
+        """
+        Clear ShapeStim objects from shapes attribute.
+        """
+        if self.autoLog:
+            logging.exp("Resetting {name}".format(name=self.name))
+
+        if len(self.shapes):
+            for shape in self.shapes:
+                shape.setAutoDraw(False)
+        self.atStartPoint = False
+        self.shapes = []
+
+    @attributeSetter
+    def autoDraw(self, value):
+        # Do base setting
+        MinimalStim.autoDraw.func(self, value)
+        # Set autodraw on shapes
+        for shape in self.shapes:
+            shape.setAutoDraw(value)
+
+    def setLineColor(self, value):
+        """
+        Sets the line color passed to ShapeStim.
+
+        Parameters
+        ----------
+        value
+            Line color
+        """
+        self.lineColor = value
+
+    def setLineWidth(self, value):
+        """
+        Sets the line width passed to ShapeStim.
+
+        Parameters
+        ----------
+        value
+            Line width in pixels
+        """
+        self.lineWidth = value
+
+    def setOpacity(self, value):
+        """
+        Sets the line opacity passed to ShapeStim.
+
+        Parameters
+        ----------
+        value
+            Opacity range(0, 1)
+        """
+        self.opacity = value
+
+    def setButtonRequired(self, value):
+        """
+        Sets whether or not a button press is needed to draw the line..
+
+        Parameters
+        ----------
+        value
+            Button press required (True or False).
+        """
+        self.buttonRequired = value
+        
 
 # --- Import packages ---
 from psychopy import locale_setup
@@ -413,8 +607,31 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     target_displayed = pyrandom.choice(target_list)
     
     # --- Initialize components for Routine "Shape_Trial" ---
+    crosshairs_x = visual.shape.ShapeStim(
+    win, units='', colorSpace='rgb', fillColor=False, 
+    lineColor=([1, 1, 1]), lineWidth=3.5, vertices=((-0.05, 0), (0.05, 0)), 
+    windingRule=None, closeShape=False, pos=(0, 0), size=1, anchor=None, 
+    ori=0.0, opacity=1.0, contrast=1.0, depth=0, interpolate=True, 
+    draggable=False, name=None, autoLog=None, autoDraw=False, color=False, 
+    lineRGB=False, fillRGB=False, fillColorSpace=None, lineColorSpace=None)
+    
+    crosshairs_y = visual.shape.ShapeStim(
+    win, units='', colorSpace='rgb', fillColor=False, 
+    lineColor=([1, 1, 1]), lineWidth=3.5, vertices=((0, -0.05), (0, 0.05)), 
+    windingRule=None, closeShape=False, pos=(0, 0), size=1, anchor=None, 
+    ori=0.0, opacity=1.0, contrast=1.0, depth=0, interpolate=True, 
+    draggable=False, name=None, autoLog=None, autoDraw=False, color=False, 
+    lineRGB=False, fillRGB=False, fillColorSpace=None, lineColorSpace=None)
+    
+    crosshairs_dot = visual.shape.ShapeStim(win,
+        size=(0.003, 0.003), vertices='circle',
+        ori=0.0, pos=(0, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='red', fillColor='red',
+        opacity=None, depth=-6.0, interpolate=True)
+    
     testtext = visual.TextBox2(win, text = 'WILL BE REPLACED WITH SHAPES')
-    brush = visual.Brush(win, lineWidth=3, lineColor=[1, 1, 1,])
+    
+    brush = Brush(win, lineWidth=3, lineColor=[1, 1, 1,])
     
     mouse = event.Mouse()
     # create some handy timers
@@ -523,7 +740,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # update component parameters for each repeat
     thisExp.addData('Shape_Trial.started', globalClock.getTime(format='float'))
     # keep track of which components have finished
-    Shape_TrialComponents = [testtext, brush, target_displayed]
+    Shape_TrialComponents = [crosshairs_x, crosshairs_y, crosshairs_dot, brush, target_displayed]
     for thisComponent in Shape_TrialComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -546,12 +763,24 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         #########Written by Brynn##############
-        if testtext.status == NOT_STARTED:
-            testtext.status = STARTED
-            testtext.setAutoDraw(True)
+        #if testtext.status == NOT_STARTED:
+            #testtext.status = STARTED
+            #testtext.setAutoDraw(True)
         
-        if testtext.status == STARTED:
-            pass
+        #if testtext.status == STARTED:
+            #pass
+            
+        if crosshairs_x.status == NOT_STARTED:
+            crosshairs_x.status == STARTED
+            crosshairs_x.setAutoDraw(True)
+        
+        if crosshairs_y.status == NOT_STARTED:
+            crosshairs_y.status == STARTED
+            crosshairs_y.setAutoDraw(True)
+        
+        if crosshairs_dot.status == NOT_STARTED:
+            crosshairs_dot.status == STARTED
+            crosshairs_dot.setAutoDraw(True)
             
         if target_displayed.status == NOT_STARTED: 
             target_displayed.status == STARTED
@@ -563,14 +792,18 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if brush.status == STARTED:
             brush.setAutoDraw(True)
             #print(brush.pointer.getPos()[0])
-            if brush.brushDown:
-                brush.brushPos.append((brush.pointer.getPos()) + [0.2])
+            #if brush.brushDown:
+                #print(brush.pointer.getPos())
+                #position = brush.pointer.getPos()
+                #position[0]+=0.2
+                #print('after',position)
+                #brush.brushPos.append((position) )
+                #brush.autoDraw = True
                 #print('orig', brush.pointer.getPos())
                 
                 #print('add', brush.pointer.getPos()+0.2)
                 #brush.shapes[brush.currentShape].setVertices(brush.brushPos)
-            #else:
-                #brush.atStartPoint = False
+                
             if mouse.getPressed()[0] == 1:
                 clicked = True
             if clicked == True and mouse.getPressed()[0] == 0:
