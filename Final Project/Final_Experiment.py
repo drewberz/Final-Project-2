@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.1),
-    on Fri Apr 26 14:31:43 2024
+    on Tue Apr 30 20:13:19 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -429,7 +429,7 @@ deviceManager = hardware.DeviceManager()
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
 psychopyVersion = '2024.1.1'
-expName = 'Final_Builder_Skeleton'  # from the Builder filename that created this script
+expName = 'untitled'  # from the Builder filename that created this script
 # information about this experiment
 expInfo = {
     'participant': f"{randint(0, 999999):06.0f}",
@@ -517,7 +517,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version='',
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='/Users/brynnkroke/Documents/Spring 2024/CLPS 0950/Untitled/Final Project/Final_Builder_Skeleton.py',
+        originPath='/Users/brynnkroke/untitled.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -743,9 +743,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     ########################################################################
     instructions = visual.TextBox2(win, text = 'INSTRUCTIONS\nPRESS ANY KEY TO CONTINUE')
     key_resp = keyboard.Keyboard(deviceName='key_resp')
-    
-        
-    #----Initialize targets for experiment----
+    # --- Initialize components for Routine "Training_Trial" ---
     targ_top_right = visual.ShapeStim(
         win=win, name='targ_top_right',
         size=(0.2, 0.2), vertices='circle',
@@ -801,7 +799,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     #iterate through list randomly
     target_displayed = pyrandom.choice(target_list)
     
-    # --- Initialize components for Routine "Shape_Trial" ---
     crosshairs_x = visual.shape.ShapeStim(
     win, units='', colorSpace='rgb', fillColor=False, 
     lineColor=([1, 1, 1]), lineWidth=3.5, vertices=((-0.05, 0), (0.05, 0)), 
@@ -824,11 +821,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         lineWidth=1.0,     colorSpace='rgb',  lineColor='red', fillColor='red',
         opacity=None, depth=-6.0, interpolate=True)
     
-    brush = Brush2(win, lineWidth=3, lineColor=[1, 1, 1,])
+    brush = Brush(win, lineWidth=3, lineColor=[1, 1, 1,])
     
     mouse = event.Mouse()
     ########################################################################
     ########################################################################
+    # --- Initialize components for Routine "Shape_Trial" ---
+    brush2 = Brush2(win, lineWidth=3, lineColor=[1, 1, 1,])
     # create some handy timers
     
     # global clock to track the time since experiment started
@@ -861,9 +860,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     continueRoutine = True
     # update component parameters for each repeat
     thisExp.addData('Instruct.started', globalClock.getTime(format='float'))
-    
     # keep track of which components have finished
-    InstructComponents = [instructions]
+    InstructComponents = [instructions, key_resp]
     for thisComponent in InstructComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -933,35 +931,62 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # the Routine "Instruct" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
-    # --- Prepare to start Routine "Shape_Trial" ---
-    continueRoutine = True
-    # update component parameters for each repeat
-    thisExp.addData('Shape_Trial.started', globalClock.getTime(format='float'))
-    # keep track of which components have finished
-    Shape_TrialComponents = [crosshairs_x, crosshairs_y, crosshairs_dot, brush, target_displayed]
-    for thisComponent in Shape_TrialComponents:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    frameN = -1
-    clicked = False
-    # --- Run Routine "Shape_Trial" ---
-    training = False
-    routineForceEnded = not continueRoutine
-    while continueRoutine:
-        # get current time
-        t = routineTimer.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        ####################################################################
+    # set up handler to look after randomisation of conditions etc
+    trials = data.TrialHandler(nReps=5.0, method='random', 
+        extraInfo=expInfo, originPath=-1,
+        trialList=[None],
+        seed=None, name='trials')
+    thisExp.addLoop(trials)  # add the loop to the experiment
+    thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
+    # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
+    if thisTrial != None:
+        for paramName in thisTrial:
+            globals()[paramName] = thisTrial[paramName]
+    
+    for thisTrial in trials:
+        currentLoop = trials
+        thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
+        # pause experiment here if requested
+        if thisExp.status == PAUSED:
+            pauseExperiment(
+                thisExp=thisExp, 
+                win=win, 
+                timers=[routineTimer], 
+                playbackComponents=[]
+        )
+        # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
+        if thisTrial != None:
+            for paramName in thisTrial:
+                globals()[paramName] = thisTrial[paramName]
+        
+        # --- Prepare to start Routine "Training_Trial" ---
+        continueRoutine = True
+        # update component parameters for each repeat
+        thisExp.addData('Training_Trial.started', globalClock.getTime(format='float'))
+        # keep track of which components have finished
+        Training_TrialComponents = [crosshairs_x, crosshairs_y, crosshairs_dot, brush, target_displayed]
+        for thisComponent in Training_TrialComponents:
+            thisComponent.tStart = None
+            thisComponent.tStop = None
+            thisComponent.tStartRefresh = None
+            thisComponent.tStopRefresh = None
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        # reset timers
+        t = 0
+        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+        frameN = -1
+        
+        # --- Run Routine "Training_Trial" ---
+        routineForceEnded = not continueRoutine
+        while continueRoutine:
+            # get current time
+            t = routineTimer.getTime()
+            tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            ####################################################################
         ####################################################################
             
         if crosshairs_x.status == NOT_STARTED:
@@ -993,35 +1018,164 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
         ####################################################################
         ####################################################################
-        # check for quit (typically the Esc key)
-        if defaultKeyboard.getKeys(keyList=["escape"]):
-            thisExp.status = FINISHED
-        if thisExp.status == FINISHED or endExpNow:
-            endExperiment(thisExp, win=win)
-            return
+            # check for quit (typically the Esc key)
+            if defaultKeyboard.getKeys(keyList=["escape"]):
+                thisExp.status = FINISHED
+            if thisExp.status == FINISHED or endExpNow:
+                endExperiment(thisExp, win=win)
+                return
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                routineForceEnded = True
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in Training_TrialComponents:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
         
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            routineForceEnded = True
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
+        # --- Ending Routine "Training_Trial" ---
+        for thisComponent in Training_TrialComponents:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        thisExp.addData('Training_Trial.stopped', globalClock.getTime(format='float'))
+        # the Routine "Training_Trial" was not non-slip safe, so reset the non-slip timer
+        routineTimer.reset()
+        thisExp.nextEntry()
+        
+        if thisSession is not None:
+            # if running in a Session with a Liaison client, send data up to now
+            thisSession.sendExperimentData()
+    # completed 5.0 repeats of 'trials'
+    
+    
+    # set up handler to look after randomisation of conditions etc
+    trials_2 = data.TrialHandler(nReps=5.0, method='random', 
+        extraInfo=expInfo, originPath=-1,
+        trialList=[None],
+        seed=None, name='trials_2')
+    thisExp.addLoop(trials_2)  # add the loop to the experiment
+    thisTrial_2 = trials_2.trialList[0]  # so we can initialise stimuli with some values
+    # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
+    if thisTrial_2 != None:
+        for paramName in thisTrial_2:
+            globals()[paramName] = thisTrial_2[paramName]
+    
+    for thisTrial_2 in trials_2:
+        currentLoop = trials_2
+        thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
+        # pause experiment here if requested
+        if thisExp.status == PAUSED:
+            pauseExperiment(
+                thisExp=thisExp, 
+                win=win, 
+                timers=[routineTimer], 
+                playbackComponents=[]
+        )
+        # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
+        if thisTrial_2 != None:
+            for paramName in thisTrial_2:
+                globals()[paramName] = thisTrial_2[paramName]
+        
+        # --- Prepare to start Routine "Shape_Trial" ---
+        continueRoutine = True
+        # update component parameters for each repeat
+        thisExp.addData('Shape_Trial.started', globalClock.getTime(format='float'))
+        # keep track of which components have finished
+        Shape_TrialComponents = [crosshairs_x, crosshairs_y, crosshairs_dot, brush2, target_displayed]
         for thisComponent in Shape_TrialComponents:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
+            thisComponent.tStart = None
+            thisComponent.tStop = None
+            thisComponent.tStartRefresh = None
+            thisComponent.tStopRefresh = None
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        # reset timers
+        t = 0
+        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+        frameN = -1
         
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    clicked = False
-    # --- Ending Routine "Shape_Trial" ---
-    for thisComponent in Shape_TrialComponents:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    thisExp.addData('Shape_Trial.stopped', globalClock.getTime(format='float'))
-    thisExp.nextEntry()
-    # the Routine "Shape_Trial" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
+        # --- Run Routine "Shape_Trial" ---
+        routineForceEnded = not continueRoutine
+        while continueRoutine:
+            # get current time
+            t = routineTimer.getTime()
+            tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            ###################################################################
+        ####################################################################
+            
+        if crosshairs_x.status == NOT_STARTED:
+            crosshairs_x.status == STARTED
+            crosshairs_x.setAutoDraw(True)
+        
+        if crosshairs_y.status == NOT_STARTED:
+            crosshairs_y.status == STARTED
+            crosshairs_y.setAutoDraw(True)
+        
+        if crosshairs_dot.status == NOT_STARTED:
+            crosshairs_dot.status == STARTED
+            crosshairs_dot.setAutoDraw(True)
+            
+        if target_displayed.status == NOT_STARTED: 
+            target_displayed.status == STARTED
+            target_displayed.setAutoDraw(True)
+        
+        if brush2.status == NOT_STARTED:
+            brush2.status = STARTED
+        
+        if brush2.status == STARTED:
+            brush2.setAutoDraw(True)
+            if mouse.getPressed()[0] == 1:
+                clicked = True
+            if clicked == True and mouse.getPressed()[0] == 0:
+                brush2.status == FINISHED
+                continueRoutine = False
+            
+        ####################################################################
+        ####################################################################
+            # check for quit (typically the Esc key)
+            if defaultKeyboard.getKeys(keyList=["escape"]):
+                thisExp.status = FINISHED
+            if thisExp.status == FINISHED or endExpNow:
+                endExperiment(thisExp, win=win)
+                return
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                routineForceEnded = True
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in Shape_TrialComponents:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # --- Ending Routine "Shape_Trial" ---
+        for thisComponent in Shape_TrialComponents:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        thisExp.addData('Shape_Trial.stopped', globalClock.getTime(format='float'))
+        # the Routine "Shape_Trial" was not non-slip safe, so reset the non-slip timer
+        routineTimer.reset()
+        thisExp.nextEntry()
+        
+        if thisSession is not None:
+            # if running in a Session with a Liaison client, send data up to now
+            thisSession.sendExperimentData()
+    # completed 5.0 repeats of 'trials_2'
+    
     
     # mark experiment as finished
     endExperiment(thisExp, win=win)
