@@ -989,6 +989,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 clicked = True
             if clicked == True and mouse.getPressed()[0] == 0:
                 brush.status == FINISHED
+                print('finished')
                 continueRoutine = False
             
         ####################################################################

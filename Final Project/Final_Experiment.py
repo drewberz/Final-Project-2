@@ -797,7 +797,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     target_list = [targ_top_right, targ_mid_right, targ_bot_right, targ_bot_center, 
     targ_top_center, targ_top_left, targ_mid_left, targ_bot_left]
     #iterate through list randomly
-    target_displayed = pyrandom.choice(target_list)
+    #target_displayed = pyrandom.choice(target_list)
     
     crosshairs_x = visual.shape.ShapeStim(
     win, units='', colorSpace='rgb', fillColor=False, 
@@ -958,7 +958,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisTrial != None:
             for paramName in thisTrial:
                 globals()[paramName] = thisTrial[paramName]
-        
+        #iterate through list randomly
+        target_displayed = pyrandom.choice(target_list)
         # --- Prepare to start Routine "Training_Trial" ---
         continueRoutine = True
         # update component parameters for each repeat
@@ -976,7 +977,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         t = 0
         _timeToFirstFrame = win.getFutureFlipTime(clock="now")
         frameN = -1
-        
+        clicked = False
         # --- Run Routine "Training_Trial" ---
         routineForceEnded = not continueRoutine
         while continueRoutine:
@@ -987,34 +988,36 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
             ####################################################################
-        ####################################################################
+            ####################################################################
             
-        if crosshairs_x.status == NOT_STARTED:
-            crosshairs_x.status == STARTED
-            crosshairs_x.setAutoDraw(True)
+            if crosshairs_x.status == NOT_STARTED:
+                crosshairs_x.status == STARTED
+                crosshairs_x.setAutoDraw(True)
         
-        if crosshairs_y.status == NOT_STARTED:
-            crosshairs_y.status == STARTED
-            crosshairs_y.setAutoDraw(True)
+            if crosshairs_y.status == NOT_STARTED:
+                crosshairs_y.status == STARTED
+                crosshairs_y.setAutoDraw(True)
         
-        if crosshairs_dot.status == NOT_STARTED:
-            crosshairs_dot.status == STARTED
-            crosshairs_dot.setAutoDraw(True)
+            if crosshairs_dot.status == NOT_STARTED:
+                crosshairs_dot.status == STARTED
+                crosshairs_dot.setAutoDraw(True)
             
-        if target_displayed.status == NOT_STARTED: 
-            target_displayed.status == STARTED
-            target_displayed.setAutoDraw(True)
+            if target_displayed.status == NOT_STARTED: 
+                target_displayed.status == STARTED
+                target_displayed.setAutoDraw(True)
         
-        if brush.status == NOT_STARTED:
-            brush.status = STARTED
+            if brush.status == NOT_STARTED:
+                brush.status = STARTED
         
-        if brush.status == STARTED:
-            brush.setAutoDraw(True)
-            if mouse.getPressed()[0] == 1:
-                clicked = True
-            if clicked == True and mouse.getPressed()[0] == 0:
-                brush.status == FINISHED
-                continueRoutine = False
+            if brush.status == STARTED:
+                brush.setAutoDraw(True)
+                if mouse.getPressed()[0] == 1:
+                    clicked = True
+                if clicked == True and mouse.getPressed()[0] == 0:
+                    brush.status == FINISHED
+                    print('finished')
+                    win.flip()
+                    continueRoutine = False
             
         ####################################################################
         ####################################################################
@@ -1110,34 +1113,34 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
             ###################################################################
-        ####################################################################
+            ####################################################################
             
-        if crosshairs_x.status == NOT_STARTED:
-            crosshairs_x.status == STARTED
-            crosshairs_x.setAutoDraw(True)
+            if crosshairs_x.status == NOT_STARTED:
+                crosshairs_x.status == STARTED
+                crosshairs_x.setAutoDraw(True)
         
-        if crosshairs_y.status == NOT_STARTED:
-            crosshairs_y.status == STARTED
-            crosshairs_y.setAutoDraw(True)
+            if crosshairs_y.status == NOT_STARTED:
+                crosshairs_y.status == STARTED
+                crosshairs_y.setAutoDraw(True)
         
-        if crosshairs_dot.status == NOT_STARTED:
-            crosshairs_dot.status == STARTED
-            crosshairs_dot.setAutoDraw(True)
+            if crosshairs_dot.status == NOT_STARTED:
+                crosshairs_dot.status == STARTED
+                crosshairs_dot.setAutoDraw(True)
             
-        if target_displayed.status == NOT_STARTED: 
-            target_displayed.status == STARTED
-            target_displayed.setAutoDraw(True)
+            if target_displayed.status == NOT_STARTED: 
+                target_displayed.status == STARTED
+                target_displayed.setAutoDraw(True)
         
-        if brush2.status == NOT_STARTED:
-            brush2.status = STARTED
+            if brush2.status == NOT_STARTED:
+                brush2.status = STARTED
         
-        if brush2.status == STARTED:
-            brush2.setAutoDraw(True)
-            if mouse.getPressed()[0] == 1:
-                clicked = True
-            if clicked == True and mouse.getPressed()[0] == 0:
-                brush2.status == FINISHED
-                continueRoutine = False
+            if brush2.status == STARTED:
+                brush2.setAutoDraw(True)
+                if mouse.getPressed()[0] == 1:
+                    clicked = True
+                if clicked == True and mouse.getPressed()[0] == 0:
+                    brush2.status == FINISHED
+                    continueRoutine = False
             
         ####################################################################
         ####################################################################
