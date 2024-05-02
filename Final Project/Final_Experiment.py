@@ -827,6 +827,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     ########################################################################
     ########################################################################
     # --- Initialize components for Routine "Shape_Trial" ---
+    ##Initialize text to tell participant to do a single motion if they are taking too long to draw line
+    too_long = visual.TextBox2(win, text = 'Perform a single, fast motion from the center to the target', pos = (0, -0.15))
     brush2 = Brush2(win, lineWidth=3, lineColor=[1, 1, 1,])
     # create some handy timers
     
@@ -984,9 +986,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         routineForceEnded = not continueRoutine
         ######## Initialize brushTimer ###########
         brushTimer = core.Clock()
-        brushTimeDiff = 3
+        brushTimeDiff = 2.5
         start_time = brushTimer.getTime()
-        print('start_time equals', start_time) 
         while continueRoutine:
             # get current time
             t = routineTimer.getTime()
@@ -1025,15 +1026,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     print('finished')
                     if brushTimer.getTime() - start_time > brushTimeDiff:
                         print('too long')
-                        print('timer equals', brushTimer.getTime())
-                        print('start time equals', start_time)
                         brushTimer.reset()
+                        if too_long.status == NOT_STARTED:
+                            too_long.status = STARTED
+                            too_long.setAutoDraw(True)
                         win.flip()
-                        continueRoutine = False
+                        continueRoutine = False #changed from False to True ###not working when True
                     else:
                         print('fast enough')
-                        print('timer equals', brushTimer.getTime())
-                        print('start time equals', start_time)
                         brushTimer.reset()
                         win.flip()
                         continueRoutine = False
