@@ -959,7 +959,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             for paramName in thisTrial:
                 globals()[paramName] = thisTrial[paramName]
         #iterate through list randomly
+        ##########################################################
         target_displayed = pyrandom.choice(target_list)
+        ##########################################################
         # --- Prepare to start Routine "Training_Trial" ---
         continueRoutine = True
         # update component parameters for each repeat
@@ -980,6 +982,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         clicked = False
         # --- Run Routine "Training_Trial" ---
         routineForceEnded = not continueRoutine
+        ######## Initialize brushTimer ###########
+        brushTimer = core.Clock()
+        brushTimeDiff = 3
+        start_time = brushTimer.getTime()
+        print('start_time equals', start_time) 
         while continueRoutine:
             # get current time
             t = routineTimer.getTime()
@@ -1008,16 +1015,36 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
             if brush.status == NOT_STARTED:
                 brush.status = STARTED
-        
+            
             if brush.status == STARTED:
                 brush.setAutoDraw(True)
                 if mouse.getPressed()[0] == 1:
                     clicked = True
                 if clicked == True and mouse.getPressed()[0] == 0:
-                    brush.status == FINISHED
+                    brush.status = FINISHED
                     print('finished')
-                    win.flip()
-                    continueRoutine = False
+                    if brushTimer.getTime() - start_time > brushTimeDiff:
+                        print('too long')
+                        print('timer equals', brushTimer.getTime())
+                        print('start time equals', start_time)
+                        brushTimer.reset()
+                        win.flip()
+                        continueRoutine = False
+                    else:
+                        print('fast enough')
+                        print('timer equals', brushTimer.getTime())
+                        print('start time equals', start_time)
+                        brushTimer.reset()
+                        win.flip()
+                        continueRoutine = False
+                   # elif brushTimer.getTime() < brushTimeDiff:
+                        #brush.status = FINISHED
+                       # print('not good')
+                       # print('took too long')
+                       # print(brushTimer.getTime())
+                      #  brushTimer.reset()
+                      #  win.flip()
+                      #  continueRoutine = False
             
         ####################################################################
         ####################################################################
