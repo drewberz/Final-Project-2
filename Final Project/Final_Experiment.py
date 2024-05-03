@@ -1067,19 +1067,26 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             ####################################################################
             
             if crosshairs_x.status == NOT_STARTED:
-                crosshairs_x.status == STARTED
+                crosshairs_x.status = STARTED
+                
+            if crosshairs_x.status == STARTED:
                 crosshairs_x.setAutoDraw(True)
         
             if crosshairs_y.status == NOT_STARTED:
-                crosshairs_y.status == STARTED
+                crosshairs_y.status = STARTED
+            if crosshairs_y.status == STARTED:
                 crosshairs_y.setAutoDraw(True)
         
             if crosshairs_dot.status == NOT_STARTED:
-                crosshairs_dot.status == STARTED
+                crosshairs_dot.status = STARTED
+                
+            if crosshairs_dot.status == STARTED:
                 crosshairs_dot.setAutoDraw(True)
             
             if target_displayed.status == NOT_STARTED: 
-                target_displayed.status == STARTED
+                target_displayed.status = STARTED
+                
+            if target_displayed.status == STARTED:
                 target_displayed.setAutoDraw(True)
         
             if brush.status == NOT_STARTED:
