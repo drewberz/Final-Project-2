@@ -973,6 +973,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         #iterate through list randomly
         ##########################################################
         target_displayed = pyrandom.choice(target_list)
+        if target_displayed == targets[-1]:
+            print('same')
+            target_displayed = pyrandom.choice(target_list)
+        targets.append(target_displayed)
         ##########################################################
         # --- Prepare to start Routine "Training_Trial" ---
         continueRoutine = True
@@ -1046,6 +1050,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         print('fast enough')
                         brushTimer.reset()
                         win.flip()
+                        brush.reset()
                         continueRoutine = False
                    # elif brushTimer.getTime() < brushTimeDiff:
                         #brush.status = FINISHED
