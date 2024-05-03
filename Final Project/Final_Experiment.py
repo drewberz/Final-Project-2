@@ -1182,14 +1182,28 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
             if brush2.status == NOT_STARTED:
                 brush2.status = STARTED
-        
+            
             if brush2.status == STARTED:
                 brush2.setAutoDraw(True)
                 if mouse.getPressed()[0] == 1:
                     clicked = True
                 if clicked == True and mouse.getPressed()[0] == 0:
-                    brush2.status == FINISHED
-                    continueRoutine = False
+                    brush2.status = FINISHED
+                    print('finished')
+                    if brushTimer.getTime() - start_time > brushTimeDiff:
+                        print('too long')
+                        brushTimer.reset()
+                        if too_long.status == NOT_STARTED:
+                            too_long.status = STARTED
+                            too_long.setAutoDraw(True)
+                        brush2.reset()
+                        continueRoutine = False #changed from False to True ###not working when True
+                    else:
+                        print('fast enough')
+                        brushTimer.reset()
+                        win.flip()
+                        brush2.reset()
+                        continueRoutine = False
             
         ####################################################################
         ####################################################################
