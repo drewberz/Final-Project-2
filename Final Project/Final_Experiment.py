@@ -798,7 +798,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     targ_top_center, targ_top_left, targ_mid_left, targ_bot_left]
     #iterate through list randomly
     #target_displayed = pyrandom.choice(target_list)
-    
+    test = visual.TextBox2(win, text = 'next routine')
     crosshairs_x = visual.shape.ShapeStim(
     win, units='', colorSpace='rgb', fillColor=False, 
     lineColor=([1, 1, 1]), lineWidth=3.5, vertices=((-0.05, 0), (0.05, 0)), 
@@ -821,7 +821,17 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         lineWidth=1.0,     colorSpace='rgb',  lineColor='red', fillColor='red',
         opacity=None, depth=-6.0, interpolate=True)
     
+    crosshairs_dot2 = visual.shape.ShapeStim(win,
+        size=(0.003, 0.003), vertices='circle',
+        ori=0.0, pos=(0, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='red', fillColor='red',
+        opacity=None, depth=-6.0, interpolate=True)
+        
     brush = Brush(win, lineWidth=3, lineColor=[1, 1, 1,])
+    
+    targets = [0]
+    
+    test = visual.TextBox2(win, text = 'next routine')
     
     mouse = event.Mouse()
     ########################################################################
@@ -1030,7 +1040,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if too_long.status == NOT_STARTED:
                             too_long.status = STARTED
                             too_long.setAutoDraw(True)
-                        win.flip()
+                        brush.reset()
                         continueRoutine = False #changed from False to True ###not working when True
                     else:
                         print('fast enough')
@@ -1117,7 +1127,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update component parameters for each repeat
         thisExp.addData('Shape_Trial.started', globalClock.getTime(format='float'))
         # keep track of which components have finished
-        Shape_TrialComponents = [crosshairs_x, crosshairs_y, crosshairs_dot, brush2, target_displayed]
+        #Shape_TrialComponents = [crosshairs_x, crosshairs_y, crosshairs_dot, brush2, target_displayed]
+        Shape_TrialComponents = [test]
         for thisComponent in Shape_TrialComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -1142,21 +1153,27 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             ###################################################################
             ####################################################################
             
-            if crosshairs_x.status == NOT_STARTED:
-                crosshairs_x.status == STARTED
-                crosshairs_x.setAutoDraw(True)
-        
-            if crosshairs_y.status == NOT_STARTED:
-                crosshairs_y.status == STARTED
-                crosshairs_y.setAutoDraw(True)
-        
-            if crosshairs_dot.status == NOT_STARTED:
-                crosshairs_dot.status == STARTED
-                crosshairs_dot.setAutoDraw(True)
+            print("in the while loop")
             
-            if target_displayed.status == NOT_STARTED: 
-                target_displayed.status == STARTED
-                target_displayed.setAutoDraw(True)
+            if test.status == NOT_STARTED:
+                test.status = STARTED
+            if test.status == STARTED:
+                test.setAutoDraw(True)
+            #if crosshairs_x.status == NOT_STARTED:
+                #crosshairs_x.status == STARTED
+                #crosshairs_x.setAutoDraw(True)
+        
+            #if crosshairs_y.status == NOT_STARTED:
+                #crosshairs_y.status == STARTED
+                #crosshairs_y.setAutoDraw(True)
+        
+            #if crosshairs_dot.status == NOT_STARTED:
+                #crosshairs_dot.status == STARTED
+                #crosshairs_dot.setAutoDraw(True)
+            
+            #if target_displayed.status == NOT_STARTED: 
+                #target_displayed.status == STARTED
+                #target_displayed.setAutoDraw(True)
         
             if brush2.status == NOT_STARTED:
                 brush2.status = STARTED
