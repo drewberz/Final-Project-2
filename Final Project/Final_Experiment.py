@@ -750,6 +750,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0.3, 0.3), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
         opacity=None, depth=0.0, interpolate=True)
+    targ_top_right_pos = (0.3, 0.3)
     center_top_right = visual.ShapeStim(
         win=win, name='center_top_right',
         size=(0.02, 0.02), vertices='circle',
@@ -762,6 +763,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0.3, 0), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
         opacity=None, depth=-1.0, interpolate=True)
+    targ_mid_right_pos = (0.3, 0)
     center_mid_right = visual.ShapeStim(
         win=win, name='center_mid_right',
         size=(0.02, 0.02), vertices='circle',
@@ -774,9 +776,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0.3, -0.3), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
         opacity=None, depth=-7.0, interpolate=True)
+    targ_bot_right_pos = (0.3, -0.3)
     center_bot_right = visual.ShapeStim(
         win=win, name='center_bot_right',
-        size=(0.02, 0.-2), vertices='circle',
+        size=(0.02, 0.02), vertices='circle',
         ori=0.0, pos=(0.3, -0.3), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
         opacity=None, depth=-7.0, interpolate=True)
@@ -786,6 +789,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, -0.3), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
         opacity=None, depth=-2.0, interpolate=True)
+    targ_bot_center_pos = (0, -0.3)
     center_bot_center = visual.ShapeStim(
         win=win, name='center_bot_center',
         size=(0.02, 0.02), vertices='circle',
@@ -798,6 +802,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, 0.3), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
         opacity=None, depth=-3.0, interpolate=True)
+    targ_top_center_pos = (0, 0.3)
     center_top_center = visual.ShapeStim(
         win=win, name='center_top_center',
         size=(0.02, 0.02), vertices='circle',
@@ -810,6 +815,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(-0.3, 0.3), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
         opacity=None, depth=-4.0, interpolate=True)
+    targ_top_left_pos = (-0.3, 0.3)
     center_top_left = visual.ShapeStim(
         win=win, name='center_top_left',
         size=(0.02, 0.02), vertices='circle',
@@ -822,6 +828,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(-0.3, 0), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
         opacity=None, depth=-5.0, interpolate=True)
+    targ_mid_left_pos = (-0.3, 0)
     center_mid_left = visual.ShapeStim(
         win=win, name='targ_mid_left',
         size=(0.02, 0.02), vertices='circle',
@@ -834,6 +841,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(-0.3, -0.3), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
         opacity=None, depth=-6.0, interpolate=True)
+    targ_bot_left_pos = (-0.3, -0.3)
     center_bot_left = visual.ShapeStim(
         win=win, name='center_bot_left',
         size=(0.02, 0.02), vertices='circle',
@@ -842,10 +850,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         opacity=None, depth=-6.0, interpolate=True)
         
     #creating list of targets - written by Andrew
-    target_list = [(targ_top_right, center_top_right), (targ_mid_right, center_mid_right),
-    (targ_bot_right, center_bot_right), (targ_bot_center, center_bot_center), 
-    (targ_top_center, center_top_center), (targ_top_left, center_top_left),
-    (targ_mid_left, center_mid_left), (targ_bot_left, center_bot_left)]
+    target_list = [(targ_top_right, center_top_right, targ_top_right_pos), 
+    (targ_mid_right, center_mid_right, targ_mid_right_pos),
+    (targ_bot_right, center_bot_right, targ_bot_right_pos),
+    (targ_bot_center, center_bot_center, targ_bot_center_pos), 
+    (targ_top_center, center_top_center, targ_top_center_pos), 
+    (targ_top_left, center_top_left, targ_top_left_pos),
+    (targ_mid_left, center_mid_left, targ_mid_left_pos), 
+    (targ_bot_left, center_bot_left, targ_bot_left_pos)]
     #iterate through list randomly
     #target_displayed = pyrandom.choice(target_list)
     test = visual.TextBox2(win, text = 'next routine')
@@ -900,11 +912,25 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0.3, 0.3), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
         opacity=None, depth=0.0, interpolate=True)
+    targ_top_right_pos2 = (0.3, 0.3)
+    center_top_right2 = visual.ShapeStim(
+        win=win, name='center_top_right',
+        size=(0.02, 0.02), vertices='circle',
+        ori=0.0, pos=(0.3, 0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        opacity=None, depth=0.0, interpolate=True)
     targ_mid_right2 = visual.ShapeStim(
         win=win, name='targ_mid_right',
         size=(0.2, 0.2), vertices='circle',
         ori=0.0, pos=(0.3, 0), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-1.0, interpolate=True)
+    targ_mid_right_pos2 = (0.3, 0)
+    center_mid_right2 = visual.ShapeStim(
+        win=win, name='center_mid_right',
+        size=(0.02, 0.02), vertices='circle',
+        ori=0.0, pos=(0.3, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
         opacity=None, depth=-1.0, interpolate=True)
     targ_bot_right2 = visual.ShapeStim(
         win=win, name='targ_bot_right',
@@ -912,11 +938,25 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0.3, -0.3), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
         opacity=None, depth=-7.0, interpolate=True)
+    targ_bot_right_pos2 = (0.3, -0.3)
+    center_bot_right2 = visual.ShapeStim(
+        win=win, name='center_bot_right',
+        size=(0.02, 0.02), vertices='circle',
+        ori=0.0, pos=(0.3, -0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        opacity=None, depth=-7.0, interpolate=True)
     targ_bot_center2 = visual.ShapeStim(
         win=win, name='targ_bot_center',
         size=(0.2, 0.2), vertices='circle',
         ori=0.0, pos=(0, -0.3), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-2.0, interpolate=True)
+    targ_bot_center_pos2 = (0, -0.3)
+    center_bot_center2 = visual.ShapeStim(
+        win=win, name='center_bot_center',
+        size=(0.02, 0.02), vertices='circle',
+        ori=0.0, pos=(0, -0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
         opacity=None, depth=-2.0, interpolate=True)
     targ_top_center2 = visual.ShapeStim(
         win=win, name='targ_top_center',
@@ -924,11 +964,25 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, 0.3), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
         opacity=None, depth=-3.0, interpolate=True)
+    targ_top_center_pos2 = (0, 0.3)
+    center_top_center2 = visual.ShapeStim(
+        win=win, name='center_top_center',
+        size=(0.02, 0.02), vertices='circle',
+        ori=0.0, pos=(0, 0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        opacity=None, depth=-3.0, interpolate=True)
     targ_top_left2 = visual.ShapeStim(
         win=win, name='targ_top_left',
         size=(0.2, 0.2), vertices='circle',
         ori=0.0, pos=(-0.3, 0.3), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-4.0, interpolate=True)
+    targ_top_left_pos2 = (-0.3, 0.3)
+    center_top_left2 = visual.ShapeStim(
+        win=win, name='center_top_left',
+        size=(0.02, 0.02), vertices='circle',
+        ori=0.0, pos=(-0.3, 0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
         opacity=None, depth=-4.0, interpolate=True)
     targ_mid_left2 = visual.ShapeStim(
         win=win, name='targ_mid_left',
@@ -936,15 +990,36 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(-0.3, 0), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
         opacity=None, depth=-5.0, interpolate=True)
+    targ_mid_left_pos2 = (-0.3, 0)
+    center_mid_left2 = visual.ShapeStim(
+        win=win, name='targ_mid_left',
+        size=(0.02, 0.02), vertices='circle',
+        ori=0.0, pos=(-0.3, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        opacity=None, depth=-5.0, interpolate=True)
     targ_bot_left2 = visual.ShapeStim(
         win=win, name='targ_bot_left',
         size=(0.2, 0.2), vertices='circle',
         ori=0.0, pos=(-0.3, -0.3), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
         opacity=None, depth=-6.0, interpolate=True)
+    targ_bot_left_pos2 = (-0.3, -0.3)
+    center_bot_left2 = visual.ShapeStim(
+        win=win, name='center_bot_left',
+        size=(0.02, 0.02), vertices='circle',
+        ori=0.0, pos=(-0.3, -0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        opacity=None, depth=-6.0, interpolate=True)
         
-    target_list2 = [targ_top_right2, targ_mid_right2, targ_bot_right2, targ_bot_center2, 
-    targ_top_center2, targ_top_left2, targ_mid_left2, targ_bot_left2]
+    #creating list of targets - written by Andrew
+    target_list2 = [(targ_top_right2, center_top_right2, targ_top_right_pos2), 
+    (targ_mid_right2, center_mid_right2, targ_mid_right_pos2),
+    (targ_bot_right2, center_bot_right2, targ_bot_right_pos2),
+    (targ_bot_center2, center_bot_center2, targ_bot_center_pos2), 
+    (targ_top_center2, center_top_center2, targ_top_center_pos2), 
+    (targ_top_left2, center_top_left2, targ_top_left_pos2),
+    (targ_mid_left2, center_mid_left2, targ_mid_left_pos2), 
+    (targ_bot_left2, center_bot_left2, targ_bot_left_pos2)]
     # create some handy timers
     
     # global clock to track the time since experiment started
@@ -1081,6 +1156,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if target_displayed == targets[-1]:
             target_displayed = pyrandom.choice(target_list)
         targets.append(target_displayed)
+        print(target_displayed)
+        thisExp.addData("Training Target", target_displayed[2])##########here
         ##########################################################
         # --- Prepare to start Routine "Training_Trial" ---
         continueRoutine = True
@@ -1155,6 +1232,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 if clicked == True and mouse.getPressed()[0] == 0:
                     brush.status = FINISHED
                     print('finished')
+                    brush_end = mouse.getPos()
+                    thisExp.addData("Brush Position", brush_end)
                     if brushTimer.getTime() - start_time > brushTimeDiff:
                         print('too long')
                         brushTimer.reset()
@@ -1254,7 +1333,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         thisExp.addData('Shape_Trial.started', globalClock.getTime(format='float'))
         # keep track of which components have finished
         #Shape_TrialComponents = [crosshairs_x, crosshairs_y, crosshairs_dot, brush2, target_displayed]
-        Shape_TrialComponents = [crosshairs_dot2, brush2, target_displayed2]
+        Shape_TrialComponents = [crosshairs_dot2, brush2, target_displayed2[0], target_displayed2[1]]
         for thisComponent in Shape_TrialComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -1295,14 +1374,21 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
             if crosshairs_dot2.status == NOT_STARTED:
                 crosshairs_dot2.status = STARTED
+                
             if crosshairs_dot2.status == STARTED:
                 crosshairs_dot2.setAutoDraw(True)
             
-            if target_displayed2.status == NOT_STARTED: 
-                target_displayed2.status = STARTED
+            if target_displayed2[0].status == NOT_STARTED: 
+                target_displayed2[0].status = STARTED
                 
-            if target_displayed2.status == STARTED:
-                target_displayed2.setAutoDraw(True)
+            if target_displayed2[0].status == STARTED:
+                target_displayed2[0].setAutoDraw(True)
+                
+            if target_displayed2[1].status == NOT_STARTED: 
+                target_displayed2[1].status = STARTED
+                
+            if target_displayed2[1].status == STARTED:
+                target_displayed2[1].setAutoDraw(True)
         
             if brush2.status == NOT_STARTED:
                 brush2.status = STARTED
