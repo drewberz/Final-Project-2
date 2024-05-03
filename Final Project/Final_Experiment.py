@@ -836,6 +836,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     #test = visual.TextBox2(win, text = 'next routine')
     
     mouse = event.Mouse()
+    mouse2 = event.Mouse()
     ########################################################################
     ########################################################################
     # --- Initialize components for Routine "Shape_Trial" ---
@@ -1202,7 +1203,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         t = 0
         _timeToFirstFrame = win.getFutureFlipTime(clock="now")
         frameN = -1
-        
+        clicked2 = False
         # --- Run Routine "Shape_Trial" ---
         routineForceEnded = not continueRoutine
         while continueRoutine:
@@ -1217,10 +1218,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             #print("in the while loop")
             
-            if test.status == NOT_STARTED:
-                test.status = STARTED
-            if test.status == STARTED:
-                test.setAutoDraw(True)
+            #if test.status == NOT_STARTED:
+                #test.status = STARTED
+            #if test.status == STARTED:
+                #test.setAutoDraw(True)
             #if crosshairs_x.status == NOT_STARTED:
                 #crosshairs_x.status == STARTED
                 #crosshairs_x.setAutoDraw(True)
@@ -1234,9 +1235,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 #crosshairs_dot.setAutoDraw(True)
             
             if target_displayed2.status == NOT_STARTED: 
-                target_displayed2.status == STARTED
+                target_displayed2.status = STARTED
                 
             if target_displayed2.status == STARTED:
+                print('target')
                 target_displayed2.setAutoDraw(True)
         
             if brush2.status == NOT_STARTED:
@@ -1245,8 +1247,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if brush2.status == STARTED:
                 brush2.setAutoDraw(True)
                 if mouse.getPressed()[0] == 1:
-                    clicked = True
-                if clicked == True and mouse.getPressed()[0] == 0:
+                    clicked2 = True
+                if clicked2 == True and mouse.getPressed()[0] == 0:
                     brush2.status = FINISHED
                     print('finished')
                     if brushTimer.getTime() - start_time > brushTimeDiff:

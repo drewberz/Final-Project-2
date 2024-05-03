@@ -1,0 +1,1287 @@
+6.8587 	ERROR 	Plugin `psychopy-cedrus` entry point requires module `psychopy_cedrus`, but it cannot be imported.
+9.7576 	DEBUG 	Fullscreen settings ignored as running in pilot mode.
+9.7591 	INFO 	Loaded monitor calibration from ['2024_04_22 18:56']
+10.1352 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x7fbc122f3af0>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x7fbc122f3a90>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7fbc122f3850>, gamma=None, gammaErrorPolicy='raise', infoMsg=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7fbbf72a1580>, multiSample=False, name='window1', numSamples=2, pos=[464.0, 258.0], screen=0, size=array([2048, 1536]), stencilBits=0, stereo=False, title='PsychoPy', units='height', useFBO=True, useRetina=True, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+10.1354 	EXP 	window1: mouseVisible = True
+10.1355 	EXP 	window1: backgroundImage = ''
+10.1355 	EXP 	window1: backgroundFit = 'none'
+10.1359 	EXP 	window1: mouseVisible = True
+10.1368 	EXP 	window1: mouseVisible = True
+10.1414 	EXP 	window1: mouseVisible = True
+10.1423 	EXP 	window1: mouseVisible = True
+10.1616 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1629 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1644 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1665 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1685 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1692 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1706 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1727 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1731 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1736 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1751 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1765 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1778 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1792 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1803 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1819 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1833 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1839 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1846 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1867 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1874 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1886 	DEBUG 	Uploading Texture Font fontname to graphics card
+10.1941 	DEBUG 	Upload of Texture Font fontname complete
+10.1986 	EXP 	window1: mouseVisible = True
+10.1988 	EXP 	window1: mouseVisible = True
+10.1997 	EXP 	window1: mouseVisible = True
+10.2005 	EXP 	window1: mouseVisible = True
+10.2071 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.2092 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.2112 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.2115 	DEBUG 	Uploading Texture Font fontname to graphics card
+10.2150 	DEBUG 	Upload of Texture Font fontname complete
+10.2198 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+10.2198 	EXP 	window1: recordFrameIntervals = False
+10.6647 	EXP 	window1: recordFrameIntervals = True
+11.0778 	WARNING 	t of last frame was 36.48ms (=1/27)
+11.5315 	WARNING 	Couldn't measure a consistent frame rate!
+  - Is your graphics card set to sync to vertical blank?
+  - Are you running other processes on your computer?
+
+11.5318 	EXP 	window1: mouseVisible = False
+11.5325 	EXP 	window1: mouseVisible = True
+11.5328 	EXP 	window1: mouseVisible = True
+11.5337 	EXP 	window1: mouseVisible = True
+11.5345 	EXP 	window1: mouseVisible = True
+11.5422 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+11.5430 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+11.5446 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+11.5470 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+11.5491 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+11.5513 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+11.5520 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+11.5539 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+11.5559 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+11.5579 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+11.5583 	DEBUG 	Uploading Texture Font fontname to graphics card
+11.5627 	DEBUG 	Upload of Texture Font fontname complete
+11.5670 	EXP 	window1: mouseVisible = True
+11.5672 	EXP 	window1: mouseVisible = True
+11.5680 	EXP 	window1: mouseVisible = True
+11.5688 	EXP 	window1: mouseVisible = True
+11.5950 	WARNING 	launchHubServer: If using the iohub mouse or eyetracker devices, fullScr should be True.
+15.1644 	INFO 	keyboard.Keyboard is using iohub backend.
+15.1647 	EXP 	untitled: status = STARTED
+15.1664 	EXP 	window1: mouseVisible = True
+15.1670 	EXP 	window1: mouseVisible = True
+15.1686 	EXP 	window1: mouseVisible = True
+15.1695 	EXP 	window1: mouseVisible = True
+15.1787 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.1796 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.1804 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.1812 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.1819 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.1827 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.1835 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.1844 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.1848 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.1855 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.1862 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.1865 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.1874 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.1882 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.1889 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.1894 	DEBUG 	Uploading Texture Font fontname to graphics card
+15.1945 	DEBUG 	Upload of Texture Font fontname complete
+15.1988 	EXP 	window1: mouseVisible = True
+15.1990 	EXP 	window1: mouseVisible = True
+15.1998 	EXP 	window1: mouseVisible = True
+15.2005 	EXP 	window1: mouseVisible = True
+15.2054 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.2062 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.2069 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.2077 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.2082 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.2085 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.2088 	DEBUG 	Uploading Texture Font fontname to graphics card
+15.2123 	DEBUG 	Upload of Texture Font fontname complete
+15.2154 	INFO 	keyboard.Keyboard is using iohub backend.
+15.2156 	EXP 	window1: mouseVisible = True
+15.2276 	EXP 	Created targ_top_right = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=0.0, draggable=False, fillColor=array([-1, -1,  1]), fillColorSpace='rgb', fillRGB=array([-1, -1,  1]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=1.0, name='targ_top_right', opacity=1.0, ori=0.0, pos=array([0.3, 0.3]), size=array([0.2, 0.2]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.2278 	EXP 	window1: mouseVisible = True
+15.2334 	EXP 	Created targ_mid_right = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-1.0, draggable=False, fillColor=array([-1, -1,  1]), fillColorSpace='rgb', fillRGB=array([-1, -1,  1]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=1.0, name='targ_mid_right', opacity=1.0, ori=0.0, pos=array([0.3, 0. ]), size=array([0.2, 0.2]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.2335 	EXP 	window1: mouseVisible = True
+15.2384 	EXP 	Created targ_bot_right = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-7.0, draggable=False, fillColor=array([-1, -1,  1]), fillColorSpace='rgb', fillRGB=array([-1, -1,  1]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=1.0, name='targ_bot_right', opacity=1.0, ori=0.0, pos=array([ 0.3, -0.3]), size=array([0.2, 0.2]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.2385 	EXP 	window1: mouseVisible = True
+15.2433 	EXP 	Created targ_bot_center = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-2.0, draggable=False, fillColor=array([-1, -1,  1]), fillColorSpace='rgb', fillRGB=array([-1, -1,  1]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=1.0, name='targ_bot_center', opacity=1.0, ori=0.0, pos=array([ 0. , -0.3]), size=array([0.2, 0.2]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.2434 	EXP 	window1: mouseVisible = True
+15.2481 	EXP 	Created targ_top_center = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-3.0, draggable=False, fillColor=array([-1, -1,  1]), fillColorSpace='rgb', fillRGB=array([-1, -1,  1]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=1.0, name='targ_top_center', opacity=1.0, ori=0.0, pos=array([0. , 0.3]), size=array([0.2, 0.2]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.2483 	EXP 	window1: mouseVisible = True
+15.2536 	EXP 	Created targ_top_left = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-4.0, draggable=False, fillColor=array([-1, -1,  1]), fillColorSpace='rgb', fillRGB=array([-1, -1,  1]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=1.0, name='targ_top_left', opacity=1.0, ori=0.0, pos=array([-0.3,  0.3]), size=array([0.2, 0.2]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.2537 	EXP 	window1: mouseVisible = True
+15.2584 	EXP 	Created targ_mid_left = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-5.0, draggable=False, fillColor=array([-1, -1,  1]), fillColorSpace='rgb', fillRGB=array([-1, -1,  1]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=1.0, name='targ_mid_left', opacity=1.0, ori=0.0, pos=array([-0.3,  0. ]), size=array([0.2, 0.2]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.2585 	EXP 	window1: mouseVisible = True
+15.2633 	EXP 	Created targ_bot_left = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-6.0, draggable=False, fillColor=array([-1, -1,  1]), fillColorSpace='rgb', fillRGB=array([-1, -1,  1]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=1.0, name='targ_bot_left', opacity=1.0, ori=0.0, pos=array([-0.3, -0.3]), size=array([0.2, 0.2]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.2635 	EXP 	window1: mouseVisible = True
+15.2637 	EXP 	window1: mouseVisible = True
+15.2644 	EXP 	window1: mouseVisible = True
+15.2651 	EXP 	window1: mouseVisible = True
+15.2700 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.2707 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.2713 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.2721 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.2727 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.2732 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.2734 	DEBUG 	Uploading Texture Font fontname to graphics card
+15.2770 	DEBUG 	Upload of Texture Font fontname complete
+15.2804 	EXP 	window1: mouseVisible = True
+15.2806 	EXP 	window1: mouseVisible = True
+15.2814 	EXP 	window1: mouseVisible = True
+15.2821 	EXP 	window1: mouseVisible = True
+15.2896 	EXP 	window1: mouseVisible = True
+15.2915 	EXP 	Created unnamed ShapeStim = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=False, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=0, draggable=False, fillColor=array([0, 0, 0]), fillColorSpace='rgb', fillRGB=array([0, 0, 0]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1, 1, 1]), lineWidth=3.5, name='unnamed ShapeStim', opacity=0.5, ori=0.0, pos=array([0., 0.]), size=array([1., 1.]), units='height', vertices=array([[-0.05,  0.  ],
+       [ 0.05,  0.  ]]), win=Window(...), windingRule=None)
+15.2917 	EXP 	window1: mouseVisible = True
+15.2935 	EXP 	Created unnamed ShapeStim = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=False, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=0, draggable=False, fillColor=array([0, 0, 0]), fillColorSpace='rgb', fillRGB=array([0, 0, 0]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1, 1, 1]), lineWidth=3.5, name='unnamed ShapeStim', opacity=0.5, ori=0.0, pos=array([0., 0.]), size=array([1., 1.]), units='height', vertices=array([[ 0.  , -0.05],
+       [ 0.  ,  0.05]]), win=Window(...), windingRule=None)
+15.2936 	EXP 	window1: mouseVisible = True
+15.2982 	EXP 	Created unnamed ShapeStim = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-6.0, draggable=False, fillColor=array([ 1, -1, -1]), fillColorSpace='rgb', fillRGB=array([ 1, -1, -1]), interpolate=True, lineColor=array([ 1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([ 1, -1, -1]), lineWidth=1.0, name='unnamed ShapeStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.003, 0.003]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.2984 	EXP 	window1: mouseVisible = True
+15.3029 	EXP 	Created unnamed ShapeStim = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-6.0, draggable=False, fillColor=array([ 1, -1, -1]), fillColorSpace='rgb', fillRGB=array([ 1, -1, -1]), interpolate=True, lineColor=array([ 1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([ 1, -1, -1]), lineWidth=1.0, name='unnamed ShapeStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.003, 0.003]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.3030 	EXP 	window1: mouseVisible = True
+15.3031 	EXP 	Created None = <__main__.Brush object at 0x7fbbf7a272b0>
+15.3031 	INFO 	Mouse: using default window
+15.3032 	EXP 	window1: mouseVisible = True
+15.3032 	INFO 	Mouse: using default window
+15.3032 	EXP 	window1: mouseVisible = True
+15.3034 	EXP 	window1: mouseVisible = True
+15.3035 	EXP 	window1: mouseVisible = True
+15.3042 	EXP 	window1: mouseVisible = True
+15.3049 	EXP 	window1: mouseVisible = True
+15.3096 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.3105 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.3112 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.3118 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.3127 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.3132 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.3136 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.3144 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+15.3148 	DEBUG 	Uploading Texture Font fontname to graphics card
+15.3184 	DEBUG 	Upload of Texture Font fontname complete
+15.3241 	EXP 	window1: mouseVisible = True
+15.3243 	EXP 	window1: mouseVisible = True
+15.3251 	EXP 	window1: mouseVisible = True
+15.3258 	EXP 	window1: mouseVisible = True
+15.3331 	EXP 	window1: mouseVisible = True
+15.3331 	EXP 	Created None = <__main__.Brush2 object at 0x7fbbf7a0f700>
+15.3332 	EXP 	window1: mouseVisible = True
+15.3380 	EXP 	Created targ_top_right = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=0.0, draggable=False, fillColor=array([-1, -1,  1]), fillColorSpace='rgb', fillRGB=array([-1, -1,  1]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=1.0, name='targ_top_right', opacity=1.0, ori=0.0, pos=array([0.3, 0.3]), size=array([0.2, 0.2]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.3381 	EXP 	window1: mouseVisible = True
+15.3428 	EXP 	Created targ_mid_right = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-1.0, draggable=False, fillColor=array([-1, -1,  1]), fillColorSpace='rgb', fillRGB=array([-1, -1,  1]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=1.0, name='targ_mid_right', opacity=1.0, ori=0.0, pos=array([0.3, 0. ]), size=array([0.2, 0.2]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.3429 	EXP 	window1: mouseVisible = True
+15.3475 	EXP 	Created targ_bot_right = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-7.0, draggable=False, fillColor=array([-1, -1,  1]), fillColorSpace='rgb', fillRGB=array([-1, -1,  1]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=1.0, name='targ_bot_right', opacity=1.0, ori=0.0, pos=array([ 0.3, -0.3]), size=array([0.2, 0.2]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.3477 	EXP 	window1: mouseVisible = True
+15.3525 	EXP 	Created targ_bot_center = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-2.0, draggable=False, fillColor=array([-1, -1,  1]), fillColorSpace='rgb', fillRGB=array([-1, -1,  1]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=1.0, name='targ_bot_center', opacity=1.0, ori=0.0, pos=array([ 0. , -0.3]), size=array([0.2, 0.2]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.3527 	EXP 	window1: mouseVisible = True
+15.3572 	EXP 	Created targ_top_center = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-3.0, draggable=False, fillColor=array([-1, -1,  1]), fillColorSpace='rgb', fillRGB=array([-1, -1,  1]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=1.0, name='targ_top_center', opacity=1.0, ori=0.0, pos=array([0. , 0.3]), size=array([0.2, 0.2]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.3573 	EXP 	window1: mouseVisible = True
+15.3619 	EXP 	Created targ_top_left = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-4.0, draggable=False, fillColor=array([-1, -1,  1]), fillColorSpace='rgb', fillRGB=array([-1, -1,  1]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=1.0, name='targ_top_left', opacity=1.0, ori=0.0, pos=array([-0.3,  0.3]), size=array([0.2, 0.2]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.3620 	EXP 	window1: mouseVisible = True
+15.3666 	EXP 	Created targ_mid_left = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-5.0, draggable=False, fillColor=array([-1, -1,  1]), fillColorSpace='rgb', fillRGB=array([-1, -1,  1]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=1.0, name='targ_mid_left', opacity=1.0, ori=0.0, pos=array([-0.3,  0. ]), size=array([0.2, 0.2]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.3667 	EXP 	window1: mouseVisible = True
+15.3712 	EXP 	Created targ_bot_left = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-6.0, draggable=False, fillColor=array([-1, -1,  1]), fillColorSpace='rgb', fillRGB=array([-1, -1,  1]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=1.0, name='targ_bot_left', opacity=1.0, ori=0.0, pos=array([-0.3, -0.3]), size=array([0.2, 0.2]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+0.0553 	EXP 	None: autoLog = True
+0.0553 	EXP 	None: autoDraw = False
+0.0553 	EXP 	None: autoLog = True
+0.0553 	EXP 	None: autoDraw = False
+0.0788 	WARNING 	t of last frame was 23.56ms (=1/42)
+0.1872 	WARNING 	t of last frame was 24.95ms (=1/40)
+0.7941 	WARNING 	t of last frame was 57.20ms (=1/17)
+0.8550 	DATA 	Keypress: space
+0.8646 	WARNING 	Multiple dropped frames have occurred - I'll stop bothering you about them!
+0.8718 	EXP 	Created sequence: random, trialTypes=1, nReps=5, seed=None
+0.8722 	EXP 	New trial (rep=0, index=0): None
+0.8826 	EXP 	unnamed ShapeStim: autoDraw = True
+0.8826 	EXP 	unnamed ShapeStim: autoDraw = True
+0.8826 	EXP 	unnamed ShapeStim: autoDraw = True
+0.8826 	EXP 	targ_bot_center: autoDraw = True
+0.8826 	EXP 	None: autoDraw = True
+0.9039 	EXP 	None: autoDraw = True
+0.9150 	EXP 	None: autoDraw = True
+0.9257 	EXP 	None: autoDraw = True
+0.9368 	EXP 	None: autoDraw = True
+0.9476 	EXP 	None: autoDraw = True
+0.9583 	EXP 	None: autoDraw = True
+0.9702 	EXP 	None: autoDraw = True
+0.9821 	EXP 	None: autoDraw = True
+0.9953 	EXP 	None: autoDraw = True
+1.0082 	EXP 	None: autoDraw = True
+1.0207 	EXP 	None: autoDraw = True
+1.0321 	EXP 	None: autoDraw = True
+1.0437 	EXP 	None: autoDraw = True
+1.0549 	EXP 	None: autoDraw = True
+1.0670 	EXP 	None: autoDraw = True
+1.0791 	EXP 	None: autoDraw = True
+1.0909 	EXP 	None: autoDraw = True
+1.1034 	EXP 	None: autoDraw = True
+1.1146 	EXP 	None: autoDraw = True
+1.1263 	EXP 	None: autoDraw = True
+1.1410 	EXP 	None: autoDraw = True
+1.1541 	EXP 	None: autoDraw = True
+1.1661 	EXP 	None: autoDraw = True
+1.1768 	EXP 	None: autoDraw = True
+1.1886 	EXP 	None: autoDraw = True
+1.2003 	EXP 	None: autoDraw = True
+1.2120 	EXP 	None: autoDraw = True
+1.2254 	EXP 	None: autoDraw = True
+1.2384 	EXP 	None: autoDraw = True
+1.2515 	EXP 	None: autoDraw = True
+1.2638 	EXP 	None: autoDraw = True
+1.2765 	EXP 	None: autoDraw = True
+1.2901 	EXP 	None: autoDraw = True
+1.3027 	EXP 	None: autoDraw = True
+1.3135 	EXP 	None: autoDraw = True
+1.3243 	EXP 	None: autoDraw = True
+1.3367 	EXP 	None: autoDraw = True
+1.3473 	EXP 	None: autoDraw = True
+1.3579 	EXP 	None: autoDraw = True
+1.3702 	EXP 	None: autoDraw = True
+1.3814 	EXP 	None: autoDraw = True
+1.3917 	EXP 	None: autoDraw = True
+1.4034 	EXP 	None: autoDraw = True
+1.4136 	EXP 	None: autoDraw = True
+1.4242 	EXP 	None: autoDraw = True
+1.4369 	EXP 	None: autoDraw = True
+1.4477 	EXP 	None: autoDraw = True
+1.4582 	EXP 	None: autoDraw = True
+1.4701 	EXP 	None: autoDraw = True
+1.4807 	EXP 	None: autoDraw = True
+1.4914 	EXP 	None: autoDraw = True
+1.5034 	EXP 	None: autoDraw = True
+1.5139 	EXP 	None: autoDraw = True
+1.5247 	EXP 	None: autoDraw = True
+1.5367 	EXP 	None: autoDraw = True
+1.5473 	EXP 	None: autoDraw = True
+1.5576 	EXP 	None: autoDraw = True
+1.5701 	EXP 	None: autoDraw = True
+1.5802 	EXP 	None: autoDraw = True
+1.5906 	EXP 	None: autoDraw = True
+1.6036 	EXP 	None: autoDraw = True
+1.6136 	EXP 	None: autoDraw = True
+1.6239 	EXP 	None: autoDraw = True
+1.6369 	EXP 	None: autoDraw = True
+1.6470 	EXP 	None: autoDraw = True
+1.6574 	EXP 	None: autoDraw = True
+1.6703 	EXP 	None: autoDraw = True
+1.6804 	EXP 	None: autoDraw = True
+1.6907 	EXP 	None: autoDraw = True
+1.7036 	EXP 	None: autoDraw = True
+1.7136 	EXP 	None: autoDraw = True
+1.7239 	EXP 	None: autoDraw = True
+1.7273 	DATA 	Mouse: Left button down, pos=(514,388)
+1.7288 	EXP 	Resetting None parameter: brushPos.
+1.7288 	EXP 	Creating ShapeStim for None
+1.7290 	EXP 	window1: mouseVisible = True
+1.7377 	EXP 	None: autoDraw = True
+1.7492 	EXP 	None: autoDraw = True
+1.7596 	EXP 	None: autoDraw = True
+1.7704 	EXP 	None: autoDraw = True
+1.7806 	EXP 	None: autoDraw = True
+1.7915 	EXP 	None: autoDraw = True
+1.8034 	EXP 	None: autoDraw = True
+1.8140 	EXP 	None: autoDraw = True
+1.8252 	EXP 	None: autoDraw = True
+1.8371 	EXP 	None: autoDraw = True
+1.8488 	EXP 	None: autoDraw = True
+1.8597 	EXP 	None: autoDraw = True
+1.8715 	EXP 	None: autoDraw = True
+1.8826 	EXP 	None: autoDraw = True
+1.8931 	EXP 	None: autoDraw = True
+1.9051 	EXP 	None: autoDraw = True
+1.9157 	EXP 	None: autoDraw = True
+1.9263 	EXP 	None: autoDraw = True
+1.9374 	EXP 	None: autoDraw = True
+1.9484 	EXP 	None: autoDraw = True
+1.9588 	EXP 	None: autoDraw = True
+1.9701 	EXP 	None: autoDraw = True
+1.9811 	EXP 	None: autoDraw = True
+1.9920 	EXP 	None: autoDraw = True
+2.0035 	EXP 	None: autoDraw = True
+2.0141 	EXP 	None: autoDraw = True
+2.0251 	EXP 	None: autoDraw = True
+2.0367 	EXP 	None: autoDraw = True
+2.0479 	EXP 	None: autoDraw = True
+2.0590 	EXP 	None: autoDraw = True
+2.0622 	DATA 	Mouse:  Left button up, pos=(491,167)
+2.0707 	EXP 	None: autoDraw = True
+2.0734 	EXP 	Resetting None
+2.0740 	EXP 	New trial (rep=1, index=0): None
+2.0817 	EXP 	unnamed ShapeStim: autoDraw = False
+2.0817 	EXP 	unnamed ShapeStim: autoDraw = False
+2.0817 	EXP 	unnamed ShapeStim: autoDraw = False
+2.0817 	EXP 	None: autoDraw = False
+2.0817 	EXP 	targ_bot_center: autoDraw = False
+2.0817 	EXP 	unnamed ShapeStim: autoDraw = True
+2.0817 	EXP 	unnamed ShapeStim: autoDraw = True
+2.0817 	EXP 	unnamed ShapeStim: autoDraw = True
+2.0817 	EXP 	targ_mid_right: autoDraw = True
+2.0817 	EXP 	None: autoDraw = True
+2.0920 	EXP 	None: autoDraw = True
+2.1034 	EXP 	None: autoDraw = True
+2.1135 	EXP 	None: autoDraw = True
+2.1373 	EXP 	None: autoDraw = True
+2.1538 	EXP 	None: autoDraw = True
+2.1651 	EXP 	None: autoDraw = True
+2.1793 	EXP 	None: autoDraw = True
+2.1910 	EXP 	None: autoDraw = True
+2.2041 	EXP 	None: autoDraw = True
+2.2177 	EXP 	None: autoDraw = True
+2.2303 	EXP 	None: autoDraw = True
+2.2427 	EXP 	None: autoDraw = True
+2.2543 	EXP 	None: autoDraw = True
+2.2662 	EXP 	None: autoDraw = True
+2.2774 	EXP 	None: autoDraw = True
+2.2893 	EXP 	None: autoDraw = True
+2.3003 	EXP 	None: autoDraw = True
+2.3120 	EXP 	None: autoDraw = True
+2.3374 	EXP 	None: autoDraw = True
+2.3538 	EXP 	None: autoDraw = True
+2.3655 	EXP 	None: autoDraw = True
+2.3774 	EXP 	None: autoDraw = True
+2.3894 	EXP 	None: autoDraw = True
+2.4009 	EXP 	None: autoDraw = True
+2.4127 	EXP 	None: autoDraw = True
+2.4261 	EXP 	None: autoDraw = True
+2.4384 	EXP 	None: autoDraw = True
+2.4508 	EXP 	None: autoDraw = True
+2.4637 	EXP 	None: autoDraw = True
+2.4756 	EXP 	None: autoDraw = True
+2.4870 	EXP 	None: autoDraw = True
+2.4981 	EXP 	None: autoDraw = True
+2.5089 	EXP 	None: autoDraw = True
+2.5203 	EXP 	None: autoDraw = True
+2.5324 	EXP 	None: autoDraw = True
+2.5440 	EXP 	None: autoDraw = True
+2.5548 	EXP 	None: autoDraw = True
+2.5665 	EXP 	None: autoDraw = True
+2.5786 	EXP 	None: autoDraw = True
+2.6039 	EXP 	None: autoDraw = True
+2.6208 	EXP 	None: autoDraw = True
+2.6335 	EXP 	None: autoDraw = True
+2.7032 	EXP 	None: autoDraw = True
+2.7175 	EXP 	None: autoDraw = True
+2.7284 	EXP 	None: autoDraw = True
+2.7384 	EXP 	None: autoDraw = True
+2.7490 	EXP 	None: autoDraw = True
+2.7592 	EXP 	None: autoDraw = True
+2.7701 	EXP 	None: autoDraw = True
+2.7809 	EXP 	None: autoDraw = True
+2.7913 	EXP 	None: autoDraw = True
+2.7949 	DATA 	Mouse: Left button down, pos=(512,380)
+2.7964 	EXP 	Resetting None parameter: brushPos.
+2.7965 	EXP 	Creating ShapeStim for None
+2.7968 	EXP 	window1: mouseVisible = True
+2.8055 	EXP 	None: autoDraw = True
+2.8167 	EXP 	None: autoDraw = True
+2.8277 	EXP 	None: autoDraw = True
+2.8386 	EXP 	None: autoDraw = True
+2.8503 	EXP 	None: autoDraw = True
+2.8626 	EXP 	None: autoDraw = True
+2.8872 	EXP 	None: autoDraw = True
+2.9037 	EXP 	None: autoDraw = True
+2.9160 	EXP 	None: autoDraw = True
+2.9265 	EXP 	None: autoDraw = True
+2.9387 	EXP 	None: autoDraw = True
+2.9505 	EXP 	None: autoDraw = True
+2.9621 	EXP 	None: autoDraw = True
+2.9748 	EXP 	None: autoDraw = True
+2.9869 	EXP 	None: autoDraw = True
+2.9984 	EXP 	None: autoDraw = True
+3.0091 	EXP 	None: autoDraw = True
+3.0204 	EXP 	None: autoDraw = True
+3.0319 	EXP 	None: autoDraw = True
+3.0428 	EXP 	None: autoDraw = True
+3.0539 	EXP 	None: autoDraw = True
+3.0643 	EXP 	None: autoDraw = True
+3.0755 	EXP 	None: autoDraw = True
+3.0868 	EXP 	None: autoDraw = True
+3.0974 	EXP 	None: autoDraw = True
+3.1087 	EXP 	None: autoDraw = True
+3.1201 	EXP 	None: autoDraw = True
+3.1316 	EXP 	None: autoDraw = True
+3.1424 	EXP 	None: autoDraw = True
+3.1539 	EXP 	None: autoDraw = True
+3.1587 	DATA 	Mouse:  Left button up, pos=(782,343)
+3.1665 	EXP 	None: autoDraw = True
+3.1788 	EXP 	None: autoDraw = True
+3.1817 	EXP 	Resetting None
+3.1824 	EXP 	New trial (rep=2, index=0): None
+3.1912 	EXP 	unnamed ShapeStim: autoDraw = False
+3.1912 	EXP 	unnamed ShapeStim: autoDraw = False
+3.1912 	EXP 	unnamed ShapeStim: autoDraw = False
+3.1912 	EXP 	None: autoDraw = False
+3.1912 	EXP 	targ_mid_right: autoDraw = False
+3.1912 	EXP 	unnamed ShapeStim: autoDraw = True
+3.1912 	EXP 	unnamed ShapeStim: autoDraw = True
+3.1912 	EXP 	unnamed ShapeStim: autoDraw = True
+3.1912 	EXP 	targ_top_right: autoDraw = True
+3.1912 	EXP 	None: autoDraw = True
+3.6100 	EXP 	None: autoDraw = True
+3.6208 	EXP 	None: autoDraw = True
+3.6317 	EXP 	None: autoDraw = True
+3.6444 	EXP 	None: autoDraw = True
+3.6554 	EXP 	None: autoDraw = True
+3.6666 	EXP 	None: autoDraw = True
+3.6777 	EXP 	None: autoDraw = True
+3.6898 	EXP 	None: autoDraw = True
+3.7020 	EXP 	None: autoDraw = True
+3.7139 	EXP 	None: autoDraw = True
+3.7258 	EXP 	None: autoDraw = True
+3.7388 	EXP 	None: autoDraw = True
+3.7503 	EXP 	None: autoDraw = True
+3.7622 	EXP 	None: autoDraw = True
+3.7873 	EXP 	None: autoDraw = True
+3.8039 	EXP 	None: autoDraw = True
+3.8158 	EXP 	None: autoDraw = True
+3.8267 	EXP 	None: autoDraw = True
+3.8378 	EXP 	None: autoDraw = True
+3.8485 	EXP 	None: autoDraw = True
+3.8597 	EXP 	None: autoDraw = True
+3.8706 	EXP 	None: autoDraw = True
+3.8812 	EXP 	None: autoDraw = True
+3.8927 	EXP 	None: autoDraw = True
+3.9038 	EXP 	None: autoDraw = True
+3.9138 	EXP 	None: autoDraw = True
+3.9266 	EXP 	None: autoDraw = True
+3.9372 	EXP 	None: autoDraw = True
+3.9469 	EXP 	None: autoDraw = True
+3.9573 	EXP 	None: autoDraw = True
+3.9706 	EXP 	None: autoDraw = True
+3.9740 	DATA 	Mouse: Left button down, pos=(518,384)
+3.9764 	EXP 	Resetting None parameter: brushPos.
+3.9764 	EXP 	Creating ShapeStim for None
+3.9766 	EXP 	window1: mouseVisible = True
+3.9857 	EXP 	None: autoDraw = True
+3.9969 	EXP 	None: autoDraw = True
+4.0081 	EXP 	None: autoDraw = True
+4.0203 	EXP 	None: autoDraw = True
+4.0314 	EXP 	None: autoDraw = True
+4.0419 	EXP 	None: autoDraw = True
+4.0534 	EXP 	None: autoDraw = True
+4.0646 	EXP 	None: autoDraw = True
+4.0759 	EXP 	None: autoDraw = True
+4.0871 	EXP 	None: autoDraw = True
+4.0976 	EXP 	None: autoDraw = True
+4.1087 	EXP 	None: autoDraw = True
+4.1201 	EXP 	None: autoDraw = True
+4.1314 	EXP 	None: autoDraw = True
+4.1416 	EXP 	None: autoDraw = True
+4.1535 	EXP 	None: autoDraw = True
+4.1646 	EXP 	None: autoDraw = True
+4.1756 	EXP 	None: autoDraw = True
+4.1868 	EXP 	None: autoDraw = True
+4.1995 	EXP 	None: autoDraw = True
+4.2100 	EXP 	None: autoDraw = True
+4.2213 	EXP 	None: autoDraw = True
+4.2323 	EXP 	None: autoDraw = True
+4.2425 	EXP 	None: autoDraw = True
+4.2537 	EXP 	None: autoDraw = True
+4.2645 	EXP 	None: autoDraw = True
+4.2760 	EXP 	None: autoDraw = True
+4.2872 	EXP 	None: autoDraw = True
+4.2985 	EXP 	None: autoDraw = True
+4.3088 	EXP 	None: autoDraw = True
+4.3202 	EXP 	None: autoDraw = True
+4.3312 	EXP 	None: autoDraw = True
+4.3418 	EXP 	None: autoDraw = True
+4.3536 	EXP 	None: autoDraw = True
+4.3643 	EXP 	None: autoDraw = True
+4.3755 	EXP 	None: autoDraw = True
+4.3868 	EXP 	None: autoDraw = True
+4.3973 	EXP 	None: autoDraw = True
+4.4087 	EXP 	None: autoDraw = True
+4.4119 	DATA 	Mouse:  Left button up, pos=(806,604)
+4.4202 	EXP 	None: autoDraw = True
+4.4228 	EXP 	Resetting None
+4.4235 	EXP 	New trial (rep=3, index=0): None
+4.4312 	EXP 	unnamed ShapeStim: autoDraw = False
+4.4312 	EXP 	unnamed ShapeStim: autoDraw = False
+4.4312 	EXP 	unnamed ShapeStim: autoDraw = False
+4.4312 	EXP 	None: autoDraw = False
+4.4312 	EXP 	targ_top_right: autoDraw = False
+4.4312 	EXP 	unnamed ShapeStim: autoDraw = True
+4.4312 	EXP 	unnamed ShapeStim: autoDraw = True
+4.4312 	EXP 	unnamed ShapeStim: autoDraw = True
+4.4312 	EXP 	targ_mid_left: autoDraw = True
+4.4312 	EXP 	None: autoDraw = True
+4.4416 	EXP 	None: autoDraw = True
+4.4534 	EXP 	None: autoDraw = True
+4.4631 	EXP 	None: autoDraw = True
+4.4873 	EXP 	None: autoDraw = True
+4.5037 	EXP 	None: autoDraw = True
+4.5137 	EXP 	None: autoDraw = True
+4.5249 	EXP 	None: autoDraw = True
+4.5375 	EXP 	None: autoDraw = True
+4.5473 	EXP 	None: autoDraw = True
+4.5578 	EXP 	None: autoDraw = True
+4.5702 	EXP 	None: autoDraw = True
+4.5806 	EXP 	None: autoDraw = True
+4.5914 	EXP 	None: autoDraw = True
+4.6034 	EXP 	None: autoDraw = True
+4.6138 	EXP 	None: autoDraw = True
+4.6246 	EXP 	None: autoDraw = True
+4.6368 	EXP 	None: autoDraw = True
+4.6473 	EXP 	None: autoDraw = True
+4.6580 	EXP 	None: autoDraw = True
+4.6701 	EXP 	None: autoDraw = True
+4.6807 	EXP 	None: autoDraw = True
+4.6925 	EXP 	None: autoDraw = True
+4.7042 	EXP 	None: autoDraw = True
+4.7163 	EXP 	None: autoDraw = True
+4.7279 	EXP 	None: autoDraw = True
+4.7400 	EXP 	None: autoDraw = True
+4.7515 	EXP 	None: autoDraw = True
+4.7637 	EXP 	None: autoDraw = True
+4.7757 	EXP 	None: autoDraw = True
+4.7882 	EXP 	None: autoDraw = True
+4.8000 	EXP 	None: autoDraw = True
+4.8125 	EXP 	None: autoDraw = True
+4.8248 	EXP 	None: autoDraw = True
+4.8371 	EXP 	None: autoDraw = True
+4.8485 	EXP 	None: autoDraw = True
+4.8604 	EXP 	None: autoDraw = True
+4.8723 	EXP 	None: autoDraw = True
+4.8847 	EXP 	None: autoDraw = True
+4.8964 	EXP 	None: autoDraw = True
+4.9091 	EXP 	None: autoDraw = True
+4.9205 	EXP 	None: autoDraw = True
+4.9310 	EXP 	None: autoDraw = True
+4.9418 	EXP 	None: autoDraw = True
+4.9535 	EXP 	None: autoDraw = True
+4.9640 	EXP 	None: autoDraw = True
+4.9752 	EXP 	None: autoDraw = True
+4.9868 	EXP 	None: autoDraw = True
+4.9973 	EXP 	None: autoDraw = True
+5.0083 	EXP 	None: autoDraw = True
+5.0205 	EXP 	None: autoDraw = True
+5.0320 	EXP 	None: autoDraw = True
+5.0428 	EXP 	None: autoDraw = True
+5.0563 	EXP 	None: autoDraw = True
+5.0670 	EXP 	None: autoDraw = True
+5.0770 	EXP 	None: autoDraw = True
+5.0882 	EXP 	None: autoDraw = True
+5.0983 	EXP 	None: autoDraw = True
+5.1083 	EXP 	None: autoDraw = True
+5.1201 	EXP 	None: autoDraw = True
+5.1301 	EXP 	None: autoDraw = True
+5.1426 	EXP 	None: autoDraw = True
+5.1534 	EXP 	None: autoDraw = True
+5.1634 	EXP 	None: autoDraw = True
+5.1873 	EXP 	None: autoDraw = True
+5.2037 	EXP 	None: autoDraw = True
+5.2137 	EXP 	None: autoDraw = True
+5.2242 	EXP 	None: autoDraw = True
+5.2370 	EXP 	None: autoDraw = True
+5.2470 	EXP 	None: autoDraw = True
+5.2579 	EXP 	None: autoDraw = True
+5.2613 	DATA 	Mouse: Left button down, pos=(508,387)
+5.2629 	EXP 	Resetting None parameter: brushPos.
+5.2629 	EXP 	Creating ShapeStim for None
+5.2631 	EXP 	window1: mouseVisible = True
+5.2716 	EXP 	None: autoDraw = True
+5.2826 	EXP 	None: autoDraw = True
+5.2927 	EXP 	None: autoDraw = True
+5.3039 	EXP 	None: autoDraw = True
+5.3152 	EXP 	None: autoDraw = True
+5.3258 	EXP 	None: autoDraw = True
+5.3368 	EXP 	None: autoDraw = True
+5.3476 	EXP 	None: autoDraw = True
+5.3585 	EXP 	None: autoDraw = True
+5.3701 	EXP 	None: autoDraw = True
+5.3812 	EXP 	None: autoDraw = True
+5.3920 	EXP 	None: autoDraw = True
+5.4035 	EXP 	None: autoDraw = True
+5.4147 	EXP 	None: autoDraw = True
+5.4252 	EXP 	None: autoDraw = True
+5.4368 	EXP 	None: autoDraw = True
+5.4482 	EXP 	None: autoDraw = True
+5.4588 	EXP 	None: autoDraw = True
+5.4702 	EXP 	None: autoDraw = True
+5.4813 	EXP 	None: autoDraw = True
+5.4921 	EXP 	None: autoDraw = True
+5.5036 	EXP 	None: autoDraw = True
+5.5146 	EXP 	None: autoDraw = True
+5.5256 	EXP 	None: autoDraw = True
+5.5368 	EXP 	None: autoDraw = True
+5.5482 	EXP 	None: autoDraw = True
+5.5587 	EXP 	None: autoDraw = True
+5.5702 	EXP 	None: autoDraw = True
+5.5815 	EXP 	None: autoDraw = True
+5.5924 	EXP 	None: autoDraw = True
+5.6040 	EXP 	None: autoDraw = True
+5.6167 	EXP 	None: autoDraw = True
+5.6281 	EXP 	None: autoDraw = True
+5.6401 	EXP 	None: autoDraw = True
+5.6518 	EXP 	None: autoDraw = True
+5.6630 	EXP 	None: autoDraw = True
+5.6742 	EXP 	None: autoDraw = True
+5.6869 	EXP 	None: autoDraw = True
+5.6912 	DATA 	Mouse:  Left button up, pos=(261,405)
+5.6986 	EXP 	None: autoDraw = True
+5.7088 	EXP 	None: autoDraw = True
+5.7114 	EXP 	Resetting None
+5.7120 	EXP 	New trial (rep=4, index=0): None
+5.7201 	EXP 	unnamed ShapeStim: autoDraw = False
+5.7201 	EXP 	unnamed ShapeStim: autoDraw = False
+5.7201 	EXP 	unnamed ShapeStim: autoDraw = False
+5.7201 	EXP 	None: autoDraw = False
+5.7201 	EXP 	targ_mid_left: autoDraw = False
+5.7201 	EXP 	unnamed ShapeStim: autoDraw = True
+5.7201 	EXP 	unnamed ShapeStim: autoDraw = True
+5.7201 	EXP 	unnamed ShapeStim: autoDraw = True
+5.7201 	EXP 	targ_bot_center: autoDraw = True
+5.7201 	EXP 	None: autoDraw = True
+5.7303 	EXP 	None: autoDraw = True
+5.7406 	EXP 	None: autoDraw = True
+5.7537 	EXP 	None: autoDraw = True
+5.7634 	EXP 	None: autoDraw = True
+5.7873 	EXP 	None: autoDraw = True
+5.8037 	EXP 	None: autoDraw = True
+5.8138 	EXP 	None: autoDraw = True
+5.8242 	EXP 	None: autoDraw = True
+5.8370 	EXP 	None: autoDraw = True
+5.8471 	EXP 	None: autoDraw = True
+5.8575 	EXP 	None: autoDraw = True
+5.8703 	EXP 	None: autoDraw = True
+5.8765 	DATA 	Mouse: wheel shift=(0,0), pos=(260,405)
+5.8841 	EXP 	None: autoDraw = True
+5.8939 	EXP 	None: autoDraw = True
+5.8969 	DATA 	Mouse: wheel shift=(0,0), pos=(260,405)
+5.8972 	DATA 	Mouse: wheel shift=(0,0), pos=(260,405)
+5.9054 	EXP 	None: autoDraw = True
+5.9085 	DATA 	Mouse: wheel shift=(1,0), pos=(260,405)
+5.9155 	EXP 	None: autoDraw = True
+5.9255 	EXP 	None: autoDraw = True
+5.9284 	DATA 	Mouse: wheel shift=(1,0), pos=(260,405)
+5.9368 	EXP 	None: autoDraw = True
+5.9398 	DATA 	Mouse: wheel shift=(1,0), pos=(260,405)
+5.9474 	EXP 	None: autoDraw = True
+5.9534 	DATA 	Mouse: wheel shift=(1,0), pos=(285,400)
+5.9582 	EXP 	None: autoDraw = True
+5.9702 	EXP 	None: autoDraw = True
+5.9732 	DATA 	Mouse: wheel shift=(1,0), pos=(310,393)
+5.9826 	EXP 	None: autoDraw = True
+5.9897 	DATA 	Mouse: wheel shift=(1,0), pos=(331,384)
+5.9952 	EXP 	None: autoDraw = True
+6.0152 	EXP 	None: autoDraw = True
+6.0188 	DATA 	Mouse: wheel shift=(1,0), pos=(340,379)
+6.0210 	DATA 	Mouse: wheel shift=(1,0), pos=(346,375)
+6.0285 	EXP 	None: autoDraw = True
+6.0429 	EXP 	None: autoDraw = True
+6.0475 	DATA 	Mouse: wheel shift=(0,0), pos=(348,374)
+6.0579 	EXP 	None: autoDraw = True
+6.0620 	DATA 	Mouse: wheel shift=(0,0), pos=(348,373)
+6.0713 	EXP 	None: autoDraw = True
+6.0752 	DATA 	Mouse: wheel shift=(0,0), pos=(348,373)
+6.0834 	EXP 	None: autoDraw = True
+6.0900 	DATA 	Mouse: wheel shift=(0,0), pos=(348,373)
+6.0954 	EXP 	None: autoDraw = True
+6.1075 	EXP 	None: autoDraw = True
+6.1113 	DATA 	Mouse: wheel shift=(0,0), pos=(347,373)
+6.1202 	EXP 	None: autoDraw = True
+6.1238 	DATA 	Mouse: wheel shift=(0,0), pos=(346,373)
+6.1321 	EXP 	None: autoDraw = True
+6.1391 	DATA 	Mouse: wheel shift=(0,0), pos=(346,375)
+6.1442 	EXP 	None: autoDraw = True
+6.1558 	EXP 	None: autoDraw = True
+6.1594 	DATA 	Mouse: wheel shift=(0,0), pos=(345,379)
+6.1675 	EXP 	None: autoDraw = True
+6.1720 	DATA 	Mouse: wheel shift=(0,0), pos=(345,383)
+6.1786 	EXP 	None: autoDraw = True
+6.1900 	EXP 	None: autoDraw = True
+6.1930 	DATA 	Mouse: wheel shift=(0,0), pos=(348,387)
+6.2010 	EXP 	None: autoDraw = True
+6.2055 	DATA 	Mouse: wheel shift=(1,0), pos=(351,390)
+6.2124 	EXP 	None: autoDraw = True
+6.2373 	EXP 	None: autoDraw = True
+6.2405 	DATA 	Mouse: wheel shift=(0,0), pos=(358,394)
+6.2411 	DATA 	Mouse: wheel shift=(0,0), pos=(365,395)
+6.2540 	EXP 	None: autoDraw = True
+6.2577 	DATA 	Mouse: wheel shift=(0,0), pos=(374,395)
+6.2657 	EXP 	None: autoDraw = True
+6.2719 	DATA 	Mouse: wheel shift=(1,0), pos=(392,395)
+6.2769 	EXP 	None: autoDraw = True
+6.2878 	EXP 	None: autoDraw = True
+6.2908 	DATA 	Mouse: wheel shift=(0,0), pos=(409,395)
+6.2985 	EXP 	None: autoDraw = True
+6.3050 	DATA 	Mouse: wheel shift=(0,0), pos=(441,396)
+6.3097 	EXP 	None: autoDraw = True
+6.3214 	EXP 	None: autoDraw = True
+6.3249 	DATA 	Mouse: wheel shift=(0,0), pos=(463,398)
+6.3325 	EXP 	None: autoDraw = True
+6.3385 	DATA 	Mouse: wheel shift=(0,0), pos=(478,399)
+6.3431 	EXP 	None: autoDraw = True
+6.3538 	EXP 	None: autoDraw = True
+6.3572 	DATA 	Mouse: wheel shift=(0,0), pos=(490,400)
+6.3650 	EXP 	None: autoDraw = True
+6.3753 	EXP 	None: autoDraw = True
+6.3783 	DATA 	Mouse: wheel shift=(0,0), pos=(499,401)
+6.3868 	EXP 	None: autoDraw = True
+6.3897 	DATA 	Mouse: wheel shift=(1,0), pos=(504,401)
+6.3974 	EXP 	None: autoDraw = True
+6.4034 	DATA 	Mouse: wheel shift=(0,0), pos=(506,401)
+6.4081 	EXP 	None: autoDraw = True
+6.4202 	EXP 	None: autoDraw = True
+6.4235 	DATA 	Mouse: wheel shift=(0,0), pos=(506,401)
+6.4312 	EXP 	None: autoDraw = True
+6.4414 	EXP 	None: autoDraw = True
+6.4446 	DATA 	Mouse: wheel shift=(0,0), pos=(506,401)
+6.4537 	EXP 	None: autoDraw = True
+6.4569 	DATA 	Mouse: wheel shift=(0,0), pos=(506,401)
+6.4646 	EXP 	None: autoDraw = True
+6.4746 	EXP 	None: autoDraw = True
+6.4868 	EXP 	None: autoDraw = True
+6.4898 	DATA 	Mouse: wheel shift=(0,0), pos=(506,401)
+6.4971 	EXP 	None: autoDraw = True
+6.5075 	EXP 	None: autoDraw = True
+6.5105 	DATA 	Mouse: wheel shift=(0,0), pos=(506,401)
+6.5203 	EXP 	None: autoDraw = True
+6.5301 	EXP 	None: autoDraw = True
+6.5540 	EXP 	None: autoDraw = True
+6.5570 	DATA 	Mouse: wheel shift=(0,0), pos=(506,401)
+6.5572 	DATA 	Mouse: wheel shift=(0,0), pos=(506,401)
+6.5705 	EXP 	None: autoDraw = True
+6.5806 	EXP 	None: autoDraw = True
+6.5918 	EXP 	None: autoDraw = True
+6.6035 	EXP 	None: autoDraw = True
+6.6136 	EXP 	None: autoDraw = True
+6.6242 	EXP 	None: autoDraw = True
+6.6370 	EXP 	None: autoDraw = True
+6.6470 	EXP 	None: autoDraw = True
+6.6573 	EXP 	None: autoDraw = True
+6.6606 	DATA 	Mouse: Left button down, pos=(506,401)
+6.6621 	EXP 	Resetting None parameter: brushPos.
+6.6621 	EXP 	Creating ShapeStim for None
+6.6623 	EXP 	window1: mouseVisible = True
+6.6706 	EXP 	None: autoDraw = True
+6.6815 	EXP 	None: autoDraw = True
+6.6933 	EXP 	None: autoDraw = True
+6.7055 	EXP 	None: autoDraw = True
+6.7174 	EXP 	None: autoDraw = True
+6.7292 	EXP 	None: autoDraw = True
+6.7412 	EXP 	None: autoDraw = True
+6.7538 	EXP 	None: autoDraw = True
+6.7659 	EXP 	None: autoDraw = True
+6.7777 	EXP 	None: autoDraw = True
+6.7901 	EXP 	None: autoDraw = True
+6.8022 	EXP 	None: autoDraw = True
+6.8143 	EXP 	None: autoDraw = True
+6.8262 	EXP 	None: autoDraw = True
+6.8389 	EXP 	None: autoDraw = True
+6.8516 	EXP 	None: autoDraw = True
+6.8647 	EXP 	None: autoDraw = True
+6.8763 	EXP 	None: autoDraw = True
+6.8897 	EXP 	None: autoDraw = True
+6.9022 	EXP 	None: autoDraw = True
+6.9143 	EXP 	None: autoDraw = True
+6.9259 	EXP 	None: autoDraw = True
+6.9384 	EXP 	None: autoDraw = True
+6.9506 	EXP 	None: autoDraw = True
+6.9622 	EXP 	None: autoDraw = True
+6.9759 	EXP 	None: autoDraw = True
+6.9884 	EXP 	None: autoDraw = True
+7.0086 	EXP 	None: autoDraw = True
+7.0213 	EXP 	None: autoDraw = True
+7.0351 	EXP 	None: autoDraw = True
+7.0402 	DATA 	Mouse:  Left button up, pos=(504,89)
+7.0482 	EXP 	None: autoDraw = True
+7.0588 	EXP 	None: autoDraw = True
+7.0615 	EXP 	Resetting None
+7.0628 	EXP 	Created sequence: random, trialTypes=1, nReps=5, seed=None
+7.0630 	EXP 	New trial (rep=0, index=0): None
+7.0701 	EXP 	unnamed ShapeStim: autoDraw = False
+7.0701 	EXP 	unnamed ShapeStim: autoDraw = False
+7.0701 	EXP 	unnamed ShapeStim: autoDraw = False
+7.0701 	EXP 	None: autoDraw = False
+7.0701 	EXP 	targ_bot_center: autoDraw = False
+7.0701 	EXP 	None: autoDraw = True
+7.0783 	EXP 	None: autoDraw = True
+7.0869 	EXP 	None: autoDraw = True
+7.0951 	EXP 	None: autoDraw = True
+7.1036 	EXP 	None: autoDraw = True
+7.1117 	EXP 	None: autoDraw = True
+7.1202 	EXP 	None: autoDraw = True
+7.1289 	EXP 	None: autoDraw = True
+7.1379 	EXP 	None: autoDraw = True
+7.1466 	EXP 	None: autoDraw = True
+7.1553 	EXP 	None: autoDraw = True
+7.1632 	EXP 	None: autoDraw = True
+7.1718 	EXP 	None: autoDraw = True
+7.1800 	EXP 	None: autoDraw = True
+7.1886 	EXP 	None: autoDraw = True
+7.1964 	EXP 	None: autoDraw = True
+7.2049 	EXP 	None: autoDraw = True
+7.2132 	EXP 	None: autoDraw = True
+7.2221 	EXP 	None: autoDraw = True
+7.2305 	EXP 	None: autoDraw = True
+7.2393 	EXP 	None: autoDraw = True
+7.2475 	EXP 	None: autoDraw = True
+7.2561 	EXP 	None: autoDraw = True
+7.2647 	EXP 	None: autoDraw = True
+7.2734 	EXP 	None: autoDraw = True
+7.2817 	EXP 	None: autoDraw = True
+7.2912 	EXP 	None: autoDraw = True
+7.3037 	EXP 	None: autoDraw = True
+7.3125 	EXP 	None: autoDraw = True
+7.3213 	EXP 	None: autoDraw = True
+7.3301 	EXP 	None: autoDraw = True
+7.3391 	EXP 	None: autoDraw = True
+7.3487 	EXP 	None: autoDraw = True
+7.3577 	EXP 	None: autoDraw = True
+7.3705 	EXP 	None: autoDraw = True
+7.3799 	EXP 	None: autoDraw = True
+7.3894 	EXP 	None: autoDraw = True
+7.3981 	EXP 	None: autoDraw = True
+7.4205 	EXP 	None: autoDraw = True
+7.4372 	EXP 	None: autoDraw = True
+7.4465 	EXP 	None: autoDraw = True
+7.4557 	EXP 	None: autoDraw = True
+7.4645 	EXP 	None: autoDraw = True
+7.4874 	EXP 	None: autoDraw = True
+7.5039 	EXP 	None: autoDraw = True
+7.5141 	EXP 	None: autoDraw = True
+7.5243 	EXP 	None: autoDraw = True
+7.5372 	EXP 	None: autoDraw = True
+7.5461 	EXP 	None: autoDraw = True
+7.5557 	EXP 	None: autoDraw = True
+7.5646 	EXP 	None: autoDraw = True
+7.5874 	EXP 	None: autoDraw = True
+7.6041 	EXP 	None: autoDraw = True
+7.6131 	EXP 	None: autoDraw = True
+7.6224 	EXP 	None: autoDraw = True
+7.6313 	EXP 	None: autoDraw = True
+7.6411 	EXP 	None: autoDraw = True
+7.6539 	EXP 	None: autoDraw = True
+7.6627 	EXP 	None: autoDraw = True
+7.6724 	EXP 	None: autoDraw = True
+7.6761 	DATA 	Mouse: Left button down, pos=(518,311)
+7.6771 	EXP 	Resetting None parameter: brushPos.
+7.6771 	EXP 	Creating ShapeStim for None
+7.6773 	EXP 	window1: mouseVisible = True
+7.6836 	EXP 	None: autoDraw = True
+7.6929 	EXP 	None: autoDraw = True
+7.7035 	EXP 	None: autoDraw = True
+7.7125 	EXP 	None: autoDraw = True
+7.7220 	EXP 	None: autoDraw = True
+7.7305 	EXP 	None: autoDraw = True
+7.7399 	EXP 	None: autoDraw = True
+7.7489 	EXP 	None: autoDraw = True
+7.7583 	EXP 	None: autoDraw = True
+7.7704 	EXP 	None: autoDraw = True
+7.7794 	EXP 	None: autoDraw = True
+7.7882 	EXP 	None: autoDraw = True
+7.7972 	EXP 	None: autoDraw = True
+7.8067 	EXP 	None: autoDraw = True
+7.8160 	EXP 	None: autoDraw = True
+7.8253 	EXP 	None: autoDraw = True
+7.8370 	EXP 	None: autoDraw = True
+7.8465 	EXP 	None: autoDraw = True
+7.8553 	EXP 	None: autoDraw = True
+7.8645 	EXP 	None: autoDraw = True
+7.8872 	EXP 	None: autoDraw = True
+7.9045 	EXP 	None: autoDraw = True
+7.9240 	EXP 	None: autoDraw = True
+7.9370 	EXP 	None: autoDraw = True
+7.9466 	EXP 	None: autoDraw = True
+7.9556 	EXP 	None: autoDraw = True
+7.9649 	EXP 	None: autoDraw = True
+7.9744 	EXP 	None: autoDraw = True
+7.9874 	EXP 	None: autoDraw = True
+7.9982 	EXP 	None: autoDraw = True
+8.0086 	EXP 	None: autoDraw = True
+8.0202 	EXP 	None: autoDraw = True
+8.0296 	EXP 	None: autoDraw = True
+8.0395 	EXP 	None: autoDraw = True
+8.0490 	EXP 	None: autoDraw = True
+8.0585 	EXP 	None: autoDraw = True
+8.0704 	EXP 	None: autoDraw = True
+8.0801 	EXP 	None: autoDraw = True
+8.0890 	EXP 	None: autoDraw = True
+8.0981 	EXP 	None: autoDraw = True
+8.1077 	EXP 	None: autoDraw = True
+8.1204 	EXP 	None: autoDraw = True
+8.1243 	DATA 	Mouse:  Left button up, pos=(192,467)
+8.1307 	EXP 	None: autoDraw = True
+8.1397 	EXP 	None: autoDraw = True
+8.1423 	EXP 	Resetting None
+8.1429 	EXP 	New trial (rep=1, index=0): None
+8.1486 	EXP 	None: autoDraw = False
+8.1486 	EXP 	targ_mid_right: autoDraw = False
+8.1486 	EXP 	None: autoDraw = True
+8.1574 	EXP 	None: autoDraw = True
+8.1707 	EXP 	None: autoDraw = True
+8.1800 	EXP 	None: autoDraw = True
+8.1898 	EXP 	None: autoDraw = True
+8.1990 	EXP 	None: autoDraw = True
+8.2083 	EXP 	None: autoDraw = True
+8.2206 	EXP 	None: autoDraw = True
+8.2303 	EXP 	None: autoDraw = True
+8.2400 	EXP 	None: autoDraw = True
+8.2501 	EXP 	None: autoDraw = True
+8.2616 	EXP 	None: autoDraw = True
+8.2720 	EXP 	None: autoDraw = True
+8.2815 	EXP 	None: autoDraw = True
+8.2913 	EXP 	None: autoDraw = True
+8.3042 	EXP 	None: autoDraw = True
+8.3136 	EXP 	None: autoDraw = True
+8.3234 	EXP 	None: autoDraw = True
+8.3326 	EXP 	None: autoDraw = True
+8.3419 	EXP 	None: autoDraw = True
+8.3539 	EXP 	None: autoDraw = True
+8.3633 	EXP 	None: autoDraw = True
+8.3718 	EXP 	None: autoDraw = True
+8.3808 	EXP 	None: autoDraw = True
+8.4040 	EXP 	None: autoDraw = True
+8.4129 	EXP 	None: autoDraw = True
+8.4219 	EXP 	None: autoDraw = True
+8.4299 	EXP 	None: autoDraw = True
+8.4386 	EXP 	None: autoDraw = True
+8.4470 	EXP 	None: autoDraw = True
+8.4558 	EXP 	None: autoDraw = True
+8.4641 	EXP 	None: autoDraw = True
+8.4729 	EXP 	None: autoDraw = True
+8.4812 	EXP 	None: autoDraw = True
+8.4898 	EXP 	None: autoDraw = True
+8.4984 	EXP 	None: autoDraw = True
+8.5080 	EXP 	None: autoDraw = True
+8.5115 	DATA 	Mouse: Left button down, pos=(192,468)
+8.5126 	EXP 	Resetting None parameter: brushPos.
+8.5127 	EXP 	Creating ShapeStim for None
+8.5128 	EXP 	window1: mouseVisible = True
+8.5202 	EXP 	None: autoDraw = True
+8.5294 	EXP 	None: autoDraw = True
+8.5391 	EXP 	None: autoDraw = True
+8.5481 	EXP 	None: autoDraw = True
+8.5576 	EXP 	None: autoDraw = True
+8.5703 	EXP 	None: autoDraw = True
+8.5792 	EXP 	None: autoDraw = True
+8.5885 	EXP 	None: autoDraw = True
+8.5976 	EXP 	None: autoDraw = True
+8.6205 	EXP 	None: autoDraw = True
+8.6371 	EXP 	None: autoDraw = True
+8.6467 	EXP 	None: autoDraw = True
+8.6555 	EXP 	None: autoDraw = True
+8.6644 	EXP 	None: autoDraw = True
+8.6872 	EXP 	None: autoDraw = True
+8.7038 	EXP 	None: autoDraw = True
+8.7134 	EXP 	None: autoDraw = True
+8.7230 	EXP 	None: autoDraw = True
+8.7324 	EXP 	None: autoDraw = True
+8.7417 	EXP 	None: autoDraw = True
+8.7537 	EXP 	None: autoDraw = True
+8.7630 	EXP 	None: autoDraw = True
+8.7726 	EXP 	None: autoDraw = True
+8.7820 	EXP 	None: autoDraw = True
+8.7914 	EXP 	None: autoDraw = True
+8.8038 	EXP 	None: autoDraw = True
+8.8132 	EXP 	None: autoDraw = True
+8.8228 	EXP 	None: autoDraw = True
+8.8321 	EXP 	None: autoDraw = True
+8.8416 	EXP 	None: autoDraw = True
+8.8538 	EXP 	None: autoDraw = True
+8.8628 	EXP 	None: autoDraw = True
+8.8725 	EXP 	None: autoDraw = True
+8.8819 	EXP 	None: autoDraw = True
+8.8913 	EXP 	None: autoDraw = True
+8.8947 	DATA 	Mouse:  Left button up, pos=(394,309)
+8.9042 	EXP 	None: autoDraw = True
+8.9074 	EXP 	Resetting None
+8.9080 	EXP 	New trial (rep=2, index=0): None
+8.9141 	EXP 	None: autoDraw = False
+8.9141 	EXP 	targ_top_center: autoDraw = False
+8.9141 	EXP 	None: autoDraw = True
+8.9374 	EXP 	None: autoDraw = True
+8.9541 	EXP 	None: autoDraw = True
+8.9633 	EXP 	None: autoDraw = True
+8.9729 	EXP 	None: autoDraw = True
+8.9819 	EXP 	None: autoDraw = True
+8.9912 	EXP 	None: autoDraw = True
+9.0040 	EXP 	None: autoDraw = True
+9.0128 	EXP 	None: autoDraw = True
+9.0225 	EXP 	None: autoDraw = True
+9.0316 	EXP 	None: autoDraw = True
+9.0413 	EXP 	None: autoDraw = True
+9.0542 	EXP 	None: autoDraw = True
+9.0634 	EXP 	None: autoDraw = True
+9.0721 	EXP 	None: autoDraw = True
+9.0812 	EXP 	None: autoDraw = True
+9.1039 	EXP 	None: autoDraw = True
+9.1139 	EXP 	None: autoDraw = True
+9.1235 	EXP 	None: autoDraw = True
+9.1324 	EXP 	None: autoDraw = True
+9.1415 	EXP 	None: autoDraw = True
+9.1537 	EXP 	None: autoDraw = True
+9.1620 	EXP 	None: autoDraw = True
+9.1710 	EXP 	None: autoDraw = True
+9.1795 	EXP 	None: autoDraw = True
+9.1880 	EXP 	None: autoDraw = True
+9.1964 	EXP 	None: autoDraw = True
+9.2051 	EXP 	None: autoDraw = True
+9.2134 	EXP 	None: autoDraw = True
+9.2216 	EXP 	None: autoDraw = True
+9.2298 	EXP 	None: autoDraw = True
+9.2380 	EXP 	None: autoDraw = True
+9.2458 	EXP 	None: autoDraw = True
+9.2542 	EXP 	None: autoDraw = True
+9.2624 	EXP 	None: autoDraw = True
+9.2709 	EXP 	None: autoDraw = True
+9.2792 	EXP 	None: autoDraw = True
+9.2879 	EXP 	None: autoDraw = True
+9.2961 	EXP 	None: autoDraw = True
+9.3047 	EXP 	None: autoDraw = True
+9.3129 	EXP 	None: autoDraw = True
+9.3212 	EXP 	None: autoDraw = True
+9.3294 	EXP 	None: autoDraw = True
+9.3378 	EXP 	None: autoDraw = True
+9.3412 	DATA 	Mouse: Left button down, pos=(378,311)
+9.3423 	EXP 	Resetting None parameter: brushPos.
+9.3423 	EXP 	Creating ShapeStim for None
+9.3424 	EXP 	window1: mouseVisible = True
+9.3492 	EXP 	None: autoDraw = True
+9.3588 	EXP 	None: autoDraw = True
+9.3703 	EXP 	None: autoDraw = True
+9.3793 	EXP 	None: autoDraw = True
+9.3882 	EXP 	None: autoDraw = True
+9.3972 	EXP 	None: autoDraw = True
+9.4067 	EXP 	None: autoDraw = True
+9.4156 	EXP 	None: autoDraw = True
+9.4247 	EXP 	None: autoDraw = True
+9.4371 	EXP 	None: autoDraw = True
+9.4458 	EXP 	None: autoDraw = True
+9.4548 	EXP 	None: autoDraw = True
+9.4640 	EXP 	None: autoDraw = True
+9.4733 	EXP 	None: autoDraw = True
+9.4829 	EXP 	None: autoDraw = True
+9.4922 	EXP 	None: autoDraw = True
+9.5035 	EXP 	None: autoDraw = True
+9.5130 	EXP 	None: autoDraw = True
+9.5227 	EXP 	None: autoDraw = True
+9.5318 	EXP 	None: autoDraw = True
+9.5416 	EXP 	None: autoDraw = True
+9.5537 	EXP 	None: autoDraw = True
+9.5633 	EXP 	None: autoDraw = True
+9.5730 	EXP 	None: autoDraw = True
+9.5825 	EXP 	None: autoDraw = True
+9.5915 	EXP 	None: autoDraw = True
+9.6037 	EXP 	None: autoDraw = True
+9.6134 	EXP 	None: autoDraw = True
+9.6229 	EXP 	None: autoDraw = True
+9.6323 	EXP 	None: autoDraw = True
+9.6417 	EXP 	None: autoDraw = True
+9.6537 	EXP 	None: autoDraw = True
+9.6633 	EXP 	None: autoDraw = True
+9.6728 	EXP 	None: autoDraw = True
+9.6822 	EXP 	None: autoDraw = True
+9.6919 	EXP 	None: autoDraw = True
+9.7038 	EXP 	None: autoDraw = True
+9.7132 	EXP 	None: autoDraw = True
+9.7232 	EXP 	None: autoDraw = True
+9.7324 	EXP 	None: autoDraw = True
+9.7419 	EXP 	None: autoDraw = True
+9.7536 	EXP 	None: autoDraw = True
+9.7641 	EXP 	None: autoDraw = True
+9.7878 	EXP 	None: autoDraw = True
+9.7913 	DATA 	Mouse:  Left button up, pos=(604,415)
+9.8043 	EXP 	None: autoDraw = True
+9.8070 	EXP 	Resetting None
+9.8077 	EXP 	New trial (rep=3, index=0): None
+9.8138 	EXP 	None: autoDraw = False
+9.8138 	EXP 	targ_mid_left: autoDraw = False
+9.8138 	EXP 	None: autoDraw = True
+9.8223 	EXP 	None: autoDraw = True
+9.8310 	EXP 	None: autoDraw = True
+9.8406 	EXP 	None: autoDraw = True
+9.8490 	EXP 	None: autoDraw = True
+9.8578 	EXP 	None: autoDraw = True
+9.8707 	EXP 	None: autoDraw = True
+9.8793 	EXP 	None: autoDraw = True
+9.8884 	EXP 	None: autoDraw = True
+9.8971 	EXP 	None: autoDraw = True
+9.9063 	EXP 	None: autoDraw = True
+9.9149 	EXP 	None: autoDraw = True
+9.9378 	EXP 	None: autoDraw = True
+9.9543 	EXP 	None: autoDraw = True
+9.9631 	EXP 	None: autoDraw = True
+9.9719 	EXP 	None: autoDraw = True
+9.9815 	EXP 	None: autoDraw = True
+9.9908 	EXP 	None: autoDraw = True
+10.0038 	EXP 	None: autoDraw = True
+10.0126 	EXP 	None: autoDraw = True
+10.0214 	EXP 	None: autoDraw = True
+10.0300 	EXP 	None: autoDraw = True
+10.0387 	EXP 	None: autoDraw = True
+10.0474 	EXP 	None: autoDraw = True
+10.0565 	EXP 	None: autoDraw = True
+10.0651 	EXP 	None: autoDraw = True
+10.0744 	EXP 	None: autoDraw = True
+10.0871 	EXP 	None: autoDraw = True
+10.0959 	EXP 	None: autoDraw = True
+10.1044 	EXP 	None: autoDraw = True
+10.1138 	EXP 	None: autoDraw = True
+10.1223 	EXP 	None: autoDraw = True
+10.1308 	EXP 	None: autoDraw = True
+10.1391 	EXP 	None: autoDraw = True
+10.1476 	EXP 	None: autoDraw = True
+10.1565 	EXP 	None: autoDraw = True
+10.1648 	EXP 	None: autoDraw = True
+10.1875 	EXP 	None: autoDraw = True
+10.2041 	EXP 	None: autoDraw = True
+10.2127 	EXP 	None: autoDraw = True
+10.2216 	EXP 	None: autoDraw = True
+10.2301 	EXP 	None: autoDraw = True
+10.2391 	EXP 	None: autoDraw = True
+10.2425 	DATA 	Mouse: Left button down, pos=(516,450)
+10.2437 	EXP 	Resetting None parameter: brushPos.
+10.2437 	EXP 	Creating ShapeStim for None
+10.2439 	EXP 	window1: mouseVisible = True
+10.2506 	EXP 	None: autoDraw = True
+10.2595 	EXP 	None: autoDraw = True
+10.2702 	EXP 	None: autoDraw = True
+10.2793 	EXP 	None: autoDraw = True
+10.2889 	EXP 	None: autoDraw = True
+10.2986 	EXP 	None: autoDraw = True
+10.3081 	EXP 	None: autoDraw = True
+10.3205 	EXP 	None: autoDraw = True
+10.3298 	EXP 	None: autoDraw = True
+10.3394 	EXP 	None: autoDraw = True
+10.3487 	EXP 	None: autoDraw = True
+10.3581 	EXP 	None: autoDraw = True
+10.3704 	EXP 	None: autoDraw = True
+10.3801 	EXP 	None: autoDraw = True
+10.3896 	EXP 	None: autoDraw = True
+10.3991 	EXP 	None: autoDraw = True
+10.4082 	EXP 	None: autoDraw = True
+10.4206 	EXP 	None: autoDraw = True
+10.4304 	EXP 	None: autoDraw = True
+10.4399 	EXP 	None: autoDraw = True
+10.4495 	EXP 	None: autoDraw = True
+10.4593 	EXP 	None: autoDraw = True
+10.4702 	EXP 	None: autoDraw = True
+10.4794 	EXP 	None: autoDraw = True
+10.4888 	EXP 	None: autoDraw = True
+10.4986 	EXP 	None: autoDraw = True
+10.5082 	EXP 	None: autoDraw = True
+10.5208 	EXP 	None: autoDraw = True
+10.5301 	EXP 	None: autoDraw = True
+10.5400 	EXP 	None: autoDraw = True
+10.5497 	EXP 	None: autoDraw = True
+10.5593 	EXP 	None: autoDraw = True
+10.5703 	EXP 	None: autoDraw = True
+10.5801 	EXP 	None: autoDraw = True
+10.5891 	EXP 	None: autoDraw = True
+10.5923 	DATA 	Mouse:  Left button up, pos=(634,289)
+10.5990 	EXP 	None: autoDraw = True
+10.6016 	EXP 	Resetting None
+10.6023 	EXP 	New trial (rep=4, index=0): None
+10.6086 	EXP 	None: autoDraw = False
+10.6086 	EXP 	targ_bot_center: autoDraw = False
+10.6086 	EXP 	None: autoDraw = True
+10.6206 	EXP 	None: autoDraw = True
+10.6295 	EXP 	None: autoDraw = True
+10.6378 	EXP 	None: autoDraw = True
+10.6464 	EXP 	None: autoDraw = True
+10.6549 	EXP 	None: autoDraw = True
+10.6636 	EXP 	None: autoDraw = True
+10.6730 	EXP 	None: autoDraw = True
+10.6820 	EXP 	None: autoDraw = True
+10.6911 	EXP 	None: autoDraw = True
+10.7040 	EXP 	None: autoDraw = True
+10.7135 	EXP 	None: autoDraw = True
+10.7236 	EXP 	None: autoDraw = True
+10.7331 	EXP 	None: autoDraw = True
+10.7426 	EXP 	None: autoDraw = True
+10.7537 	EXP 	None: autoDraw = True
+10.7631 	EXP 	None: autoDraw = True
+10.7734 	EXP 	None: autoDraw = True
+10.7832 	EXP 	None: autoDraw = True
+10.7935 	EXP 	None: autoDraw = True
+10.8040 	EXP 	None: autoDraw = True
+10.8139 	EXP 	None: autoDraw = True
+10.8249 	EXP 	None: autoDraw = True
+10.8371 	EXP 	None: autoDraw = True
+10.8479 	EXP 	None: autoDraw = True
+10.8579 	EXP 	None: autoDraw = True
+10.8707 	EXP 	None: autoDraw = True
+10.8805 	EXP 	None: autoDraw = True
+10.9038 	EXP 	None: autoDraw = True
+10.9204 	EXP 	None: autoDraw = True
+10.9304 	EXP 	None: autoDraw = True
+10.9397 	EXP 	None: autoDraw = True
+10.9478 	EXP 	None: autoDraw = True
+10.9704 	EXP 	None: autoDraw = True
+10.9874 	EXP 	None: autoDraw = True
+10.9961 	EXP 	None: autoDraw = True
+11.0052 	EXP 	None: autoDraw = True
+11.0136 	EXP 	None: autoDraw = True
+11.0226 	EXP 	None: autoDraw = True
+11.0260 	DATA 	Mouse: Left button down, pos=(505,297)
+11.0271 	EXP 	Resetting None parameter: brushPos.
+11.0271 	EXP 	Creating ShapeStim for None
+11.0273 	EXP 	window1: mouseVisible = True
+11.0342 	EXP 	None: autoDraw = True
+11.0436 	EXP 	None: autoDraw = True
+11.0536 	EXP 	None: autoDraw = True
+11.0637 	EXP 	None: autoDraw = True
+11.0878 	EXP 	None: autoDraw = True
+11.1045 	EXP 	None: autoDraw = True
+11.1151 	EXP 	None: autoDraw = True
+11.1256 	EXP 	None: autoDraw = True
+11.1373 	EXP 	None: autoDraw = True
+11.1467 	EXP 	None: autoDraw = True
+11.1561 	EXP 	None: autoDraw = True
+11.1661 	EXP 	None: autoDraw = True
+11.1755 	EXP 	None: autoDraw = True
+11.1869 	EXP 	None: autoDraw = True
+11.1971 	EXP 	None: autoDraw = True
+11.2069 	EXP 	None: autoDraw = True
+11.2162 	EXP 	None: autoDraw = True
+11.2255 	EXP 	None: autoDraw = True
+11.2369 	EXP 	None: autoDraw = True
+11.2465 	EXP 	None: autoDraw = True
+11.2560 	EXP 	None: autoDraw = True
+11.2659 	EXP 	None: autoDraw = True
+11.2750 	EXP 	None: autoDraw = True
+11.2869 	EXP 	None: autoDraw = True
+11.2964 	EXP 	None: autoDraw = True
+11.3064 	EXP 	None: autoDraw = True
+11.3159 	EXP 	None: autoDraw = True
+11.3249 	EXP 	None: autoDraw = True
+11.3371 	EXP 	None: autoDraw = True
+11.3464 	EXP 	None: autoDraw = True
+11.3561 	EXP 	None: autoDraw = True
+11.3656 	EXP 	None: autoDraw = True
+11.3751 	EXP 	None: autoDraw = True
+11.3870 	EXP 	None: autoDraw = True
+11.3962 	EXP 	None: autoDraw = True
+11.4057 	EXP 	None: autoDraw = True
+11.4154 	EXP 	None: autoDraw = True
+11.4249 	EXP 	None: autoDraw = True
+11.4371 	EXP 	None: autoDraw = True
+11.4466 	EXP 	None: autoDraw = True
+11.4555 	EXP 	None: autoDraw = True
+11.4649 	EXP 	None: autoDraw = True
+11.4743 	EXP 	None: autoDraw = True
+11.4872 	EXP 	None: autoDraw = True
+11.4970 	EXP 	None: autoDraw = True
+11.5059 	EXP 	None: autoDraw = True
+11.5092 	DATA 	Mouse:  Left button up, pos=(728,458)
+11.5156 	EXP 	None: autoDraw = True
+11.5183 	EXP 	Resetting None
+11.5244 	EXP 	None: autoDraw = False
+11.5244 	EXP 	targ_top_left: autoDraw = False
+11.5270 	EXP 	untitled: status = STOPPED
+11.5450 	INFO 	saved data to '/Users/brynnkroke/Documents/Spring 2024/CLPS 0950/Untitled/Final Project/data/841821_untitled_2024-05-02_20h50.49.070.csv'
+11.5464 	INFO 	saved data to /Users/brynnkroke/Documents/Spring 2024/CLPS 0950/Untitled/Final Project/data/841821_untitled_2024-05-02_20h50.49.070.psydat
+11.5804 	EXP 	window1: mouseVisible = True
+12.2936 	DEBUG 	Saving data for untitled ExperimentHandler
