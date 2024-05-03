@@ -831,7 +831,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     targets = [0]
     
-    test = visual.TextBox2(win, text = 'next routine')
+    targets2 = [0]
+    
+    #test = visual.TextBox2(win, text = 'next routine')
     
     mouse = event.Mouse()
     ########################################################################
@@ -840,6 +842,58 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     ##Initialize text to tell participant to do a single motion if they are taking too long to draw line
     too_long = visual.TextBox2(win, text = 'Perform a single, fast motion from the center to the target', pos = (0, -0.15))
     brush2 = Brush2(win, lineWidth=3, lineColor=[1, 1, 1,])
+    
+    targ_top_right2 = visual.ShapeStim(
+        win=win, name='targ_top_right',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(0.3, 0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=0.0, interpolate=True)
+    targ_mid_right2 = visual.ShapeStim(
+        win=win, name='targ_mid_right',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(0.3, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-1.0, interpolate=True)
+    targ_bot_right2 = visual.ShapeStim(
+        win=win, name='targ_bot_right',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(0.3, -0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-7.0, interpolate=True)
+    targ_bot_center2 = visual.ShapeStim(
+        win=win, name='targ_bot_center',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(0, -0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-2.0, interpolate=True)
+    targ_top_center2 = visual.ShapeStim(
+        win=win, name='targ_top_center',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(0, 0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-3.0, interpolate=True)
+    targ_top_left2 = visual.ShapeStim(
+        win=win, name='targ_top_left',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(-0.3, 0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-4.0, interpolate=True)
+    targ_mid_left2 = visual.ShapeStim(
+        win=win, name='targ_mid_left',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(-0.3, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-5.0, interpolate=True)
+    targ_bot_left2 = visual.ShapeStim(
+        win=win, name='targ_bot_left',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(-0.3, -0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-6.0, interpolate=True)
+        
+    target_list2 = [targ_top_right2, targ_mid_right2, targ_bot_right2, targ_bot_center2, 
+    targ_top_center2, targ_top_left2, targ_mid_left2, targ_bot_left2]
     # create some handy timers
     
     # global clock to track the time since experiment started
@@ -974,7 +1028,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ##########################################################
         target_displayed = pyrandom.choice(target_list)
         if target_displayed == targets[-1]:
-            print('same')
             target_displayed = pyrandom.choice(target_list)
         targets.append(target_displayed)
         ##########################################################
@@ -1126,14 +1179,18 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisTrial_2 != None:
             for paramName in thisTrial_2:
                 globals()[paramName] = thisTrial_2[paramName]
-        
+        target_displayed2 = pyrandom.choice(target_list2)
+        if target_displayed2 == targets2[-1]:
+            print('same')
+            target_displayed2 = pyrandom.choice(target_list2)
+        targets2.append(target_displayed2)
         # --- Prepare to start Routine "Shape_Trial" ---
         continueRoutine = True
         # update component parameters for each repeat
         thisExp.addData('Shape_Trial.started', globalClock.getTime(format='float'))
         # keep track of which components have finished
         #Shape_TrialComponents = [crosshairs_x, crosshairs_y, crosshairs_dot, brush2, target_displayed]
-        Shape_TrialComponents = [test]
+        Shape_TrialComponents = [test, brush2, target_displayed2]
         for thisComponent in Shape_TrialComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -1158,7 +1215,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             ###################################################################
             ####################################################################
             
-            print("in the while loop")
+            #print("in the while loop")
             
             if test.status == NOT_STARTED:
                 test.status = STARTED
@@ -1176,9 +1233,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 #crosshairs_dot.status == STARTED
                 #crosshairs_dot.setAutoDraw(True)
             
-            #if target_displayed.status == NOT_STARTED: 
-                #target_displayed.status == STARTED
-                #target_displayed.setAutoDraw(True)
+            if target_displayed2.status == NOT_STARTED: 
+                target_displayed2.status == STARTED
+                
+            if target_displayed2.status == STARTED:
+                target_displayed2.setAutoDraw(True)
         
             if brush2.status == NOT_STARTED:
                 brush2.status = STARTED
