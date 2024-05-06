@@ -864,7 +864,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
         opacity=None, depth=-6.0, interpolate=True)
         
-    #creating list of targets - written by Andrew
+    #creating list of targets
     target_list = [(targ_top_right, center_top_right, targ_top_right_pos), 
     (targ_mid_right, center_mid_right, targ_mid_right_pos),
     (targ_bot_right, center_bot_right, targ_bot_right_pos),
@@ -873,8 +873,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     (targ_top_left, center_top_left, targ_top_left_pos),
     (targ_mid_left, center_mid_left, targ_mid_left_pos), 
     (targ_bot_left, center_bot_left, targ_bot_left_pos)]
-    #iterate through list randomly
-    #target_displayed = pyrandom.choice(target_list)
+    
     test = visual.TextBox2(win, text = 'next routine')
     crosshairs_x = visual.shape.ShapeStim(
     win, units='', colorSpace='rgb', fillColor=False, 
@@ -1030,7 +1029,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
         opacity=None, depth=-6.0, interpolate=True)
         
-    #creating list of targets - written by Andrew
+    #creating list of targets to then be randomly called to appear for each trial
     target_list2 = [(targ_top_right2, center_top_right2, targ_top_right_pos2), 
     (targ_mid_right2, center_mid_right2, targ_mid_right_pos2),
     (targ_bot_right2, center_bot_right2, targ_bot_right_pos2),
@@ -1046,7 +1045,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # create a clock if not given one
         globalClock = core.Clock()
     if isinstance(globalClock, str):
-        # if given a string, make a clock accoridng to it
+        # if given a string, make a clock according to it
         if globalClock == 'float':
             # get timestamps as a simple value
             globalClock = core.Clock(format='float')
@@ -1184,8 +1183,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisTrial != None:
             for paramName in thisTrial:
                 globals()[paramName] = thisTrial[paramName]
-        #iterate through list randomly
         ##########################################################
+        #iterate through list of targets randomly
         target_displayed = pyrandom.choice(target_list)
         if target_displayed == targets[-1]:
             target_displayed = pyrandom.choice(target_list)
@@ -1236,7 +1235,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 #crosshairs_y.status = STARTED
             #if crosshairs_y.status == STARTED:
                 #crosshairs_y.setAutoDraw(True)
-        
+            if too_long.status == STARTED:
+                too_long.setAutoDraw(True)
+                
             if crosshairs_dot.status == NOT_STARTED:
                 crosshairs_dot.status = STARTED
                 
@@ -1269,14 +1270,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 if mouse.getPressed()[0] == 1:
                     clicked = True
                 if clicked == True and mouse.getPressed()[0] == 0:
+                    too_long.setAutoDraw(False)
+                    too_long.status == NOT_STARTED
                     brush.status = FINISHED
                     brush_end = mouse.getPos()
                     thisExp.addData("Brush Position", brush_end)
                     if brushTimer.getTime() - start_time > brushTimeDiff:
                         brushTimer.reset()
-                        if too_long.status == NOT_STARTED:
-                            too_long.status = STARTED
-                            too_long.setAutoDraw(True)
+                        too_long.status = STARTED
                         brush.reset()
                         continueRoutine = False #changed from False to True ###not working when True
                     else:
