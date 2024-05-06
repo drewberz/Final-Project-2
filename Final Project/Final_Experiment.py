@@ -11,6 +11,16 @@ If you publish work using this script the most relevant publication is:
 
 """
 ############################################################################
+                            ####KEY####
+#Training_Routine is the initial routine that tasks the participant with tracing
+    #the line from the center to the targets. This trains them to do the task properly.
+#First_Routine is the first actual routine. 
+    #It gives the participant the sense that the procedure is very simple and easy.
+    #The brush follows their mouse trackpad movements without any alterations. 
+#Second_Routine is the second routine. It tests how their brain adapts to an alteration
+    #that is made to the way the brush travels in response to their movements on the trackpad. 
+    
+#Importing relevant tools
 from psychopy import event, logging
 from psychopy.visual.shape import ShapeStim
 from psychopy.visual.basevisual import MinimalStim
@@ -45,7 +55,7 @@ class Brush(MinimalStim): #From brush GitHub documentation, added as a class
         self.win = win
         self.name = name
         self.depth = depth
-        self.lineColor = lineColor
+        self.lineColor = lineColor #change using (-1,1,1) in RGB format
         self.lineColorSpace = lineColorSpace
         self.lineWidth = lineWidth
         self.opacity = opacity
@@ -208,7 +218,7 @@ class Brush(MinimalStim): #From brush GitHub documentation, added as a class
         self.buttonRequired = value
         
         
-#Experimental Trial Brush
+#Manipulated Brush - does not directly follow the mouse trackpad but instead is to the side partially
 class Brush2(MinimalStim): #created new brush class with manipulated drawing
     #coordinates to use in the experimental trials
     """A class for creating a freehand drawing tool.
@@ -319,7 +329,7 @@ class Brush2(MinimalStim): #created new brush class with manipulated drawing
         """
         
         if self.brushDown:
-            self.brushPos.append(self.pointer.getPos() + [0.05, 0.05])
+            self.brushPos.append(self.pointer.getPos() + [0.05, 0.05]) #this moves the brush 0.05 units over along the X and Y axes
             self.shapes[self.currentShape].setVertices(self.brushPos)
         else:
             self.atStartPoint = False
@@ -410,14 +420,14 @@ from psychopy.tools import environmenttools
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER, priority)
 
-import numpy as np  # whole numpy lib is available, prepend 'np.'
+import numpy as np #importing numpy
 from numpy import (sin, cos, tan, log, log10, pi, average,
                    sqrt, std, deg2rad, rad2deg, linspace, asarray)
 from numpy.random import random, randint, normal, shuffle, choice as randchoice
 import os  # handy system and path functions
 import sys  # to get file system encoding
 
-import random as pyrandom
+import random as pyrandom #used for randomly displaying targets during trials
 
 import psychopy.iohub as io
 from psychopy.hardware import keyboard
@@ -737,17 +747,18 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         frameDur = 1.0 / 60.0  # could not measure, so guess
     
     # Start Code - component code to be run after the window creation
-    
-    # --- Initialize components for Routine "Instruct" ---
+
     ########################################################################
     ########################################################################
+    ######## --- Initializing components for the instructions screen to display #########
+
     instructions = visual.TextBox2(win=win, pos=(0, 0.09), color =[-1, 1, 1], text = 'INSTRUCTIONS')
     
     instructions_para = visual.TextBox2(win=win, pos=(0, 0), color =[-1, 1, 1], text = 'Using the trackpad, click on the center circle (white) and draw a straight line out to the round target (blue/black) that appears.\nDraw the line using a single, quick, and fluid motion.')
     
     instructions_press_key = visual.TextBox2(win=win, pos=(0,-0.1), color =[-1, 1, 1],  text = 'PRESS ANY KEY TO CONTINUE')
     key_resp = keyboard.Keyboard(deviceName='key_resp')
-    # --- Initialize components for Routine "Training_Trial" ---
+    # --- Initialize components for Routine "Training_Routine" ---
     targ_top_right = visual.ShapeStim(
         win=win, name='targ_top_right',
         size=(0.2, 0.2), vertices='circle',
@@ -909,7 +920,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     mouse2 = event.Mouse()
     ########################################################################
     ########################################################################
-    # --- Initialize components for Routine "Shape_Trial" ---
+    # --- Initialize components for Routine "First_Routine" ---
     ##Initialize text to tell participant to do a single motion if they are taking too long to draw line
     too_long = visual.TextBox2(win, text = 'Perform a single, fast motion from the center to the target', pos = (0, -0.15))
     brush2 = Brush2(win, lineWidth=3, lineColor=[1, 1, 1,])
@@ -1181,13 +1192,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         targets.append(target_displayed)
         thisExp.addData("Training Target", target_displayed[2])##########here
         ##########################################################
-        # --- Prepare to start Routine "Training_Trial" ---
+        # --- Prepare to start Routine "Training_Routine" ---
         continueRoutine = True
         # update component parameters for each repeat
-        thisExp.addData('Training_Trial.started', globalClock.getTime(format='float'))
+        thisExp.addData('Training_Routine.started', globalClock.getTime(format='float'))
         # keep track of which components have finished
-        Training_TrialComponents = [crosshairs_dot, brush, target_displayed[0], target_displayed[1]]
-        for thisComponent in Training_TrialComponents:
+        Training_RoutineComponents = [crosshairs_dot, brush, target_displayed[0], target_displayed[1]]
+        for thisComponent in Training_RoutineComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
             thisComponent.tStartRefresh = None
@@ -1199,7 +1210,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         _timeToFirstFrame = win.getFutureFlipTime(clock="now")
         frameN = -1
         clicked = False
-        # --- Run Routine "Training_Trial" ---
+        # --- Run Routine "Training_Routine" ---
         routineForceEnded = not continueRoutine
         ######## Initialize brushTimer ###########
         brushTimer = core.Clock()
@@ -1289,7 +1300,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 routineForceEnded = True
                 break
             continueRoutine = False  # will revert to True if at least one component still running
-            for thisComponent in Training_TrialComponents:
+            for thisComponent in Training_RoutineComponents:
                 if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                     continueRoutine = True
                     break  # at least one component has not yet finished
@@ -1298,12 +1309,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
                 win.flip()
         
-        # --- Ending Routine "Training_Trial" ---
-        for thisComponent in Training_TrialComponents:
+        # --- Ending Routine "Training_Routine" ---
+        for thisComponent in Training_RoutineComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        thisExp.addData('Training_Trial.stopped', globalClock.getTime(format='float'))
-        # the Routine "Training_Trial" was not non-slip safe, so reset the non-slip timer
+        thisExp.addData('Training_Routine.stopped', globalClock.getTime(format='float'))
+        # the Routine "Training_Routine" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         thisExp.nextEntry()
         
@@ -1344,14 +1355,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if target_displayed2 == targets2[-1]:
             target_displayed2 = pyrandom.choice(target_list2)
         targets2.append(target_displayed2)
-        # --- Prepare to start Routine "Shape_Trial" ---
+        # --- Prepare to start Routine "First_Routine" ---
         continueRoutine = True
         # update component parameters for each repeat
-        thisExp.addData('Shape_Trial.started', globalClock.getTime(format='float'))
+        thisExp.addData('First_Routine.started', globalClock.getTime(format='float'))
         # keep track of which components have finished
-        #Shape_TrialComponents = [crosshairs_x, crosshairs_y, crosshairs_dot, brush2, target_displayed]
-        Shape_TrialComponents = [crosshairs_dot2, brush2, target_displayed2[0], target_displayed2[1]]
-        for thisComponent in Shape_TrialComponents:
+        #First_RoutineComponents = [crosshairs_x, crosshairs_y, crosshairs_dot, brush2, target_displayed]
+        First_RoutineComponents = [crosshairs_dot2, brush2, target_displayed2[0], target_displayed2[1]]
+        for thisComponent in First_RoutineComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
             thisComponent.tStartRefresh = None
@@ -1363,7 +1374,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         _timeToFirstFrame = win.getFutureFlipTime(clock="now")
         frameN = -1
         clicked2 = False
-        # --- Run Routine "Shape_Trial" ---
+        # --- Run Routine "First_Routine ---
         routineForceEnded = not continueRoutine
         while continueRoutine:
             # get current time
@@ -1429,7 +1440,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 routineForceEnded = True
                 break
             continueRoutine = False  # will revert to True if at least one component still running
-            for thisComponent in Shape_TrialComponents:
+            for thisComponent in First_RoutineComponents:
                 if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                     continueRoutine = True
                     break  # at least one component has not yet finished
@@ -1438,12 +1449,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
                 win.flip()
         
-        # --- Ending Routine "Shape_Trial" ---
-        for thisComponent in Shape_TrialComponents:
+        # --- Ending Routine "First_Routine" ---
+        for thisComponent in First_RoutineComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        thisExp.addData('Shape_Trial.stopped', globalClock.getTime(format='float'))
-        # the Routine "Shape_Trial" was not non-slip safe, so reset the non-slip timer
+        thisExp.addData('First_Routine.stopped', globalClock.getTime(format='float'))
+        # the Routine "First_Routine" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         thisExp.nextEntry()
         
