@@ -891,6 +891,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
     brush = Brush(win, lineWidth=3, lineColor=[1, 1, 1])
     
+    brush_points = []
+    brush_points_x = []
+    brush_points_y = []
+    
     targets = [0]
     
     targets2 = [0]
@@ -1156,7 +1160,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if target_displayed == targets[-1]:
             target_displayed = pyrandom.choice(target_list)
         targets.append(target_displayed)
-        print(target_displayed)
         thisExp.addData("Training Target", target_displayed[2])##########here
         ##########################################################
         # --- Prepare to start Routine "Training_Trial" ---
@@ -1227,15 +1230,19 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             if brush.status == STARTED:
                 brush.setAutoDraw(True)
+                brush_points.append(mouse.getPos())
+                thisExp.addData("Brush List", brush_points)
+                brush_points_x.append(mouse.getPos()[0])
+                brush_points_y.append(mouse.getPos()[1])
+                thisExp.addData("Brush X Pos", brush_points_x)
+                thisExp.addData("Brush Y Pos", brush_points_y)
                 if mouse.getPressed()[0] == 1:
                     clicked = True
                 if clicked == True and mouse.getPressed()[0] == 0:
                     brush.status = FINISHED
-                    print('finished')
                     brush_end = mouse.getPos()
                     thisExp.addData("Brush Position", brush_end)
                     if brushTimer.getTime() - start_time > brushTimeDiff:
-                        print('too long')
                         brushTimer.reset()
                         if too_long.status == NOT_STARTED:
                             too_long.status = STARTED
@@ -1243,19 +1250,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         brush.reset()
                         continueRoutine = False #changed from False to True ###not working when True
                     else:
-                        print('fast enough')
                         brushTimer.reset()
                         win.flip()
                         brush.reset()
                         continueRoutine = False
-                   # elif brushTimer.getTime() < brushTimeDiff:
-                        #brush.status = FINISHED
-                       # print('not good')
-                       # print('took too long')
-                       # print(brushTimer.getTime())
-                      #  brushTimer.reset()
-                      #  win.flip()
-                      #  continueRoutine = False
+                   
             
         ####################################################################
         ####################################################################
@@ -1324,7 +1323,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 globals()[paramName] = thisTrial_2[paramName]
         target_displayed2 = pyrandom.choice(target_list2)
         if target_displayed2 == targets2[-1]:
-            print('same')
             target_displayed2 = pyrandom.choice(target_list2)
         targets2.append(target_displayed2)
         # --- Prepare to start Routine "Shape_Trial" ---
@@ -1357,20 +1355,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update/draw components on each frame
             ###################################################################
             ####################################################################
-            
-            #print("in the while loop")
-            
-            #if test.status == NOT_STARTED:
-                #test.status = STARTED
-            #if test.status == STARTED:
-                #test.setAutoDraw(True)
-            #if crosshairs_x.status == NOT_STARTED:
-                #crosshairs_x.status == STARTED
-                #crosshairs_x.setAutoDraw(True)
-        
-            #if crosshairs_y.status == NOT_STARTED:
-                #crosshairs_y.status == STARTED
-                #crosshairs_y.setAutoDraw(True)
         
             if crosshairs_dot2.status == NOT_STARTED:
                 crosshairs_dot2.status = STARTED
@@ -1399,9 +1383,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     clicked2 = True
                 if clicked2 == True and mouse.getPressed()[0] == 0:
                     brush2.status = FINISHED
-                    print('finished')
                     if brushTimer.getTime() - start_time > brushTimeDiff:
-                        print('too long')
                         brushTimer.reset()
                         if too_long.status == NOT_STARTED:
                             too_long.status = STARTED
@@ -1409,7 +1391,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         brush2.reset()
                         continueRoutine = False #changed from False to True ###not working when True
                     else:
-                        print('fast enough')
                         brushTimer.reset()
                         win.flip()
                         brush2.reset()
