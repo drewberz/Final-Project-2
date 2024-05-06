@@ -741,7 +741,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "Instruct" ---
     ########################################################################
     ########################################################################
-    instructions = visual.TextBox2(win, text = 'INSTRUCTIONS\nPRESS ANY KEY TO CONTINUE')
+    instructions = visual.TextBox2(win=win, pos=(0, 0.09), color =[-1, 1, 1], text = 'INSTRUCTIONS')
+    
+    instructions_para = visual.TextBox2(win=win, pos=(0, 0), color =[-1, 1, 1], text = 'Using the trackpad, click on the center circle (white) and draw a straight line out to the round target (blue/black) that appears.\nDraw the line using a single, quick, and fluid motion.')
+    
+    instructions_press_key = visual.TextBox2(win=win, pos=(0,-0.1), color =[-1, 1, 1],  text = 'PRESS ANY KEY TO CONTINUE')
     key_resp = keyboard.Keyboard(deviceName='key_resp')
     # --- Initialize components for Routine "Training_Trial" ---
     targ_top_right = visual.ShapeStim(
@@ -1057,7 +1061,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # update component parameters for each repeat
     thisExp.addData('Instruct.started', globalClock.getTime(format='float'))
     # keep track of which components have finished
-    InstructComponents = [instructions, key_resp]
+    InstructComponents = [instructions, key_resp, instructions_para, instructions_press_key]
     for thisComponent in InstructComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -1086,6 +1090,21 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             instructions.setAutoDraw(True)
         
         if instructions.status == STARTED:
+            pass
+        
+        if instructions_para.status == NOT_STARTED:
+            instructions_para.status = STARTED
+            instructions_para.setAutoDraw(True)
+        
+        if instructions_para.status == STARTED:
+            pass
+        
+        
+        if instructions_press_key.status == NOT_STARTED:
+            instructions_press_key.status = STARTED
+            instructions_press_key.setAutoDraw(True)
+        
+        if instructions_press_key.status == STARTED:
             pass
         
         if key_resp.status == NOT_STARTED:
