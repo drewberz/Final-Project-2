@@ -1279,7 +1279,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         brushTimer.reset()
                         too_long.status = STARTED
                         brush.reset()
-                        continueRoutine = False
+                        continueRoutine = False #changed from False to True ###not working when True
                     else:
                         brushTimer.reset()
                         win.flip()
@@ -1414,9 +1414,18 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     clicked2 = True
                 if clicked2 == True and mouse.getPressed()[0] == 0:
                     brush2.status = FINISHED
-                    win.flip()
-                    brush2.reset()
-                    continueRoutine = False
+                    if brushTimer.getTime() - start_time > brushTimeDiff:
+                        brushTimer.reset()
+                        if too_long.status == NOT_STARTED:
+                            too_long.status = STARTED
+                            too_long.setAutoDraw(True)
+                        brush2.reset()
+                        continueRoutine = False #changed from False to True ###not working when True
+                    else:
+                        brushTimer.reset()
+                        win.flip()
+                        brush2.reset()
+                        continueRoutine = False
             
         ####################################################################
         ####################################################################
