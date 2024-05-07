@@ -1828,6 +1828,34 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # completed 5.0 repeats of 'trials_2'
 ######################################################
 ######################################################
+    
+    # set up handler to look after randomisation of conditions etc
+    trials_3 = data.TrialHandler(nReps=5.0, method='random', 
+        extraInfo=expInfo, originPath=-1,
+        trialList=[None],
+        seed=None, name='trials_3')
+    thisExp.addLoop(trials_3)  # add the loop to the experiment
+    thisTrial_3 = trials_3.trialList[0]  # so we can initialise stimuli with some values
+    # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
+    if thisTrial_3 != None:
+        for paramName in thisTrial_3:
+            globals()[paramName] = thisTrial_3[paramName]
+    
+    for thisTrial_3 in trials_3:
+        currentLoop = trials_3
+        thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
+        # pause experiment here if requested
+        if thisExp.status == PAUSED:
+            pauseExperiment(
+                thisExp=thisExp, 
+                win=win, 
+                timers=[routineTimer], 
+                playbackComponents=[]
+        )
+        # abbreviate parameter names if possible (e.g. rgb = thisTrial_3.rgb)
+        if thisTrial_3 != None:
+            for paramName in thisTrial_3:
+                globals()[paramName] = thisTrial_3[paramName]
         target_displayed3 = pyrandom.choice(target_list3)
         if target_displayed3 == targets3[-1]:
             target_displayed3 = pyrandom.choice(target_list3)
