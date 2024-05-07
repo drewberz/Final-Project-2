@@ -407,6 +407,195 @@ class Brush2(MinimalStim): #created new brush class with manipulated drawing
         """
         self.buttonRequired = value
 ############################################################################
+###BRUSH3 (for Second_Routine)
+class Brush3(MinimalStim): #created new brush class with manipulated drawing
+    #coordinates to use in the experimental trials
+    """A class for creating a freehand drawing tool.
+
+    """
+    def __init__(self,
+                 win,
+                 lineWidth=1.5,
+                 lineColor=(1.0, 1.0, 1.0),
+                 lineColorSpace='rgb',
+                 opacity=1.0,
+                 closeShape=False,
+                 buttonRequired=True,
+                 name=None,
+                 depth=0,
+                 autoLog=True,
+                 autoDraw=False
+                 ):
+
+        super(Brush3, self).__init__(name=name,
+                                    autoLog=False)
+
+        self.win = win
+        self.name = name
+        self.depth = depth
+        self.lineColor = lineColor
+        self.lineColorSpace = lineColorSpace
+        self.lineWidth = lineWidth
+        self.opacity = opacity
+        self.closeShape = closeShape
+        self.buttonRequired = buttonRequired
+        self.pointer = event.Mouse(win=self.win)
+        self.shapes = []
+        self.brushPos = []
+        self.strokeIndex = -1
+        self.atStartPoint = False
+
+        self.autoLog = autoLog
+        self.autoDraw = autoDraw
+
+        if self.autoLog:
+            logging.exp("Created {name} = {obj}".format(name=self.name,
+                                                        obj=str(self)))
+
+    def _resetVertices(self):
+        """
+        Resets list of vertices passed to ShapeStim.
+        """
+        if self.autoLog:
+            logging.exp("Resetting {name} parameter: brushPos.".format(name=self.name))
+        self.brushPos = []
+
+    def _createStroke(self):
+        """
+        Creates ShapeStim for each stroke.
+        """
+        if self.autoLog:
+            logging.exp("Creating ShapeStim for {name}".format(name=self.name))
+
+        self.shapes.append(ShapeStim(self.win,
+                                     vertices=[[0, 0]],
+                                     closeShape=self.closeShape,
+                                     lineWidth=self.lineWidth,
+                                     lineColor=self.lineColor,
+                                     colorSpace=self.lineColorSpace,
+                                     opacity=self.opacity,
+                                     autoLog=False,
+                                     autoDraw=True))
+
+    @property
+    def currentShape(self):
+        """The index of current shape to be drawn.
+
+        Returns
+        -------
+        Int
+            The index as length of shapes attribute - 1.
+        """
+        return len(self.shapes) - 1
+
+    @property
+    def brushDown(self):
+        """
+        Checks whether the mouse button has been clicked in order to start drawing.
+
+        Returns
+        -------
+        Bool
+            True if left mouse button is pressed or if no button press is required, otherwise False.
+        """
+        if self.buttonRequired:
+            return self.pointer.getPressed()[0] == 1
+        else:
+            return True
+
+    def onBrushDown(self):
+        """
+        On first brush stroke, empty pointer position list, and create a new ShapeStim.
+        """
+        if self.brushDown and not self.atStartPoint:
+            self.atStartPoint = True
+            self._resetVertices()
+            self._createStroke()
+    
+    def onBrushDrag(self):
+        """
+        Check whether the brush is down. If brushDown is True, the brush path is drawn on screen.
+        """
+        
+        if self.brushDown:
+            self.brushPos.append(self.pointer.getPos() + [0.02, 0.02]) #this moves the brush 0.02 units over along the X and Y axes
+            self.shapes[self.currentShape].setVertices(self.brushPos)
+        else:
+            self.atStartPoint = False
+       
+
+    def draw(self):
+        """
+        Get starting stroke and begin painting on screen.
+        """
+        self.onBrushDown()
+        self.onBrushDrag()
+
+    def reset(self):
+        """
+        Clear ShapeStim objects from shapes attribute.
+        """
+        if self.autoLog:
+            logging.exp("Resetting {name}".format(name=self.name))
+
+        if len(self.shapes):
+            for shape in self.shapes:
+                shape.setAutoDraw(False)
+        self.atStartPoint = False
+        self.shapes = []
+
+    @attributeSetter
+    def autoDraw(self, value):
+        # Do base setting
+        MinimalStim.autoDraw.func(self, value)
+        # Set autodraw on shapes
+        for shape in self.shapes:
+            shape.setAutoDraw(value)
+
+    def setLineColor(self, value):
+        """
+        Sets the line color passed to ShapeStim.
+
+        Parameters
+        ----------
+        value
+            Line color
+        """
+        self.lineColor = value
+
+    def setLineWidth(self, value):
+        """
+        Sets the line width passed to ShapeStim.
+
+        Parameters
+        ----------
+        value
+            Line width in pixels
+        """
+        self.lineWidth = value
+
+    def setOpacity(self, value):
+        """
+        Sets the line opacity passed to ShapeStim.
+
+        Parameters
+        ----------
+        value
+            Opacity range(0, 1)
+        """
+        self.opacity = value
+
+    def setButtonRequired(self, value):
+        """
+        Sets whether or not a button press is needed to draw the line..
+
+        Parameters
+        ----------
+        value
+            Button press required (True or False).
+        """
+        self.buttonRequired = value
+############################################################################
 
 # --- Import packages ---
 from psychopy import locale_setup
@@ -903,6 +1092,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, 0), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-6.0, interpolate=True)
+        
+    crosshairs_dot3 = visual.shape.ShapeStim(win,
+        size=(0.03, 0.03), vertices='circle',
+        ori=0.0, pos=(0, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
+        opacity=None, depth=-6.0, interpolate=True)
     
     ##Initialize text to tell participant to do a single motion if they are taking too long to draw line
     too_long = visual.TextBox2(win, text = 'Perform a single, fast motion from the center to the target', pos = (0, -0.15))
@@ -922,9 +1117,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     brush_points_x2 = []
     brush_points_y2 = []
     
+    brush_points3 = []
+    brush_points_x3 = []
+    brush_points_y3 = []
+    
     targets = [0]
     
     targets2 = [0]
+    
+    targets3 = [0]
     
     #test = visual.TextBox2(win, text = 'next routine')
     
@@ -1078,7 +1279,157 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         format='%Y-%m-%d %Hh%M.%S.%f %z', fractionalSecondDigits=6
     )
     
-    # --- Prepare to start Routine "Instruct" ---
+#########################################################
+############ INITIALIZE Second_Routine ##################
+#########################################################
+   # --- Initialize components for Routine "First_Routine" ---
+
+    brush3 = Brush3(win, lineWidth=3, lineColor=[1, 1, 1,])
+    
+    targ_top_right3 = visual.ShapeStim(
+        win=win, name='targ_top_right',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(0.3, 0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=0.0, interpolate=True)
+    targ_top_right_pos3 = (0.3, 0.3)
+    center_top_right3 = visual.ShapeStim(
+        win=win, name='center_top_right',
+        size=(0.02, 0.02), vertices='circle',
+        ori=0.0, pos=(0.3, 0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        opacity=None, depth=0.0, interpolate=True)
+    targ_mid_right3 = visual.ShapeStim(
+        win=win, name='targ_mid_right',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(0.3, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-1.0, interpolate=True)
+    targ_mid_right_pos3 = (0.3, 0)
+    center_mid_right3 = visual.ShapeStim(
+        win=win, name='center_mid_right',
+        size=(0.02, 0.02), vertices='circle',
+        ori=0.0, pos=(0.3, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        opacity=None, depth=-1.0, interpolate=True)
+    targ_bot_right3 = visual.ShapeStim(
+        win=win, name='targ_bot_right',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(0.3, -0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-7.0, interpolate=True)
+    targ_bot_right_pos3 = (0.3, -0.3)
+    center_bot_right3 = visual.ShapeStim(
+        win=win, name='center_bot_right',
+        size=(0.02, 0.02), vertices='circle',
+        ori=0.0, pos=(0.3, -0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        opacity=None, depth=-7.0, interpolate=True)
+    targ_bot_center3 = visual.ShapeStim(
+        win=win, name='targ_bot_center',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(0, -0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-2.0, interpolate=True)
+    targ_bot_center_pos3 = (0, -0.3)
+    center_bot_center3 = visual.ShapeStim(
+        win=win, name='center_bot_center',
+        size=(0.02, 0.02), vertices='circle',
+        ori=0.0, pos=(0, -0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        opacity=None, depth=-2.0, interpolate=True)
+    targ_top_center3 = visual.ShapeStim(
+        win=win, name='targ_top_center',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(0, 0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-3.0, interpolate=True)
+    targ_top_center_pos3 = (0, 0.3)
+    center_top_center3 = visual.ShapeStim(
+        win=win, name='center_top_center',
+        size=(0.02, 0.02), vertices='circle',
+        ori=0.0, pos=(0, 0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        opacity=None, depth=-3.0, interpolate=True)
+    targ_top_left3 = visual.ShapeStim(
+        win=win, name='targ_top_left',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(-0.3, 0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-4.0, interpolate=True)
+    targ_top_left_pos3 = (-0.3, 0.3)
+    center_top_left3 = visual.ShapeStim(
+        win=win, name='center_top_left',
+        size=(0.02, 0.02), vertices='circle',
+        ori=0.0, pos=(-0.3, 0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        opacity=None, depth=-4.0, interpolate=True)
+    targ_mid_left3 = visual.ShapeStim(
+        win=win, name='targ_mid_left',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(-0.3, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-5.0, interpolate=True)
+    targ_mid_left_pos3 = (-0.3, 0)
+    center_mid_left3 = visual.ShapeStim(
+        win=win, name='targ_mid_left',
+        size=(0.02, 0.02), vertices='circle',
+        ori=0.0, pos=(-0.3, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        opacity=None, depth=-5.0, interpolate=True)
+    targ_bot_left3 = visual.ShapeStim(
+        win=win, name='targ_bot_left',
+        size=(0.2, 0.2), vertices='circle',
+        ori=0.0, pos=(-0.3, -0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        opacity=None, depth=-6.0, interpolate=True)
+    targ_bot_left_pos3 = (-0.3, -0.3)
+    center_bot_left3 = visual.ShapeStim(
+        win=win, name='center_bot_left',
+        size=(0.02, 0.02), vertices='circle',
+        ori=0.0, pos=(-0.3, -0.3), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        opacity=None, depth=-6.0, interpolate=True)
+        
+    #creating list of targets to then be randomly called to appear for each trial
+    target_list3 = [(targ_top_right3, center_top_right3, targ_top_right_pos3), 
+    (targ_mid_right3, center_mid_right3, targ_mid_right_pos3),
+    (targ_bot_right3, center_bot_right3, targ_bot_right_pos3),
+    (targ_bot_center3, center_bot_center3, targ_bot_center_pos3), 
+    (targ_top_center3, center_top_center3, targ_top_center_pos3), 
+    (targ_top_left3, center_top_left3, targ_top_left_pos3),
+    (targ_mid_left3, center_mid_left3, targ_mid_left_pos3), 
+    (targ_bot_left3, center_bot_left3, targ_bot_left_pos3)]
+    # create some handy timers
+    
+    # global clock to track the time since experiment started
+    if globalClock is None:
+        # create a clock if not given one
+        globalClock = core.Clock()
+    if isinstance(globalClock, str):
+        # if given a string, make a clock according to it
+        if globalClock == 'float':
+            # get timestamps as a simple value
+            globalClock = core.Clock(format='float')
+        elif globalClock == 'iso':
+            # get timestamps in ISO format
+            globalClock = core.Clock(format='%Y-%m-%d_%H:%M:%S.%f%z')
+        else:
+            # get timestamps in a custom format
+            globalClock = core.Clock(format=globalClock)
+    if ioServer is not None:
+        ioServer.syncClock(globalClock)
+    logging.setDefaultClock(globalClock)
+    # routine timer to track time remaining of each (possibly non-slip) routine
+    routineTimer = core.Clock()
+    win.flip()  # flip window to reset last flip timer
+    # store the exact time the global clock started
+    expInfo['expStart'] = data.getDateStr(
+        format='%Y-%m-%d %Hh%M.%S.%f %z', fractionalSecondDigits=6
+    )
+########################################################################
+########################################################################
+# --- Prepare to start Routine "Instruct" ---
     continueRoutine = True
     # update component parameters for each repeat
     thisExp.addData('Instruct.started', globalClock.getTime(format='float'))
@@ -1224,7 +1575,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # --- Run Routine "Training_Routine" ---
         routineForceEnded = not continueRoutine
 
-        start_time = brushTimer.getTime()
         while continueRoutine:
             # get current time
             t = routineTimer.getTime()
@@ -1269,6 +1619,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if brush.status == NOT_STARTED:
                 brush.status = STARTED
             
+            brushTimer.reset()
+            
             if brush.status == STARTED:
                 brush.setAutoDraw(True)
                 brush_points.append(mouse.getPos())
@@ -1279,14 +1631,17 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisExp.addData("Brush Y Pos", brush_points_y)
                 if mouse.getPressed()[0] == 1:
                     clicked = True
-                if clicked == True and mouse.getPressed()[0] == 0:
+                    t_swipe1 = brushTimer.getTime()
+                    print(t_swipe1)
                     too_long.setAutoDraw(False)
                     too_long.status == NOT_STARTED
+                if clicked == True and mouse.getPressed()[0] == 0:
                     brush.status = FINISHED
+                    t_swipe2 = brushTimer.getTime()
+                    print(t_swipe2)
                     brush_end = mouse.getPos()
                     thisExp.addData("Brush Position", brush_end)
-                    if brushTimer.getTime() - start_time > brushTimeDiff:
-                        brushTimer.reset()
+                    if t_swipe2 - t_swipe1 > brushTimeDiff:
                         too_long.status = STARTED
                         brush.reset()
                         continueRoutine = False #changed from False to True ###not working when True
@@ -1431,18 +1786,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     clicked2 = True
                 if clicked2 == True and mouse.getPressed()[0] == 0:
                     brush2.status = FINISHED
-                    if brushTimer.getTime() - start_time > brushTimeDiff:
-                        brushTimer.reset()
-                        if too_long.status == NOT_STARTED:
-                            too_long.status = STARTED
-                            too_long.setAutoDraw(True)
-                        brush2.reset()
-                        continueRoutine = False #changed from False to True ###not working when True
-                    else:
-                        brushTimer.reset()
-                        win.flip()
-                        brush2.reset()
-                        continueRoutine = False
+                    brush2.reset()
+                    continueRoutine = False
+                    win.flip()
             
         ####################################################################
         ####################################################################
@@ -1480,7 +1826,118 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # if running in a Session with a Liaison client, send data up to now
             thisSession.sendExperimentData()
     # completed 5.0 repeats of 'trials_2'
-    
+######################################################
+######################################################
+        target_displayed3 = pyrandom.choice(target_list3)
+        if target_displayed3 == targets3[-1]:
+            target_displayed3 = pyrandom.choice(target_list3)
+        targets3.append(target_displayed3)
+        thisExp.addData("Second Routine Target", target_displayed3[2])
+###Run Second_Routine###
+        # --- Prepare to start Routine "Second_Routine" ---
+        continueRoutine = True
+        # update component parameters for each repeat
+        thisExp.addData('Second_Routine.started', globalClock.getTime(format='float'))
+        # keep track of which components have finished
+        #First_RoutineComponents = [crosshairs_x, crosshairs_y, crosshairs_dot, brush2, target_displayed]
+        Second_RoutineComponents = [crosshairs_dot3, brush3, target_displayed3[0], target_displayed3[1]]
+        for thisComponent in Second_RoutineComponents:
+            thisComponent.tStart = None
+            thisComponent.tStop = None
+            thisComponent.tStartRefresh = None
+            thisComponent.tStopRefresh = None
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        # reset timers
+        t = 0
+        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+        frameN = -1
+        clicked3 = False
+        # --- Run Routine "Second_Routine ---
+        routineForceEnded = not continueRoutine
+        while continueRoutine:
+            # get current time
+            t = routineTimer.getTime()
+            tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            ###################################################################
+            ####################################################################
+        
+            if crosshairs_dot3.status == NOT_STARTED:
+                crosshairs_dot3.status = STARTED
+                
+            if crosshairs_dot3.status == STARTED:
+                crosshairs_dot3.setAutoDraw(True)
+            
+            if target_displayed3[0].status == NOT_STARTED: 
+                target_displayed3[0].status = STARTED
+                
+            if target_displayed3[0].status == STARTED:
+                target_displayed3[0].setAutoDraw(True)
+                
+            if target_displayed3[1].status == NOT_STARTED: 
+                target_displayed3[1].status = STARTED
+                
+            if target_displayed3[1].status == STARTED:
+                target_displayed3[1].setAutoDraw(True)
+        
+            if brush3.status == NOT_STARTED:
+                brush3.status = STARTED
+            
+            if brush3.status == STARTED:
+                brush3.setAutoDraw(True)
+                brush_points3.append(mouse.getPos())
+                thisExp.addData("Brush List - Second Routine", brush_points3)
+                brush_points_x3.append(mouse.getPos()[0])
+                brush_points_y3.append(mouse.getPos()[1])
+                thisExp.addData("Brush X Pos - Second Routine", brush_points_x3)
+                thisExp.addData("Brush Y Pos - Second Routine", brush_points_y3)
+                if mouse.getPressed()[0] == 1:
+                    clicked3 = True
+                if clicked3 == True and mouse.getPressed()[0] == 0:
+                    brush3.status = FINISHED
+                    brush3.reset()
+                    continueRoutine = False
+                    win.flip()
+            
+        ####################################################################
+        ####################################################################
+            # check for quit (typically the Esc key)
+            if defaultKeyboard.getKeys(keyList=["escape"]):
+                thisExp.status = FINISHED
+            if thisExp.status == FINISHED or endExpNow:
+                endExperiment(thisExp, win=win)
+                return
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                routineForceEnded = True
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in Second_RoutineComponents:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # --- Ending Routine "Second_Routine" ---
+        for thisComponent in Second_RoutineComponents:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        thisExp.addData('Second_Routine.stopped', globalClock.getTime(format='float'))
+        # the Routine "Second_Routine" was not non-slip safe, so reset the non-slip timer
+        routineTimer.reset()
+        thisExp.nextEntry()
+        
+        if thisSession is not None:
+            # if running in a Session with a Liaison client, send data up to now
+            thisSession.sendExperimentData()
+    # completed 5.0 repeats of 'trials_2'
     
     # mark experiment as finished
     endExperiment(thisExp, win=win)
