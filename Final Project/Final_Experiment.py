@@ -918,6 +918,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     brush_points_x = []
     brush_points_y = []
     
+    brush_points2 = []
+    brush_points_x2 = []
+    brush_points_y2 = []
+    
     targets = [0]
     
     targets2 = [0]
@@ -1362,6 +1366,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if target_displayed2 == targets2[-1]:
             target_displayed2 = pyrandom.choice(target_list2)
         targets2.append(target_displayed2)
+        thisExp.addData("First Routine Target", target_displayed2[2])
         # --- Prepare to start Routine "First_Routine" ---
         continueRoutine = True
         # update component parameters for each repeat
@@ -1416,6 +1421,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             if brush2.status == STARTED:
                 brush2.setAutoDraw(True)
+                brush_points2.append(mouse.getPos())
+                thisExp.addData("Brush List - First Routine", brush_points2)
+                brush_points_x2.append(mouse.getPos()[0])
+                brush_points_y2.append(mouse.getPos()[1])
+                thisExp.addData("Brush X Pos - First Routine", brush_points_x2)
+                thisExp.addData("Brush Y Pos - First Routine", brush_points_y2)
                 if mouse.getPressed()[0] == 1:
                     clicked2 = True
                 if clicked2 == True and mouse.getPressed()[0] == 0:
