@@ -758,7 +758,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     instructions_press_key = visual.TextBox2(win=win, pos=(0,-0.1), color =[-1, 1, 1],  text = 'PRESS ANY KEY TO CONTINUE')
     key_resp = keyboard.Keyboard(deviceName='key_resp')
-    # --- Initialize components for Routine "Training_Routine" ---
+  
+  # --- Initialize components for Routine "Training_Routine" ---
     targ_top_right = visual.ShapeStim(
         win=win, name='targ_top_right',
         size=(0.2, 0.2), vertices='circle',
@@ -902,7 +903,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, 0), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-6.0, interpolate=True)
+    
+    ##Initialize text to tell participant to do a single motion if they are taking too long to draw line
+    too_long = visual.TextBox2(win, text = 'Perform a single, fast motion from the center to the target', pos = (0, -0.15))
         
+    ######## Initialize brushTimer ###########
+    brushTimer = core.Clock()
+    brushTimeDiff = 2.5
+    
+    
     brush = Brush(win, lineWidth=3, lineColor=[1, 1, 1])
     
     brush_points = []
@@ -920,8 +929,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     ########################################################################
     ########################################################################
     # --- Initialize components for Routine "First_Routine" ---
-    ##Initialize text to tell participant to do a single motion if they are taking too long to draw line
-    too_long = visual.TextBox2(win, text = 'Perform a single, fast motion from the center to the target', pos = (0, -0.15))
+
     brush2 = Brush2(win, lineWidth=3, lineColor=[1, 1, 1,])
     
     targ_top_right2 = visual.ShapeStim(
@@ -1211,9 +1219,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         clicked = False
         # --- Run Routine "Training_Routine" ---
         routineForceEnded = not continueRoutine
-        ######## Initialize brushTimer ###########
-        brushTimer = core.Clock()
-        brushTimeDiff = 2.5
+
         start_time = brushTimer.getTime()
         while continueRoutine:
             # get current time
