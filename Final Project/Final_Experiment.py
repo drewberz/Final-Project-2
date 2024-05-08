@@ -1109,17 +1109,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     brush = Brush(win, lineWidth=3, lineColor=[1, 1, 1])
     
-    brush_points = []
-    brush_points_x = []
-    brush_points_y = []
     
-    brush_points2 = []
-    brush_points_x2 = []
-    brush_points_y2 = []
     
-    brush_points3 = []
-    brush_points_x3 = []
-    brush_points_y3 = []
+    
+    
+    
     
     targets = [0]
     
@@ -1574,7 +1568,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         clicked = False
         # --- Run Routine "Training_Routine" ---
         routineForceEnded = not continueRoutine
-
+        
+        brush_points = []
+        brush_points_x = []
+        brush_points_y = []
+        
         while continueRoutine:
             # get current time
             t = routineTimer.getTime()
@@ -1623,22 +1621,22 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             if brush.status == STARTED:
                 brush.setAutoDraw(True)
-                brush_points.append(mouse.getPos())
-                thisExp.addData("Brush List", brush_points)
-                brush_points_x.append(mouse.getPos()[0])
-                brush_points_y.append(mouse.getPos()[1])
-                thisExp.addData("Brush X Pos", brush_points_x)
-                thisExp.addData("Brush Y Pos", brush_points_y)
                 if mouse.getPressed()[0] == 1:
                     clicked = True
                     t_swipe1 = brushTimer.getTime()
-                    print(t_swipe1)
+                    #print(t_swipe1)
                     too_long.setAutoDraw(False)
                     too_long.status == NOT_STARTED
+                    brush_points.append(mouse.getPos())
+                    thisExp.addData("Brush List", brush_points)
+                    brush_points_x.append(mouse.getPos()[0])
+                    brush_points_y.append(mouse.getPos()[1])
+                    thisExp.addData("Brush X Pos", brush_points_x)
+                    thisExp.addData("Brush Y Pos", brush_points_y)
                 if clicked == True and mouse.getPressed()[0] == 0:
                     brush.status = FINISHED
                     t_swipe2 = brushTimer.getTime()
-                    print(t_swipe2)
+                    #print(t_swipe2)
                     brush_end = mouse.getPos()
                     thisExp.addData("Brush Position", brush_end)
                     if t_swipe2 - t_swipe1 > brushTimeDiff:
@@ -1743,6 +1741,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         clicked2 = False
         # --- Run Routine "First_Routine ---
         routineForceEnded = not continueRoutine
+        
+        brush_points2 = []
+        brush_points_x2 = []
+        brush_points_y2 = []
+        
         while continueRoutine:
             # get current time
             t = routineTimer.getTime()
@@ -1776,14 +1779,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             if brush2.status == STARTED:
                 brush2.setAutoDraw(True)
-                brush_points2.append(mouse.getPos())
-                thisExp.addData("Brush List - First Routine", brush_points2)
-                brush_points_x2.append(mouse.getPos()[0])
-                brush_points_y2.append(mouse.getPos()[1])
-                thisExp.addData("Brush X Pos - First Routine", brush_points_x2)
-                thisExp.addData("Brush Y Pos - First Routine", brush_points_y2)
+                
                 if mouse.getPressed()[0] == 1:
                     clicked2 = True
+                    brush_points2.append(mouse.getPos())
+                    thisExp.addData("Brush List - First", brush_points2)
+                    brush_points_x2.append(mouse.getPos()[0])
+                    brush_points_y2.append(mouse.getPos()[1])
+                    thisExp.addData("Brush X Pos - First", brush_points_x2)
+                    thisExp.addData("Brush Y Pos - First", brush_points_y2)
                 if clicked2 == True and mouse.getPressed()[0] == 0:
                     brush2.status = FINISHED
                     brush2.reset()
@@ -1883,6 +1887,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         clicked3 = False
         # --- Run Routine "Second_Routine ---
         routineForceEnded = not continueRoutine
+        
+        brush_points3 = []
+        brush_points_x3 = []
+        brush_points_y3 = []
+        
         while continueRoutine:
             # get current time
             t = routineTimer.getTime()
@@ -1916,14 +1925,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             if brush3.status == STARTED:
                 brush3.setAutoDraw(True)
-                brush_points3.append(mouse.getPos())
-                thisExp.addData("Brush List - Second Routine", brush_points3)
-                brush_points_x3.append(mouse.getPos()[0])
-                brush_points_y3.append(mouse.getPos()[1])
-                thisExp.addData("Brush X Pos - Second Routine", brush_points_x3)
-                thisExp.addData("Brush Y Pos - Second Routine", brush_points_y3)
+                
                 if mouse.getPressed()[0] == 1:
                     clicked3 = True
+                    brush_points3.append(mouse.getPos())
+                    thisExp.addData("Brush List - Second", brush_points3)
+                    brush_points_x3.append(mouse.getPos()[0])
+                    brush_points_y3.append(mouse.getPos()[1])
+                    thisExp.addData("Brush X Pos - Second", brush_points_x3)
+                    thisExp.addData("Brush Y Pos - Second", brush_points_y3)
                 if clicked3 == True and mouse.getPressed()[0] == 0:
                     brush3.status = FINISHED
                     brush3.reset()
