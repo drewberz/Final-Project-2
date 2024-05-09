@@ -1102,12 +1102,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     ##Initialize text to tell participant to do a single motion if they are taking too long to draw line
     too_long = visual.TextBox2(win, text = 'Perform a single, fast motion from the center to the target', pos = (0, -0.15))
         
-    ######## Initialize brushTimer and error_counter ###########
+    ######## Initialize brushTimer ###########
     brushTimer = core.Clock()
     brushTimeDiff = 2.5
-    
-    error_counter = 0
-    error_b = False
     
     
     brush = Brush(win, lineWidth=3, lineColor=[1, 1, 1])
@@ -1577,21 +1574,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         brush_points_y = []
         
         while continueRoutine:
-            if error_counter > 2 and error_b == False:
-                print('too many errors, restart')
-                error_b = True
-                thisExp.abort()  # or data files will save again on exit
-                if win is not None:
-                    win.flip()
-                    win.close()
-    # shut down eyetracker, if there is one
-                if deviceManager.getDevice('eyetracker') is not None:
-                    deviceManager.removeDevice('eyetracker')
-                logging.flush()
-                if thisSession is not None:
-                    thisSession.stop()
-                core.quit()
-
             # get current time
             t = routineTimer.getTime()
             tThisFlip = win.getFutureFlipTime(clock=routineTimer)
@@ -1659,7 +1641,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     if t_swipe2 - t_swipe1 > brushTimeDiff:
                         too_long.status = STARTED
                         print('too long')
-                        error_counter += 1
                         brush.reset()
                         continueRoutine = False
                     else:
