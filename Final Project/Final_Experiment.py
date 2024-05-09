@@ -1617,16 +1617,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if brush.status == NOT_STARTED:
                 brush.status = STARTED
             
-            brushTimer.reset()
-            
             if brush.status == STARTED:
                 brush.setAutoDraw(True)
                 if mouse.getPressed()[0] == 1:
+                    if clicked == False: 
+                        t_swipe1 = brushTimer.getTime()
+                        print('first', t_swipe1)
+                        too_long.setAutoDraw(False)
+                        too_long.status == NOT_STARTED
                     clicked = True
-                    t_swipe1 = brushTimer.getTime()
-                    #print(t_swipe1)
-                    too_long.setAutoDraw(False)
-                    too_long.status == NOT_STARTED
                     brush_points.append(mouse.getPos())
                     thisExp.addData("Brush List", brush_points)
                     brush_points_x.append(mouse.getPos()[0])
@@ -1636,13 +1635,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 if clicked == True and mouse.getPressed()[0] == 0:
                     brush.status = FINISHED
                     t_swipe2 = brushTimer.getTime()
-                    #print(t_swipe2)
+                    print('second', t_swipe2)
                     brush_end = mouse.getPos()
                     thisExp.addData("Brush Position", brush_end)
                     if t_swipe2 - t_swipe1 > brushTimeDiff:
                         too_long.status = STARTED
+                        print('too long')
                         brush.reset()
-                        continueRoutine = False #changed from False to True ###not working when True
+                        continueRoutine = False
                     else:
                         brushTimer.reset()
                         win.flip()
