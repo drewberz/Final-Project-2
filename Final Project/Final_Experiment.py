@@ -949,19 +949,20 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     key_resp = keyboard.Keyboard(deviceName='key_resp')
   
   # --- Initialize components for Routine "Training_Routine" ---
+  #Creating targets, shape in center of target, and storing position of target
     targ_top_right = visual.ShapeStim(
         win=win, name='targ_top_right',
         size=(0.2, 0.2), vertices='circle',
         ori=0.0, pos=(0.3, 0.3), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
-        opacity=None, depth=0.0, interpolate=True)
+        opacity=None, depth=-1.0, interpolate=True)
     targ_top_right_pos = (0.3, 0.3)
     center_top_right = visual.ShapeStim(
         win=win, name='center_top_right',
         size=(0.02, 0.02), vertices='circle',
         ori=0.0, pos=(0.3, 0.3), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
-        opacity=None, depth=0.0, interpolate=True)
+        opacity=None, depth=-1.0, interpolate=True)
     targ_mid_right = visual.ShapeStim(
         win=win, name='targ_mid_right',
         size=(0.2, 0.2), vertices='circle',
@@ -1054,7 +1055,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
         opacity=None, depth=-6.0, interpolate=True)
         
-    #creating list of targets
+    #creating list of targets containing list of the target, the shape in center of target, and position of target
     target_list = [(targ_top_right, center_top_right, targ_top_right_pos), 
     (targ_mid_right, center_mid_right, targ_mid_right_pos),
     (targ_bot_right, center_bot_right, targ_bot_right_pos),
@@ -1064,23 +1065,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     (targ_mid_left, center_mid_left, targ_mid_left_pos), 
     (targ_bot_left, center_bot_left, targ_bot_left_pos)]
     
-    test = visual.TextBox2(win, text = 'next routine')
-    crosshairs_x = visual.shape.ShapeStim(
-    win, units='', colorSpace='rgb', fillColor=False, 
-    lineColor=([1, 1, 1]), lineWidth=3.5, vertices=((-0.05, 0), (0.05, 0)), 
-    windingRule=None, closeShape=False, pos=(0, 0), size=1, anchor=None, 
-    ori=0.0, opacity=1.0, contrast=1.0, depth=0, interpolate=True, 
-    draggable=False, name=None, autoLog=None, autoDraw=False, color=False, 
-    lineRGB=False, fillRGB=False, fillColorSpace=None, lineColorSpace=None)
-    
-    crosshairs_y = visual.shape.ShapeStim(
-    win, units='', colorSpace='rgb', fillColor=False, 
-    lineColor=([1, 1, 1]), lineWidth=3.5, vertices=((0, -0.05), (0, 0.05)), 
-    windingRule=None, closeShape=False, pos=(0, 0), size=1, anchor=None, 
-    ori=0.0, opacity=1.0, contrast=1.0, depth=0, interpolate=True, 
-    draggable=False, name=None, autoLog=None, autoDraw=False, color=False, 
-    lineRGB=False, fillRGB=False, fillColorSpace=None, lineColorSpace=None)
-    
+    #creating shape to mark center of frame where brush-stroke should start
     crosshairs_dot = visual.shape.ShapeStim(win,
         size=(0.03, 0.03), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
@@ -1106,44 +1091,37 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     brushTimer = core.Clock()
     brushTimeDiff = 2.5
     
-    
+    #initialize brush that draws where mouse is and mouse object
     brush = Brush(win, lineWidth=3, lineColor=[1, 1, 1])
     
-    
-    
-    
-    
-    
-    
+    mouse = event.Mouse()
+    #initialize lists to store locations of targets displayed in experiment
     targets = [0]
     
     targets2 = [0]
     
     targets3 = [0]
     
-    #test = visual.TextBox2(win, text = 'next routine')
-    
-    mouse = event.Mouse()
-    mouse2 = event.Mouse()
     ########################################################################
     ########################################################################
     # --- Initialize components for Routine "First_Routine" ---
-
+    #Initialize brush draws offset from mouse
     brush2 = Brush2(win, lineWidth=3, lineColor=[1, 1, 1,])
     
+    #same targets as above but named differently to work in code
     targ_top_right2 = visual.ShapeStim(
         win=win, name='targ_top_right',
         size=(0.2, 0.2), vertices='circle',
         ori=0.0, pos=(0.3, 0.3), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
-        opacity=None, depth=0.0, interpolate=True)
+        opacity=None, depth=-1.0, interpolate=True)
     targ_top_right_pos2 = (0.3, 0.3)
     center_top_right2 = visual.ShapeStim(
         win=win, name='center_top_right',
         size=(0.02, 0.02), vertices='circle',
         ori=0.0, pos=(0.3, 0.3), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
-        opacity=None, depth=0.0, interpolate=True)
+        opacity=None, depth=-1.0, interpolate=True)
     targ_mid_right2 = visual.ShapeStim(
         win=win, name='targ_mid_right',
         size=(0.2, 0.2), vertices='circle',
@@ -1277,9 +1255,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
 ############ INITIALIZE Second_Routine ##################
 #########################################################
    # --- Initialize components for Routine "First_Routine" ---
-
+    #initialize brush that draws offset from mouse, different offset that Brush2
     brush3 = Brush3(win, lineWidth=3, lineColor=[1, 1, 1,])
     
+    #same targets as above but named differently to work in experiment
     targ_top_right3 = visual.ShapeStim(
         win=win, name='targ_top_right',
         size=(0.2, 0.2), vertices='circle',
@@ -1454,14 +1433,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ####################################################################
         if instructions.status == NOT_STARTED:
             instructions.status = STARTED
-            instructions.setAutoDraw(True)
+            instructions.setAutoDraw(True) #instructions are drawn every frame after this component has started
         
         if instructions.status == STARTED:
             pass
         
         if instructions_para.status == NOT_STARTED:
             instructions_para.status = STARTED
-            instructions_para.setAutoDraw(True)
+            instructions_para.setAutoDraw(True) #instructions_para are drawn every frame after this component has started
         
         if instructions_para.status == STARTED:
             pass
@@ -1469,7 +1448,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
         if instructions_press_key.status == NOT_STARTED:
             instructions_press_key.status = STARTED
-            instructions_press_key.setAutoDraw(True)
+            instructions_press_key.setAutoDraw(True) #instructions_press_key are drawn every frame after this component has started
         
         if instructions_press_key.status == STARTED:
             pass
@@ -1478,8 +1457,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             key_resp.status = STARTED
         
         if key_resp.status == STARTED:
-            keypress = key_resp.getKeys(keyList=None, ignoreKeys = ['escape'])
-            if len(keypress) > 0:
+            keypress = key_resp.getKeys(keyList=None, ignoreKeys = ['escape']) #creates a list of keys that have been pressed and ignores escape as that will end experiment
+            if len(keypress) > 0: #if any key is pressed, there will be an element in the list and it will move on to the next routine
                 continueRoutine = False
         ####################################################################
         ####################################################################
@@ -1543,10 +1522,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ##########################################################
         #iterate through list of targets randomly
         target_displayed = pyrandom.choice(target_list)
-        if target_displayed == targets[-1]:
-            target_displayed = pyrandom.choice(target_list)
-        targets.append(target_displayed)
-        thisExp.addData("Training Target", target_displayed[2])##########here
+        if target_displayed == targets[-1]: #check the target randomly pulled against last target pulled, if it is the same it will pull a new target
+            target_displayed = pyrandom.choice(target_list)# ensures that the same target isn't shown twice in a row
+        targets.append(target_displayed) #keeps track of all targets displayed in experiment
+        thisExp.addData("Targets", target_displayed[2])#logs the position of the target displayed in csv output
         ##########################################################
         # --- Prepare to start Routine "Training_Routine" ---
         continueRoutine = True
@@ -1569,6 +1548,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # --- Run Routine "Training_Routine" ---
         routineForceEnded = not continueRoutine
         
+        #initialize lists to keep track of position of brush when it is drawing
         brush_points = []
         brush_points_x = []
         brush_points_y = []
@@ -1583,16 +1563,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             ####################################################################
             ####################################################################
             
-            #if crosshairs_x.status == NOT_STARTED:
-                #crosshairs_x.status = STARTED
-                
-            #if crosshairs_x.status == STARTED:
-                #crosshairs_x.setAutoDraw(True)
-        
-            #if crosshairs_y.status == NOT_STARTED:
-                #crosshairs_y.status = STARTED
-            #if crosshairs_y.status == STARTED:
-                #crosshairs_y.setAutoDraw(True)
             if too_long.status == STARTED:
                 too_long.setAutoDraw(True)
                 
@@ -1600,44 +1570,44 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 crosshairs_dot.status = STARTED
                 
             if crosshairs_dot.status == STARTED:
-                crosshairs_dot.setAutoDraw(True)
+                crosshairs_dot.setAutoDraw(True) #draws center circle
             
             if target_displayed[0].status == NOT_STARTED: 
                 target_displayed[0].status = STARTED
                 
             if target_displayed[0].status == STARTED:
-                target_displayed[0].setAutoDraw(True)
+                target_displayed[0].setAutoDraw(True) #draws blue circle
                 
             if target_displayed[1].status == NOT_STARTED: 
                 target_displayed[1].status = STARTED
                 
             if target_displayed[1].status == STARTED:
-                target_displayed[1].setAutoDraw(True)
+                target_displayed[1].setAutoDraw(True) #draws black circle in center of blue
                 
             if brush.status == NOT_STARTED:
                 brush.status = STARTED
             
             if brush.status == STARTED:
                 brush.setAutoDraw(True)
-                if mouse.getPressed()[0] == 1:
+                if mouse.getPressed()[0] == 1: #if the mouse is being clicked
                     if clicked == False: 
-                        t_swipe1 = brushTimer.getTime()
+                        t_swipe1 = brushTimer.getTime() #stores time of click
                         print('first', t_swipe1)
                         too_long.setAutoDraw(False)
                         too_long.status == NOT_STARTED
-                    clicked = True
-                    brush_points.append(mouse.getPos())
-                    thisExp.addData("Brush List", brush_points)
-                    brush_points_x.append(mouse.getPos()[0])
-                    brush_points_y.append(mouse.getPos()[1])
-                    thisExp.addData("Brush X Pos", brush_points_x)
-                    thisExp.addData("Brush Y Pos", brush_points_y)
-                if clicked == True and mouse.getPressed()[0] == 0:
+                    clicked = True #is true after mouse is pressed for the first time each trial
+                    brush_points.append(mouse.getPos()) #adds x and y positions of brush to brush_points
+                    thisExp.addData("Brush List", brush_points) #logs brush_points in data file
+                    brush_points_x.append(mouse.getPos()[0]) # adds x position of brush to brush_points_x
+                    brush_points_y.append(mouse.getPos()[1])# adds y position of brush to brush_points_y
+                    thisExp.addData("Brush X Pos", brush_points_x)#logs brush_points_x in data file
+                    thisExp.addData("Brush Y Pos", brush_points_y)#logs brush_points_y in data file
+                if clicked == True and mouse.getPressed()[0] == 0: #if the mouse has been pressed once and is not currently pressed
                     brush.status = FINISHED
-                    t_swipe2 = brushTimer.getTime()
+                    t_swipe2 = brushTimer.getTime() #stores time that brush ends
                     print('second', t_swipe2)
-                    brush_end = mouse.getPos()
-                    thisExp.addData("Brush Position", brush_end)
+                    brush_end = mouse.getPos() #stores last position of brush
+                    thisExp.addData("Brush Position", brush_end) #logs last position of brush in data file
                     if t_swipe2 - t_swipe1 > brushTimeDiff:
                         too_long.status = STARTED
                         print('too long')
@@ -1719,7 +1689,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if target_displayed2 == targets2[-1]:
             target_displayed2 = pyrandom.choice(target_list2)
         targets2.append(target_displayed2)
-        thisExp.addData("First Routine Target", target_displayed2[2])
+        thisExp.addData("Targets", target_displayed2[2])
         # --- Prepare to start Routine "First_Routine" ---
         continueRoutine = True
         # update component parameters for each repeat
@@ -1740,6 +1710,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         frameN = -1
         clicked2 = False
         # --- Run Routine "First_Routine ---
+        ##SAME AS TRAINING ROUTINE BUT WITH BRUSH2 AND NO FEEDBACK IF TOO LONG
         routineForceEnded = not continueRoutine
         
         brush_points2 = []
@@ -1783,11 +1754,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 if mouse.getPressed()[0] == 1:
                     clicked2 = True
                     brush_points2.append(mouse.getPos())
-                    thisExp.addData("Brush List - First", brush_points2)
+                    thisExp.addData("Brush List", brush_points2)
                     brush_points_x2.append(mouse.getPos()[0])
                     brush_points_y2.append(mouse.getPos()[1])
-                    thisExp.addData("Brush X Pos - First", brush_points_x2)
-                    thisExp.addData("Brush Y Pos - First", brush_points_y2)
+                    thisExp.addData("Brush X Pos", brush_points_x2)
+                    thisExp.addData("Brush Y Pos", brush_points_y2)
                 if clicked2 == True and mouse.getPressed()[0] == 0:
                     brush2.status = FINISHED
                     brush2.reset()
@@ -1864,7 +1835,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if target_displayed3 == targets3[-1]:
             target_displayed3 = pyrandom.choice(target_list3)
         targets3.append(target_displayed3)
-        thisExp.addData("Second Routine Target", target_displayed3[2])
+        thisExp.addData("Targets", target_displayed3[2])
 ###Run Second_Routine###
         # --- Prepare to start Routine "Second_Routine" ---
         continueRoutine = True
@@ -1887,7 +1858,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         clicked3 = False
         # --- Run Routine "Second_Routine ---
         routineForceEnded = not continueRoutine
-        
+        ##SAME AS FIRST ROUTINE BUT WITH BRUSH3
         brush_points3 = []
         brush_points_x3 = []
         brush_points_y3 = []
@@ -1929,11 +1900,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 if mouse.getPressed()[0] == 1:
                     clicked3 = True
                     brush_points3.append(mouse.getPos())
-                    thisExp.addData("Brush List - Second", brush_points3)
+                    thisExp.addData("Brush List", brush_points3)
                     brush_points_x3.append(mouse.getPos()[0])
                     brush_points_y3.append(mouse.getPos()[1])
-                    thisExp.addData("Brush X Pos - Second", brush_points_x3)
-                    thisExp.addData("Brush Y Pos - Second", brush_points_y3)
+                    thisExp.addData("Brush X Pos", brush_points_x3)
+                    thisExp.addData("Brush Y Pos", brush_points_y3)
                 if clicked3 == True and mouse.getPressed()[0] == 0:
                     brush3.status = FINISHED
                     brush3.reset()
