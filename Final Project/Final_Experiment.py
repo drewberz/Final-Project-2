@@ -1087,9 +1087,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     ##Initialize text to tell participant to do a single motion if they are taking too long to draw line
     too_long = visual.TextBox2(win, text = 'Perform a single, fast motion from the center to the target', pos = (0, -0.15))
         
-    ######## Initialize brushTimer ###########
+    ######## Initialize brushTimer and error_counter###########
     brushTimer = core.Clock()
     brushTimeDiff = 2.5
+    #need to re=add error_counter
     
     #initialize brush that draws where mouse is and mouse object
     brush = Brush(win, lineWidth=3, lineColor=[1, 1, 1])
@@ -1545,6 +1546,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         _timeToFirstFrame = win.getFutureFlipTime(clock="now")
         frameN = -1
         clicked = False
+        hit_target = False
         # --- Run Routine "Training_Routine" ---
         routineForceEnded = not continueRoutine
         
@@ -1592,10 +1594,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 if mouse.getPressed()[0] == 1: #if the mouse is being clicked
                     if clicked == False: 
                         t_swipe1 = brushTimer.getTime() #stores time of click
-                        print('first', t_swipe1)
                         too_long.setAutoDraw(False)
                         too_long.status == NOT_STARTED
                     clicked = True #is true after mouse is pressed for the first time each trial
+                    if mouse.isPressedIn(target_displayed[0]):
+                        hit_target = True
+                        print('hitting target')
                     brush_points.append(mouse.getPos()) #adds x and y positions of brush to brush_points
                     thisExp.addData("Brush List", brush_points) #logs brush_points in data file
                     brush_points_x.append(mouse.getPos()[0]) # adds x position of brush to brush_points_x
@@ -1605,9 +1609,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 if clicked == True and mouse.getPressed()[0] == 0: #if the mouse has been pressed once and is not currently pressed
                     brush.status = FINISHED
                     t_swipe2 = brushTimer.getTime() #stores time that brush ends
-                    print('second', t_swipe2)
                     brush_end = mouse.getPos() #stores last position of brush
                     thisExp.addData("Brush Position", brush_end) #logs last position of brush in data file
+                    if hit_target == False:
+                        print('error: did not hit target')
                     if t_swipe2 - t_swipe1 > brushTimeDiff:
                         too_long.status = STARTED
                         print('too long')
