@@ -772,7 +772,7 @@ def setupWindow(expInfo=None, win=None):
         win = visual.Window(
             size=(1024, 768), fullscr=_fullScr, screen=0,
             winType='pyglet', allowStencil=False,
-            monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
+            monitor='testMonitor', color=[-1,-1,-1], colorSpace='rgb',
             backgroundImage='', backgroundFit='none',
             blendMode='avg', useFBO=True,
             units='height', 
@@ -780,7 +780,7 @@ def setupWindow(expInfo=None, win=None):
         )
     else:
         # if we have a window, just set the attributes which are safe to set
-        win.color = [0,0,0]
+        win.color = [-1,-1,-1]
         win.colorSpace = 'rgb'
         win.backgroundImage = ''
         win.backgroundFit = 'none'
@@ -795,7 +795,6 @@ def setupWindow(expInfo=None, win=None):
     # show a visual indicator if we're in piloting mode
     if PILOTING and prefs.piloting['showPilotingIndicator']:
         win.showPilotingIndicator()
-    
     return win
 
 
@@ -891,7 +890,6 @@ def pauseExperiment(thisExp, win=None, timers=[], playbackComponents=[]):
     for timer in timers:
         timer.reset()
 
-
 def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     """
     Run the experiment flow.
@@ -952,107 +950,107 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
   #Creating targets, shape in center of target, and storing position of target
     targ_top_right = visual.ShapeStim(
         win=win, name='targ_top_right',
-        size=(0.2, 0.2), vertices='circle',
+        size=(0.1, 0.1), vertices='circle',
         ori=0.0, pos=(0.3, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-1.0, interpolate=True)
     targ_top_right_pos = (0.3, 0.3)
     center_top_right = visual.ShapeStim(
         win=win, name='center_top_right',
         size=(0.02, 0.02), vertices='circle',
         ori=0.0, pos=(0.3, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-1.0, interpolate=True)
     targ_mid_right = visual.ShapeStim(
         win=win, name='targ_mid_right',
-        size=(0.2, 0.2), vertices='circle',
-        ori=0.0, pos=(0.3, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        size=(0.1, 0.1), vertices='circle',
+        ori=0.0, pos=(0.424, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-1.0, interpolate=True)
-    targ_mid_right_pos = (0.3, 0)
+    targ_mid_right_pos = (0.424, 0)
     center_mid_right = visual.ShapeStim(
         win=win, name='center_mid_right',
         size=(0.02, 0.02), vertices='circle',
-        ori=0.0, pos=(0.3, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        ori=0.0, pos=(0.424, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-1.0, interpolate=True)
     targ_bot_right = visual.ShapeStim(
         win=win, name='targ_bot_right',
-        size=(0.2, 0.2), vertices='circle',
+        size=(0.1, 0.1), vertices='circle',
         ori=0.0, pos=(0.3, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-7.0, interpolate=True)
     targ_bot_right_pos = (0.3, -0.3)
     center_bot_right = visual.ShapeStim(
         win=win, name='center_bot_right',
         size=(0.02, 0.02), vertices='circle',
         ori=0.0, pos=(0.3, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-7.0, interpolate=True)
     targ_bot_center = visual.ShapeStim(
         win=win, name='targ_bot_center',
-        size=(0.2, 0.2), vertices='circle',
-        ori=0.0, pos=(0, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        size=(0.1, 0.1), vertices='circle',
+        ori=0.0, pos=(0, -0.424), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-2.0, interpolate=True)
-    targ_bot_center_pos = (0, -0.3)
+    targ_bot_center_pos = (0, -0.424)
     center_bot_center = visual.ShapeStim(
         win=win, name='center_bot_center',
         size=(0.02, 0.02), vertices='circle',
-        ori=0.0, pos=(0, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        ori=0.0, pos=(0, -0.424), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-2.0, interpolate=True)
     targ_top_center = visual.ShapeStim(
         win=win, name='targ_top_center',
-        size=(0.2, 0.2), vertices='circle',
-        ori=0.0, pos=(0, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        size=(0.1, 0.1), vertices='circle',
+        ori=0.0, pos=(0, 0.424), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-3.0, interpolate=True)
-    targ_top_center_pos = (0, 0.3)
+    targ_top_center_pos = (0, 0.424)
     center_top_center = visual.ShapeStim(
         win=win, name='center_top_center',
         size=(0.02, 0.02), vertices='circle',
-        ori=0.0, pos=(0, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        ori=0.0, pos=(0, 0.424), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-3.0, interpolate=True)
     targ_top_left = visual.ShapeStim(
         win=win, name='targ_top_left',
-        size=(0.2, 0.2), vertices='circle',
+        size=(0.1, 0.1), vertices='circle',
         ori=0.0, pos=(-0.3, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-4.0, interpolate=True)
     targ_top_left_pos = (-0.3, 0.3)
     center_top_left = visual.ShapeStim(
         win=win, name='center_top_left',
         size=(0.02, 0.02), vertices='circle',
         ori=0.0, pos=(-0.3, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-4.0, interpolate=True)
     targ_mid_left = visual.ShapeStim(
         win=win, name='targ_mid_left',
-        size=(0.2, 0.2), vertices='circle',
-        ori=0.0, pos=(-0.3, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        size=(0.1, 0.1), vertices='circle',
+        ori=0.0, pos=(-0.424, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-5.0, interpolate=True)
-    targ_mid_left_pos = (-0.3, 0)
+    targ_mid_left_pos = (-0.424, 0)
     center_mid_left = visual.ShapeStim(
         win=win, name='targ_mid_left',
         size=(0.02, 0.02), vertices='circle',
-        ori=0.0, pos=(-0.3, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        ori=0.0, pos=(-0.424, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-5.0, interpolate=True)
     targ_bot_left = visual.ShapeStim(
         win=win, name='targ_bot_left',
-        size=(0.2, 0.2), vertices='circle',
+        size=(0.1, 0.1), vertices='circle',
         ori=0.0, pos=(-0.3, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-6.0, interpolate=True)
     targ_bot_left_pos = (-0.3, -0.3)
     center_bot_left = visual.ShapeStim(
         win=win, name='center_bot_left',
         size=(0.02, 0.02), vertices='circle',
         ori=0.0, pos=(-0.3, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-6.0, interpolate=True)
         
     #creating list of targets containing list of the target, the shape in center of target, and position of target
@@ -1111,107 +1109,107 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     #same targets as above but named differently to work in code
     targ_top_right2 = visual.ShapeStim(
         win=win, name='targ_top_right',
-        size=(0.2, 0.2), vertices='circle',
+        size=(0.1, 0.1), vertices='circle',
         ori=0.0, pos=(0.3, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-1.0, interpolate=True)
     targ_top_right_pos2 = (0.3, 0.3)
     center_top_right2 = visual.ShapeStim(
         win=win, name='center_top_right',
         size=(0.02, 0.02), vertices='circle',
         ori=0.0, pos=(0.3, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-1.0, interpolate=True)
     targ_mid_right2 = visual.ShapeStim(
         win=win, name='targ_mid_right',
-        size=(0.2, 0.2), vertices='circle',
-        ori=0.0, pos=(0.3, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        size=(0.1, 0.1), vertices='circle',
+        ori=0.0, pos=(0.424, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-1.0, interpolate=True)
-    targ_mid_right_pos2 = (0.3, 0)
+    targ_mid_right_pos2 = (0.424, 0)
     center_mid_right2 = visual.ShapeStim(
         win=win, name='center_mid_right',
         size=(0.02, 0.02), vertices='circle',
-        ori=0.0, pos=(0.3, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        ori=0.0, pos=(0.424, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-1.0, interpolate=True)
     targ_bot_right2 = visual.ShapeStim(
         win=win, name='targ_bot_right',
-        size=(0.2, 0.2), vertices='circle',
+        size=(0.1, 0.1), vertices='circle',
         ori=0.0, pos=(0.3, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-7.0, interpolate=True)
     targ_bot_right_pos2 = (0.3, -0.3)
     center_bot_right2 = visual.ShapeStim(
         win=win, name='center_bot_right',
         size=(0.02, 0.02), vertices='circle',
         ori=0.0, pos=(0.3, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-7.0, interpolate=True)
     targ_bot_center2 = visual.ShapeStim(
         win=win, name='targ_bot_center',
-        size=(0.2, 0.2), vertices='circle',
-        ori=0.0, pos=(0, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        size=(0.1, 0.1), vertices='circle',
+        ori=0.0, pos=(0, -0.424), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-2.0, interpolate=True)
-    targ_bot_center_pos2 = (0, -0.3)
+    targ_bot_center_pos2 = (0, -0.424)
     center_bot_center2 = visual.ShapeStim(
         win=win, name='center_bot_center',
         size=(0.02, 0.02), vertices='circle',
-        ori=0.0, pos=(0, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        ori=0.0, pos=(0, -0.424), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-2.0, interpolate=True)
     targ_top_center2 = visual.ShapeStim(
         win=win, name='targ_top_center',
-        size=(0.2, 0.2), vertices='circle',
-        ori=0.0, pos=(0, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        size=(0.1, 0.1), vertices='circle',
+        ori=0.0, pos=(0, 0.424), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-3.0, interpolate=True)
-    targ_top_center_pos2 = (0, 0.3)
+    targ_top_center_pos2 = (0, 0.424)
     center_top_center2 = visual.ShapeStim(
         win=win, name='center_top_center',
         size=(0.02, 0.02), vertices='circle',
-        ori=0.0, pos=(0, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        ori=0.0, pos=(0, 0.424), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-3.0, interpolate=True)
     targ_top_left2 = visual.ShapeStim(
         win=win, name='targ_top_left',
-        size=(0.2, 0.2), vertices='circle',
+        size=(0.1, 0.1), vertices='circle',
         ori=0.0, pos=(-0.3, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-4.0, interpolate=True)
     targ_top_left_pos2 = (-0.3, 0.3)
     center_top_left2 = visual.ShapeStim(
         win=win, name='center_top_left',
         size=(0.02, 0.02), vertices='circle',
         ori=0.0, pos=(-0.3, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-4.0, interpolate=True)
     targ_mid_left2 = visual.ShapeStim(
         win=win, name='targ_mid_left',
-        size=(0.2, 0.2), vertices='circle',
-        ori=0.0, pos=(-0.3, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        size=(0.1, 0.1), vertices='circle',
+        ori=0.0, pos=(-0.424, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-5.0, interpolate=True)
-    targ_mid_left_pos2 = (-0.3, 0)
+    targ_mid_left_pos2 = (-0.424, 0)
     center_mid_left2 = visual.ShapeStim(
         win=win, name='targ_mid_left',
         size=(0.02, 0.02), vertices='circle',
-        ori=0.0, pos=(-0.3, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        ori=0.0, pos=(-0.424, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-5.0, interpolate=True)
     targ_bot_left2 = visual.ShapeStim(
         win=win, name='targ_bot_left',
-        size=(0.2, 0.2), vertices='circle',
+        size=(0.1, 0.1), vertices='circle',
         ori=0.0, pos=(-0.3, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-6.0, interpolate=True)
     targ_bot_left_pos2 = (-0.3, -0.3)
     center_bot_left2 = visual.ShapeStim(
         win=win, name='center_bot_left',
         size=(0.02, 0.02), vertices='circle',
         ori=0.0, pos=(-0.3, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-6.0, interpolate=True)
         
     #creating list of targets to then be randomly called to appear for each trial
@@ -1261,109 +1259,109 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     #same targets as above but named differently to work in experiment
     targ_top_right3 = visual.ShapeStim(
         win=win, name='targ_top_right',
-        size=(0.2, 0.2), vertices='circle',
+        size=(0.1, 0.1), vertices='circle',
         ori=0.0, pos=(0.3, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
-        opacity=None, depth=0.0, interpolate=True)
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
+        opacity=None, depth=-1.0, interpolate=True)
     targ_top_right_pos3 = (0.3, 0.3)
     center_top_right3 = visual.ShapeStim(
         win=win, name='center_top_right',
         size=(0.02, 0.02), vertices='circle',
         ori=0.0, pos=(0.3, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
-        opacity=None, depth=0.0, interpolate=True)
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
+        opacity=None, depth=-1.0, interpolate=True)
     targ_mid_right3 = visual.ShapeStim(
         win=win, name='targ_mid_right',
-        size=(0.2, 0.2), vertices='circle',
-        ori=0.0, pos=(0.3, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        size=(0.1, 0.1), vertices='circle',
+        ori=0.0, pos=(0.424, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-1.0, interpolate=True)
-    targ_mid_right_pos3 = (0.3, 0)
+    targ_mid_right_pos3 = (0.424, 0)
     center_mid_right3 = visual.ShapeStim(
         win=win, name='center_mid_right',
         size=(0.02, 0.02), vertices='circle',
-        ori=0.0, pos=(0.3, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        ori=0.0, pos=(0.424, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-1.0, interpolate=True)
     targ_bot_right3 = visual.ShapeStim(
         win=win, name='targ_bot_right',
-        size=(0.2, 0.2), vertices='circle',
+        size=(0.1, 0.1), vertices='circle',
         ori=0.0, pos=(0.3, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-7.0, interpolate=True)
     targ_bot_right_pos3 = (0.3, -0.3)
     center_bot_right3 = visual.ShapeStim(
         win=win, name='center_bot_right',
         size=(0.02, 0.02), vertices='circle',
         ori=0.0, pos=(0.3, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-7.0, interpolate=True)
     targ_bot_center3 = visual.ShapeStim(
         win=win, name='targ_bot_center',
-        size=(0.2, 0.2), vertices='circle',
-        ori=0.0, pos=(0, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        size=(0.1, 0.1), vertices='circle',
+        ori=0.0, pos=(0, -0.424), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-2.0, interpolate=True)
-    targ_bot_center_pos3 = (0, -0.3)
+    targ_bot_center_pos3 = (0, -0.424)
     center_bot_center3 = visual.ShapeStim(
         win=win, name='center_bot_center',
         size=(0.02, 0.02), vertices='circle',
-        ori=0.0, pos=(0, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        ori=0.0, pos=(0, -0.424), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-2.0, interpolate=True)
     targ_top_center3 = visual.ShapeStim(
         win=win, name='targ_top_center',
-        size=(0.2, 0.2), vertices='circle',
-        ori=0.0, pos=(0, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        size=(0.1, 0.1), vertices='circle',
+        ori=0.0, pos=(0, 0.424), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-3.0, interpolate=True)
-    targ_top_center_pos3 = (0, 0.3)
+    targ_top_center_pos3 = (0, 0.424)
     center_top_center3 = visual.ShapeStim(
         win=win, name='center_top_center',
         size=(0.02, 0.02), vertices='circle',
-        ori=0.0, pos=(0, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        ori=0.0, pos=(0, 0.424), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-3.0, interpolate=True)
     targ_top_left3 = visual.ShapeStim(
         win=win, name='targ_top_left',
-        size=(0.2, 0.2), vertices='circle',
+        size=(0.1, 0.1), vertices='circle',
         ori=0.0, pos=(-0.3, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-4.0, interpolate=True)
     targ_top_left_pos3 = (-0.3, 0.3)
     center_top_left3 = visual.ShapeStim(
         win=win, name='center_top_left',
         size=(0.02, 0.02), vertices='circle',
         ori=0.0, pos=(-0.3, 0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-4.0, interpolate=True)
     targ_mid_left3 = visual.ShapeStim(
         win=win, name='targ_mid_left',
-        size=(0.2, 0.2), vertices='circle',
-        ori=0.0, pos=(-0.3, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        size=(0.1, 0.1), vertices='circle',
+        ori=0.0, pos=(-0.424, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-5.0, interpolate=True)
-    targ_mid_left_pos3 = (-0.3, 0)
+    targ_mid_left_pos3 = (-0.424, 0)
     center_mid_left3 = visual.ShapeStim(
         win=win, name='targ_mid_left',
         size=(0.02, 0.02), vertices='circle',
-        ori=0.0, pos=(-0.3, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        ori=0.0, pos=(-0.424, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-5.0, interpolate=True)
     targ_bot_left3 = visual.ShapeStim(
         win=win, name='targ_bot_left',
-        size=(0.2, 0.2), vertices='circle',
+        size=(0.1, 0.1), vertices='circle',
         ori=0.0, pos=(-0.3, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='blue',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='orange', fillColor='orange',
         opacity=None, depth=-6.0, interpolate=True)
     targ_bot_left_pos3 = (-0.3, -0.3)
     center_bot_left3 = visual.ShapeStim(
         win=win, name='center_bot_left',
         size=(0.02, 0.02), vertices='circle',
         ori=0.0, pos=(-0.3, -0.3), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-6.0, interpolate=True)
-        
+
     #creating list of targets to then be randomly called to appear for each trial
     target_list3 = [(targ_top_right3, center_top_right3, targ_top_right_pos3), 
     (targ_mid_right3, center_mid_right3, targ_mid_right_pos3),
@@ -1419,7 +1417,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     t = 0
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
     frameN = -1
-    
     # --- Run Routine "Instruct" ---
     routineForceEnded = not continueRoutine
     while continueRoutine:
@@ -1493,7 +1490,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     routineTimer.reset()
     
     # set up handler to look after randomisation of conditions etc
-    trials = data.TrialHandler(nReps=5.0, method='random', 
+    trials = data.TrialHandler(nReps=10.0, method='random', 
         extraInfo=expInfo, originPath=-1,
         trialList=[None],
         seed=None, name='trials')
@@ -1684,7 +1681,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     
     # set up handler to look after randomisation of conditions etc
-    trials_2 = data.TrialHandler(nReps=5.0, method='random', 
+    trials_2 = data.TrialHandler(nReps=20.0, method='random', 
         extraInfo=expInfo, originPath=-1,
         trialList=[None],
         seed=None, name='trials_2')
@@ -1833,7 +1830,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
 ######################################################
     
     # set up handler to look after randomisation of conditions etc
-    trials_3 = data.TrialHandler(nReps=5.0, method='random', 
+    trials_3 = data.TrialHandler(nReps=20.0, method='random', 
         extraInfo=expInfo, originPath=-1,
         trialList=[None],
         seed=None, name='trials_3')
