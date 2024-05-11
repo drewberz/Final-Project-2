@@ -1087,10 +1087,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     ##Initialize text to tell participant to do a single motion if they are taking too long to draw line
     too_long = visual.TextBox2(win, text = 'Perform a single, fast motion from the center to the target', pos = (0, -0.15))
         
-    ######## Initialize brushTimer and error_counter###########
+    ######## Initialize brushTimer###########
     brushTimer = core.Clock()
     brushTimeDiff = 2.5
-    #need to re=add error_counter
     
     #initialize brush that draws where mouse is and mouse object
     brush = Brush(win, lineWidth=3, lineColor=[1, 1, 1])
@@ -1545,8 +1544,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         t = 0
         _timeToFirstFrame = win.getFutureFlipTime(clock="now")
         frameN = -1
+        #initialize clicked before the training trials begin
         clicked = False
+        #initialize hit_target before the training trials begin
         hit_target = False
+        #Initialize error_counter before the training trials begin
+        #If 5 errors occur during the training routine, it will end the experiment
+        error_counter = 0
         # --- Run Routine "Training_Routine" ---
         routineForceEnded = not continueRoutine
         
@@ -1564,9 +1568,20 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update/draw components on each frame
             ####################################################################
             ####################################################################
-            
+            #If more than four errors occur during the training routine, it will end the experiment
+            if error_counter > 4:
+                print('too many errors, ending experiment')
+                thisExp.abort()  # or data files will save again on exit
+                if win is not None:
+                    win.flip()
+                    win.close()
+                logging.flush()
+                if thisSession is not None:
+                    thisSession.stop()
+                core.quit()
+                
             if too_long.status == STARTED:
-                too_long.setAutoDraw(True)
+                too_long.setAutoDraw(True) #draws the 'too long' message if its status is started
                 
             if crosshairs_dot.status == NOT_STARTED:
                 crosshairs_dot.status = STARTED
@@ -1588,10 +1603,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 
             if brush.status == NOT_STARTED:
                 brush.status = STARTED
-            
+                
+            mouse.visible = True #makes mouse visible again (after being invisible)
+                
             if brush.status == STARTED:
                 brush.setAutoDraw(True)
                 if mouse.getPressed()[0] == 1: #if the mouse is being clicked
+                    mouse.visible = False #makes mouse invisible while drawing the line to the target
                     if clicked == False: 
                         t_swipe1 = brushTimer.getTime() #stores time of click
                         too_long.setAutoDraw(False)
@@ -1599,7 +1617,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     clicked = True #is true after mouse is pressed for the first time each trial
                     if mouse.isPressedIn(target_displayed[0]):
                         hit_target = True
-                        print('hitting target')
+                        #print('hitting target')
                     brush_points.append(mouse.getPos()) #adds x and y positions of brush to brush_points
                     thisExp.addData("Brush List", brush_points) #logs brush_points in data file
                     brush_points_x.append(mouse.getPos()[0]) # adds x position of brush to brush_points_x
@@ -1613,9 +1631,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     thisExp.addData("Brush Position", brush_end) #logs last position of brush in data file
                     if hit_target == False:
                         print('error: did not hit target')
+                        error_counter += 1
                     if t_swipe2 - t_swipe1 > brushTimeDiff:
                         too_long.status = STARTED
                         print('too long')
+                        error_counter += 1
                         brush.reset()
                         continueRoutine = False
                     else:
@@ -1756,19 +1776,22 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if brush2.status == STARTED:
                 brush2.setAutoDraw(True)
                 
-                if mouse.getPressed()[0] == 1:
-                    clicked2 = True
-                    brush_points2.append(mouse.getPos())
-                    thisExp.addData("Brush List", brush_points2)
-                    brush_points_x2.append(mouse.getPos()[0])
-                    brush_points_y2.append(mouse.getPos()[1])
-                    thisExp.addData("Brush X Pos", brush_points_x2)
-                    thisExp.addData("Brush Y Pos", brush_points_y2)
-                if clicked2 == True and mouse.getPressed()[0] == 0:
-                    brush2.status = FINISHED
-                    brush2.reset()
-                    continueRoutine = False
-                    win.flip()
+            mouse.visible = True #makes mouse visible again (after being inviisible
+                
+            if mouse.getPressed()[0] == 1:
+                clicked2 = True
+                mouse.visible = False #makes mouse invisible while drawing the line to the target
+                brush_points2.append(mouse.getPos())
+                thisExp.addData("Brush List", brush_points2)
+                brush_points_x2.append(mouse.getPos()[0])
+                brush_points_y2.append(mouse.getPos()[1])
+                thisExp.addData("Brush X Pos", brush_points_x2)
+                thisExp.addData("Brush Y Pos", brush_points_y2)
+            if clicked2 == True and mouse.getPressed()[0] == 0:
+                brush2.status = FINISHED
+                brush2.reset()
+                continueRoutine = False
+                win.flip()
             
         ####################################################################
         ####################################################################
@@ -1901,20 +1924,23 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             if brush3.status == STARTED:
                 brush3.setAutoDraw(True)
-                
-                if mouse.getPressed()[0] == 1:
-                    clicked3 = True
-                    brush_points3.append(mouse.getPos())
-                    thisExp.addData("Brush List", brush_points3)
-                    brush_points_x3.append(mouse.getPos()[0])
-                    brush_points_y3.append(mouse.getPos()[1])
-                    thisExp.addData("Brush X Pos", brush_points_x3)
-                    thisExp.addData("Brush Y Pos", brush_points_y3)
-                if clicked3 == True and mouse.getPressed()[0] == 0:
-                    brush3.status = FINISHED
-                    brush3.reset()
-                    continueRoutine = False
-                    win.flip()
+            
+            mouse.visible = True #makes mouse visible again after being invisible
+            
+            if mouse.getPressed()[0] == 1:
+                mouse.visible = False #makes mouse invisible while drawing the line to the target
+                clicked3 = True
+                brush_points3.append(mouse.getPos())
+                thisExp.addData("Brush List", brush_points3)
+                brush_points_x3.append(mouse.getPos()[0])
+                brush_points_y3.append(mouse.getPos()[1])
+                thisExp.addData("Brush X Pos", brush_points_x3)
+                thisExp.addData("Brush Y Pos", brush_points_y3)
+            if clicked3 == True and mouse.getPressed()[0] == 0:
+                brush3.status = FINISHED
+                brush3.reset()
+                continueRoutine = False
+                win.flip()
             
         ####################################################################
         ####################################################################
