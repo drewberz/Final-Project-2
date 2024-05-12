@@ -1112,7 +1112,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     ### Initialize transition screen from Training_Routine to First_Routine ###
   
     transition_msg = visual.TextBox2(win=win, pos=(0, 0.09), color =[-1, 1, 1], text = 'TRAINING COMPLETE', alignment = 'center')
-    transition_msg2 = visual.TextBox2(win=win, pos=(0, 0), color =[-1, 1, 1], text = 'BEGINNING FIRST ROUTINE /n Press any key to continue', alignment = 'center')
+    transition_msg2 = visual.TextBox2(win=win, pos=(0, 0), color =[-1, 1, 1], text = 'BEGINNING FIRST ROUTINE: Press any key to continue', alignment = 'center')
     key_resp2 = keyboard.Keyboard(deviceName='key_resp2')
     ########################################################################
     # --- Initialize components for Routine "First_Routine" ---
@@ -1503,7 +1503,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     routineTimer.reset()
     
     # set up handler to look after randomisation of conditions etc
-    trials = data.TrialHandler(nReps=10.0, method='random', 
+    trials = data.TrialHandler(nReps=2.0, method='random', 
         extraInfo=expInfo, originPath=-1,
         trialList=[None],
         seed=None, name='trials')
@@ -1566,7 +1566,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         brush_points_x = []
         brush_points_y = []
         
-        while continueRoutine:
+        while continueRoutine: #trial routine
             # get current time
             t = routineTimer.getTime()
             tThisFlip = win.getFutureFlipTime(clock=routineTimer)
@@ -1601,7 +1601,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 
             if crosshairs_dot.status == STARTED:
                 crosshairs_dot.setAutoDraw(True) #draws center circle
-            
+
             if target_displayed[0].status == NOT_STARTED: 
                 target_displayed[0].status = STARTED
                 
@@ -1758,7 +1758,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         _timeToFirstFrame = win.getFutureFlipTime(clock="now")
         frameN = -1
         # --- Run Routine "Transition_Message" --- ######
-        #### RUN HERE RUN HERE RUN HERE
     routineForceEnded = not continueRoutine
     while continueRoutine:
         # get current time
@@ -1790,6 +1789,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             keypress2 = key_resp2.getKeys(keyList=None, ignoreKeys = ['escape']) #creates a list of keys that have been pressed and ignores escape as that will end experiment
             if len(keypress2) > 0: #if any key is pressed, there will be an element in the list and it will move on to the next routine
                 continueRoutine = False
+                print('key pressed')
         ####################################################################
         ####################################################################
         # check for quit (typically the Esc key)
@@ -1802,6 +1802,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # check if all components have finished
         if not continueRoutine:  # a component has requested a forced-end of Routine
             routineForceEnded = True
+            print('force ended')
             break
         continueRoutine = False  # will revert to True if at least one component still running
         for thisComponent in Transition_MessageComponents:
@@ -1814,117 +1815,117 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             win.flip()
         
         # --- Ending Routine "Transition_Message" ---
-        for thisComponent in Transition_MessageComponents:
-            if hasattr(thisComponent, "setAutoDraw"):
-                thisComponent.setAutoDraw(False)
-        thisExp.addData('Transition_Message.stopped', globalClock.getTime(format='float'))
-        thisExp.nextEntry()
-        # the Routine "Transition_Message" was not non-slip safe, so reset the non-slip timer
-        routineTimer.reset()
+    for thisComponent in Transition_MessageComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            print('setting autodraw to false')
+            thisComponent.setAutoDraw(False)
+    thisExp.addData('Transition_Message.stopped', globalClock.getTime(format='float'))
+    thisExp.nextEntry()
+    # the Routine "Transition_Message" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
 
         ########################################################## ##################
-        ###### FINISH HERE FINISH HERE FINISH HERE
         
         # --- Prepare to start Routine "First_Routine" ---
-        continueRoutine = True
-        # update component parameters for each repeat
-        thisExp.addData('First_Routine.started', globalClock.getTime(format='float'))
-        # keep track of which components have finished
-        #First_RoutineComponents = [crosshairs_x, crosshairs_y, crosshairs_dot, brush2, target_displayed]
-        First_RoutineComponents = [crosshairs_dot2, brush2, target_displayed2[0], target_displayed2[1]]
+    continueRoutine = True
+    # update component parameters for each repeat
+    thisExp.addData('First_Routine.started', globalClock.getTime(format='float'))
+    # keep track of which components have finished
+    #First_RoutineComponents = [crosshairs_x, crosshairs_y, crosshairs_dot, brush2, target_displayed]
+    First_RoutineComponents = [crosshairs_dot2, brush2, target_displayed2[0], target_displayed2[1]]
+    for thisComponent in First_RoutineComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    clicked2 = False
+    # --- Run Routine "First_Routine ---
+    ##SAME AS TRAINING ROUTINE BUT WITH BRUSH2 AND NO FEEDBACK IF TOO LONG
+    routineForceEnded = not continueRoutine
+    
+    brush_points2 = []
+    brush_points_x2 = []
+    brush_points_y2 = []
+        
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        ###################################################################
+        ####################################################################
+        
+        if crosshairs_dot2.status == NOT_STARTED:
+            crosshairs_dot2.status = STARTED
+            
+        if crosshairs_dot2.status == STARTED:
+            crosshairs_dot2.setAutoDraw(True)
+            
+        if target_displayed2[0].status == NOT_STARTED: 
+            target_displayed2[0].status = STARTED
+            
+        if target_displayed2[0].status == STARTED:
+            target_displayed2[0].setAutoDraw(True)
+                
+        if target_displayed2[1].status == NOT_STARTED: 
+            target_displayed2[1].status = STARTED
+            
+        if target_displayed2[1].status == STARTED:
+            target_displayed2[1].setAutoDraw(True)
+    
+        if brush2.status == NOT_STARTED:
+            brush2.status = STARTED
+            
+        if brush2.status == STARTED:
+            brush2.setAutoDraw(True)
+                
+        mouse.visible = True #makes mouse visible again (after being invisible)
+
+        if mouse.getPressed()[0] == 1:
+            clicked2 = True
+            mouse.visible = False #makes mouse invisible while drawing the line to the target
+            brush_points2.append(mouse.getPos())
+            thisExp.addData("Brush List", brush_points2)
+            brush_points_x2.append(mouse.getPos()[0])
+            brush_points_y2.append(mouse.getPos()[1])
+            thisExp.addData("Brush X Pos", brush_points_x2)
+            thisExp.addData("Brush Y Pos", brush_points_y2)
+        if clicked2 == True and mouse.getPressed()[0] == 0:
+            brush2.status = FINISHED
+            brush2.reset()
+            continueRoutine = False
+            win.flip()
+            
+        ####################################################################
+        ####################################################################
+        # check for quit (typically the Esc key)
+        if defaultKeyboard.getKeys(keyList=["escape"]):
+            thisExp.status = FINISHED
+        if thisExp.status == FINISHED or endExpNow:
+            endExperiment(thisExp, win=win)
+            return
+            
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            routineForceEnded = True
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
         for thisComponent in First_RoutineComponents:
-            thisComponent.tStart = None
-            thisComponent.tStop = None
-            thisComponent.tStartRefresh = None
-            thisComponent.tStopRefresh = None
-            if hasattr(thisComponent, 'status'):
-                thisComponent.status = NOT_STARTED
-        # reset timers
-        t = 0
-        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-        frameN = -1
-        clicked2 = False
-        # --- Run Routine "First_Routine ---
-        ##SAME AS TRAINING ROUTINE BUT WITH BRUSH2 AND NO FEEDBACK IF TOO LONG
-        routineForceEnded = not continueRoutine
-        
-        brush_points2 = []
-        brush_points_x2 = []
-        brush_points_y2 = []
-        
-        while continueRoutine:
-            # get current time
-            t = routineTimer.getTime()
-            tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-            # update/draw components on each frame
-            ###################################################################
-            ####################################################################
-        
-            if crosshairs_dot2.status == NOT_STARTED:
-                crosshairs_dot2.status = STARTED
-                
-            if crosshairs_dot2.status == STARTED:
-                crosshairs_dot2.setAutoDraw(True)
-            
-            if target_displayed2[0].status == NOT_STARTED: 
-                target_displayed2[0].status = STARTED
-                
-            if target_displayed2[0].status == STARTED:
-                target_displayed2[0].setAutoDraw(True)
-                
-            if target_displayed2[1].status == NOT_STARTED: 
-                target_displayed2[1].status = STARTED
-                
-            if target_displayed2[1].status == STARTED:
-                target_displayed2[1].setAutoDraw(True)
-        
-            if brush2.status == NOT_STARTED:
-                brush2.status = STARTED
-            
-            if brush2.status == STARTED:
-                brush2.setAutoDraw(True)
-                
-            mouse.visible = True #makes mouse visible again (after being inviisible
-                
-            if mouse.getPressed()[0] == 1:
-                clicked2 = True
-                mouse.visible = False #makes mouse invisible while drawing the line to the target
-                brush_points2.append(mouse.getPos())
-                thisExp.addData("Brush List", brush_points2)
-                brush_points_x2.append(mouse.getPos()[0])
-                brush_points_y2.append(mouse.getPos()[1])
-                thisExp.addData("Brush X Pos", brush_points_x2)
-                thisExp.addData("Brush Y Pos", brush_points_y2)
-            if clicked2 == True and mouse.getPressed()[0] == 0:
-                brush2.status = FINISHED
-                brush2.reset()
-                continueRoutine = False
-                win.flip()
-            
-        ####################################################################
-        ####################################################################
-            # check for quit (typically the Esc key)
-            if defaultKeyboard.getKeys(keyList=["escape"]):
-                thisExp.status = FINISHED
-            if thisExp.status == FINISHED or endExpNow:
-                endExperiment(thisExp, win=win)
-                return
-            
-            # check if all components have finished
-            if not continueRoutine:  # a component has requested a forced-end of Routine
-                routineForceEnded = True
-                break
-            continueRoutine = False  # will revert to True if at least one component still running
-            for thisComponent in First_RoutineComponents:
-                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                    continueRoutine = True
-                    break  # at least one component has not yet finished
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
             
             # refresh the screen
-            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-                win.flip()
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
         
         # --- Ending Routine "First_Routine" ---
         for thisComponent in First_RoutineComponents:
@@ -2010,7 +2011,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update/draw components on each frame
             ###################################################################
             ####################################################################
-        
+            print('second routine running')
             if crosshairs_dot3.status == NOT_STARTED:
                 crosshairs_dot3.status = STARTED
                 
