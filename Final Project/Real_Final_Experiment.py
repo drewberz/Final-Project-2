@@ -12,8 +12,11 @@ If you publish work using this script the most relevant publication is:
 """
 ############################################################################
                             ####KEY####
-#Training_Routine is the initial routine that tasks the participant with tracing
-#a line from the center to the targets. 
+#NOTE: (If a comment has a space between the # and the first letter, the comment and the code it is ###
+##referencing were originally written by PsychoPy. Otherwise, if it’s just #blah…, then either      ###
+###Brynn or I wrote the comment and also the code that is attached or explained by the comment)     ###
+
+#Training_Routine is the initial routine that tasks the participant with tracing a line from the center to the targets. 
     #This trains the participant to do the task properly and gives them the sense that the procedure is very simple and easy.
     #The brush follows their mouse trackpad movements without any alterations. 
     
@@ -35,7 +38,7 @@ from psychopy.visual.basevisual import MinimalStim
 
 from psychopy.tools.attributetools import attributeSetter
 
-#Training Trial Brush
+#Brush for Training_Routine
 class Brush(MinimalStim): #From brush GitHub documentation, added as a class 
     #instead of importing so we could manipulate its coordinates directly. 
     """A class for creating a freehand drawing tool.
