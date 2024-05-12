@@ -937,15 +937,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
 
     ########################################################################
     ########################################################################
-    ######## --- Initialize components for the instructions screen to display #########
+    ######## --- Initializing components for the instructions screen to display #########
 
-    instructions = visual.TextBox2(win=win, pos=(0, 0.09), color =[1, 0.6, 0.6], text = 'INSTRUCTIONS', alignment = 'center')
+    instructions = visual.TextBox2(win=win, pos=(0, 0.09), color =[-1, 1, 1], text = 'INSTRUCTIONS')
     
-    instructions_para = visual.TextBox2(win=win, pos=(0, 0), color =[1, 0.6, 0.6], text = 'Using the trackpad, click on the center circle (white) and draw a straight line out to the round target (orange/white) that appears.\nDraw the line using a single, quick, and fluid motion.', alignment = 'center')
+    instructions_para = visual.TextBox2(win=win, pos=(0, 0), color =[-1, 1, 1], text = 'Using the trackpad, click on the center circle (white) and draw a straight line out to the round target (blue/black) that appears.\nDraw the line using a single, quick, and fluid motion.')
     
-    instructions_press_key = visual.TextBox2(win=win, pos=(0,-0.1), color =[1, 0.6, 0.6], text = 'PRESS ANY KEY TO CONTINUE', alignment = 'center')
+    instructions_press_key = visual.TextBox2(win=win, pos=(0,-0.1), color =[-1, 1, 1],  text = 'PRESS ANY KEY TO CONTINUE')
     key_resp = keyboard.Keyboard(deviceName='key_resp')
-  
   
   # --- Initialize components for Routine "Training_Routine" ---
   #Creating targets, shape in center of target, and storing position of target
@@ -1066,35 +1065,29 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     #creating shape to mark center of frame where brush-stroke should start
     crosshairs_dot = visual.shape.ShapeStim(win,
-        size=(0.05, 0.05), vertices='circle',
+        size=(0.03, 0.03), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-6.0, interpolate=True)
     
     crosshairs_dot2 = visual.shape.ShapeStim(win,
-        size=(0.05, 0.05), vertices='circle',
+        size=(0.03, 0.03), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-6.0, interpolate=True)
         
     crosshairs_dot3 = visual.shape.ShapeStim(win,
-        size=(0.05, 0.05), vertices='circle',
+        size=(0.03, 0.03), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-6.0, interpolate=True)
     
     ##Initialize text to tell participant to do a single motion if they are taking too long to draw line
-    too_long = visual.TextBox2(win, text = 'Perform a single, fast motion from the center to the target', pos = (0, -0.15), alignment = 'center')
-    too_long_error = visual.TextBox2(win, text = 'Error: Too slow!', pos = (0, -0.10), alignment = 'center')
-    missed_target = visual.TextBox2(win, text = 'Error: You missed the target!', pos = (0, 0.15), alignment = 'center')
-
+    too_long = visual.TextBox2(win, text = 'Perform a single, fast motion from the center to the target', pos = (0, -0.15))
+        
     ######## Initialize brushTimer###########
     brushTimer = core.Clock()
     brushTimeDiff = 2.5
-    
-    #Initialize error_counter before the training trials begin
-    #If 5 errors occur during the training routine, it will end the experiment
-    error_counter = 0
     
     #initialize brush that draws where mouse is and mouse object
     brush = Brush(win, lineWidth=3, lineColor=[1, 1, 1])
@@ -1108,12 +1101,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     targets3 = [0]
     
     ########################################################################
+<<<<<<< HEAD
     
     ### Initialize transition screen from Training_Routine to First_Routine ###
   
     transition_msg = visual.TextBox2(win=win, pos=(0, 0.09), color =[-1, 1, 1], text = 'TRAINING COMPLETE', alignment = 'center')
     transition_msg2 = visual.TextBox2(win=win, pos=(0, 0), color =[-1, 1, 1], text = 'BEGINNING FIRST ROUTINE: Press any key to continue', alignment = 'center')
     key_resp2 = keyboard.Keyboard(deviceName='key_resp2')
+=======
+>>>>>>> parent of de03cb5 (Added a transition message but it's currently buggy. Did a lot of other things: Improved initial text instructions. Added more text warnings for when errors occur. Made the experiment auto-quit if more than 4 errors occur during training_routine)
     ########################################################################
     # --- Initialize components for Routine "First_Routine" ---
     #Initialize brush draws offset from mouse
@@ -1558,6 +1554,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         clicked = False
         #initialize hit_target before the training trials begin
         hit_target = False
+        #Initialize error_counter before the training trials begin
+        #If 5 errors occur during the training routine, it will end the experiment
+        error_counter = 0
         # --- Run Routine "Training_Routine" ---
         routineForceEnded = not continueRoutine
         
@@ -1590,12 +1589,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if too_long.status == STARTED:
                 too_long.setAutoDraw(True) #draws the 'too long' message if its status is started
                 
-            if too_long_error.status == STARTED:
-                too_long_error.setAutoDraw(True) #draws the 'Error!' message if its status is started
-                
-            if missed_target.status == STARTED:
-                missed_target.setAutoDraw(True) #draws the 'You missed the target' message if its status is started
-                
             if crosshairs_dot.status == NOT_STARTED:
                 crosshairs_dot.status = STARTED
                 
@@ -1626,11 +1619,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     if clicked == False: 
                         t_swipe1 = brushTimer.getTime() #stores time of click
                         too_long.setAutoDraw(False)
-                        too_long_error.setAutoDraw(False)
-                        too_long.status = NOT_STARTED
-                        too_long_error.status = NOT_STARTED
-                        missed_target.status = NOT_STARTED
-                        missed_target.setAutoDraw(False)
+                        too_long.status == NOT_STARTED
                     clicked = True #is true after mouse is pressed for the first time each trial
                     if mouse.isPressedIn(target_displayed[0]):
                         hit_target = True
@@ -1647,16 +1636,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     brush_end = mouse.getPos() #stores last position of brush
                     thisExp.addData("Brush Position", brush_end) #logs last position of brush in data file
                     if hit_target == False:
-                        missed_target.status = STARTED
-                        missed_target.setAutoDraw(True)
                         print('error: did not hit target')
                         error_counter += 1
                     if t_swipe2 - t_swipe1 > brushTimeDiff:
                         too_long.status = STARTED
-                        too_long_error.status = STARTED
                         print('too long')
                         error_counter += 1
-                        print('error_counter:', error_counter)
                         brush.reset()
                         continueRoutine = False
                     else:
@@ -1701,6 +1686,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisSession is not None:
             # if running in a Session with a Liaison client, send data up to now
             thisSession.sendExperimentData()
+    # completed 5.0 repeats of 'trials'
     
     
     # set up handler to look after randomisation of conditions etc
@@ -1735,6 +1721,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             target_displayed2 = pyrandom.choice(target_list2)
         targets2.append(target_displayed2)
         thisExp.addData("Targets", target_displayed2[2])
+<<<<<<< HEAD
         ###Get rid of old error stimuli if they made an error on the last trial of Training_Routine
         missed_target.setAutoDraw(False)
         too_long.setAutoDraw(False)
@@ -1826,6 +1813,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
 
         ########################################################## ##################
         
+=======
+>>>>>>> parent of de03cb5 (Added a transition message but it's currently buggy. Did a lot of other things: Improved initial text instructions. Added more text warnings for when errors occur. Made the experiment auto-quit if more than 4 errors occur during training_routine)
         # --- Prepare to start Routine "First_Routine" ---
     continueRoutine = True
     # update component parameters for each repeat
