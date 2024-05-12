@@ -1088,6 +1088,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     too_long = visual.TextBox2(win, text = 'Perform a single, fast motion from the center to the target', pos = (0, -0.15), alignment = 'center')
     too_long_error = visual.TextBox2(win, text = 'Error: Too slow!', pos = (0, -0.10), alignment = 'center')
     missed_target = visual.TextBox2(win, text = 'Error: You missed the target!', pos = (0, 0.15), alignment = 'center')
+    final_trial = visual.TextBox2(win, color = [1, 0.6, 0.6], text = 'Last training trial. Moving on to the real thing!', pos = (0, -0.2), alignment = 'center')
 
     ######## Initialize brushTimer###########
     brushTimer = core.Clock()
@@ -1096,6 +1097,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     #Initialize error_counter before the training trials begin
     #If 5 errors occur during the training routine, it will end the experiment
     error_counter = 0
+    
+    #Initialize trial_counter. Used to tell when the 2nd to last trial occurs
+    trial_counter = 0
     
     #initialize brush that draws where mouse is and mouse object
     brush = Brush(win, lineWidth=3, lineColor=[1, 1, 1])
@@ -1560,7 +1564,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         brush_points = []
         brush_points_x = []
         brush_points_y = []
-        
+        trial_counter += 1
+            
         while continueRoutine:
             # get current time
             t = routineTimer.getTime()
@@ -1601,13 +1606,16 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 target_displayed[0].status = STARTED
                 
             if target_displayed[0].status == STARTED:
-                target_displayed[0].setAutoDraw(True) #draws blue circle
+                target_displayed[0].setAutoDraw(True) #draws orange circle
                 
             if target_displayed[1].status == NOT_STARTED: 
                 target_displayed[1].status = STARTED
                 
             if target_displayed[1].status == STARTED:
-                target_displayed[1].setAutoDraw(True) #draws black circle in center of blue
+                target_displayed[1].setAutoDraw(True) #draws white circle in center of orange
+                
+            if trial_counter == 10:
+                final_trial.setAutoDraw(True)
                 
             if brush.status == NOT_STARTED:
                 brush.status = STARTED
@@ -1629,7 +1637,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     clicked = True #is true after mouse is pressed for the first time each trial
                     if mouse.isPressedIn(target_displayed[0]):
                         hit_target = True
-                        #print('hitting target')
                     brush_points.append(mouse.getPos()) #adds x and y positions of brush to brush_points
                     thisExp.addData("Brush List", brush_points) #logs brush_points in data file
                     brush_points_x.append(mouse.getPos()[0]) # adds x position of brush to brush_points_x
@@ -1734,6 +1741,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         missed_target.setAutoDraw(False)
         too_long.setAutoDraw(False)
         too_long_error.setAutoDraw(False)
+        
+        #Remove final trial stimulus
+        final_trial.setAutoDraw(False)
         
         # --- Prepare to start Routine "First_Routine" ---
         continueRoutine = True
