@@ -13,19 +13,25 @@ If you publish work using this script the most relevant publication is:
 ############################################################################
                             ####KEY####
 #Training_Routine is the initial routine that tasks the participant with tracing
-    #the line from the center to the targets. This trains them to do the task properly.
-#First_Routine is the first actual routine. 
-    #It gives the participant the sense that the procedure is very simple and easy.
+#a line from the center to the targets. 
+    #This trains the participant to do the task properly and gives them the sense that the procedure is very simple and easy.
     #The brush follows their mouse trackpad movements without any alterations. 
-#Second_Routine is the second routine. It tests how their brain adapts to an alteration
-    #that is made to the way the brush travels in response to their movements on the trackpad. 
+    
+#First_Routine is the first test routine. 
+    #The brush's location is altered when the participant tries to draw with it. It moves slightly up and to the right.
+    #Position + (0.02, 0.02)
+    #We are trying to test if their brain automatically corrects the positioning of the brush throughout the routine,
+    #so as to still hit the target with the alteration
+    
+#Second_Routine is the second test routine. 
+    #It tests how their brain adapts to a larger, more perceptible alteration [position + (0.05, 0.05)]
     
 #Importing relevant tools
 from psychopy import event, logging
 from psychopy.visual.shape import ShapeStim
 from psychopy.visual.basevisual import MinimalStim
 
-__author__ = 'David Bridges'
+#__author__ = 'David Bridges' - this is the author of the brush we used
 
 from psychopy.tools.attributetools import attributeSetter
 
@@ -55,7 +61,7 @@ class Brush(MinimalStim): #From brush GitHub documentation, added as a class
         self.win = win
         self.name = name
         self.depth = depth
-        self.lineColor = lineColor #change using (-1,1,1) in RGB format
+        self.lineColor = lineColor
         self.lineColorSpace = lineColorSpace
         self.lineWidth = lineWidth
         self.opacity = opacity
@@ -218,7 +224,8 @@ class Brush(MinimalStim): #From brush GitHub documentation, added as a class
         self.buttonRequired = value
         
         
-#Manipulated Brush - does not directly follow the mouse trackpad but instead is to the side partially
+#Manipulated Brush for First_Routine - does not directly follow the mouse trackpad but instead is to the side partially
+###BRUSH2 (for First_Routine)
 class Brush2(MinimalStim): #created new brush class with manipulated drawing
     #coordinates to use in the experimental trials
     """A class for creating a freehand drawing tool.
@@ -329,7 +336,7 @@ class Brush2(MinimalStim): #created new brush class with manipulated drawing
         """
         
         if self.brushDown:
-            self.brushPos.append(self.pointer.getPos() + [0.05, 0.05]) #this moves the brush 0.05 units over along the X and Y axes
+            self.brushPos.append(self.pointer.getPos() + [0.02, 0.02]) #this moves the brush 0.05 units over along the X and Y axes
             self.shapes[self.currentShape].setVertices(self.brushPos)
         else:
             self.atStartPoint = False
@@ -518,7 +525,7 @@ class Brush3(MinimalStim): #created new brush class with manipulated drawing
         """
         
         if self.brushDown:
-            self.brushPos.append(self.pointer.getPos() + [0.02, 0.02]) #this moves the brush 0.02 units over along the X and Y axes
+            self.brushPos.append(self.pointer.getPos() + [0.05, 0.05]) #this moves the brush 0.02 units over along the X and Y axes
             self.shapes[self.currentShape].setVertices(self.brushPos)
         else:
             self.atStartPoint = False
@@ -780,7 +787,7 @@ def setupWindow(expInfo=None, win=None):
         )
     else:
         # if we have a window, just set the attributes which are safe to set
-        win.color = [-1,-1,-1]
+        win.color = [-1,-1,-1] #sets the window background to black
         win.colorSpace = 'rgb'
         win.backgroundImage = ''
         win.backgroundFit = 'none'
@@ -889,7 +896,10 @@ def pauseExperiment(thisExp, win=None, timers=[], playbackComponents=[]):
     # reset any timers
     for timer in timers:
         timer.reset()
-
+####################################################################################
+##########'run' is the function within which the actual experiment runs ############
+###It contains Instructions, Training_Routine, First_Routine, and Second_Routine ###
+####################################################################################
 def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     """
     Run the experiment flow.
@@ -908,7 +918,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     thisSession : psychopy.session.Session or None
         Handle of the Session object this experiment is being run from, if any.
     """
-    #No Transition message
     # mark experiment as started
     thisExp.status = STARTED
     # make sure variables created by exec are available globally
@@ -936,10 +945,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # Start Code - component code to be run after the window creation
 
-    ########################################################################
-    ########################################################################
-    ######## --- Initialize components for the instructions screen to display #########
-
+    ############################################################################
+    #### -- Initialize components for the instructions screen to display -- ####
+    ############################################################################
+    #These text boxes display instructions for the participant to follow during the training routine
+    #Once they are ready to proceed, they can click any key to proceed into the routine
     instructions = visual.TextBox2(win=win, pos=(0, 0.09), color =[1, 0.6, 0.6], text = 'INSTRUCTIONS', alignment = 'center')
     
     instructions_para = visual.TextBox2(win=win, pos=(0, 0), color =[1, 0.6, 0.6], text = 'Using the trackpad, click on the center circle (white) and draw a straight line out to the round target (orange/white) that appears.\nDraw the line using a single, quick, and fluid motion.', alignment = 'center')
@@ -950,6 +960,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
   
   # --- Initialize components for Routine "Training_Routine" ---
   #Creating targets, shape in center of target, and storing position of target
+  #The stimuli which which begin with 'targ' are the larger, outer targets (orange)
+  #The stimuli which begin with 'center' are the smaller, inner targets (white)
     targ_top_right = visual.ShapeStim(
         win=win, name='targ_top_right',
         size=(0.1, 0.1), vertices='circle',
@@ -1056,6 +1068,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         opacity=None, depth=-6.0, interpolate=True)
         
     #creating list of targets containing list of the target, the shape in center of target, and position of target
+    #This list is used to randomize the order in which targets are displayed during the training routine
     target_list = [(targ_top_right, center_top_right, targ_top_right_pos), 
     (targ_mid_right, center_mid_right, targ_mid_right_pos),
     (targ_bot_right, center_bot_right, targ_bot_right_pos),
@@ -1084,10 +1097,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-6.0, interpolate=True)
     
-    ##Initialize text to tell participant to do a single motion if they are taking too long to draw line
+    #Initialize text to tell participant what their error is
     too_long = visual.TextBox2(win, text = 'Perform a single, fast motion from the center to the target', pos = (0, -0.15), alignment = 'center')
     too_long_error = visual.TextBox2(win, text = 'Error: Too slow!', pos = (0, -0.10), alignment = 'center')
     missed_target = visual.TextBox2(win, text = 'Error: You missed the target!', pos = (0, 0.15), alignment = 'center')
+    #Initialize text to tell participant that it is the final trial of the training_routine
     final_trial = visual.TextBox2(win, color = [1, 0.6, 0.6], text = 'Last training trial. Moving on to the real thing!', pos = (0, -0.2), alignment = 'center')
 
     ######## Initialize brushTimer###########
@@ -1095,7 +1109,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     brushTimeDiff = 2.5
     
     #Initialize error_counter before the training trials begin
-    #If 5 errors occur during the training routine, it will end the experiment
+    #If more than 4 errors occur during the training routine, it will end the experiment
     error_counter = 0
     
     #Initialize trial_counter. Used to tell when the 2nd to last trial occurs
@@ -1104,7 +1118,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     #initialize brush that draws where mouse is and mouse object
     brush = Brush(win, lineWidth=3, lineColor=[1, 1, 1])
     
+    #Initializes the mouse so that it will disappear once they click later on
     mouse = event.Mouse()
+    
     #initialize lists to store locations of targets displayed in experiment
     targets = [0]
     
@@ -1119,7 +1135,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     #Initialize brush draws offset from mouse
     brush2 = Brush2(win, lineWidth=3, lineColor=[1, 1, 1,])
     
-    #same targets as above but named differently to work in code
+    #same targets as above but named differently to work during First_Routine
     targ_top_right2 = visual.ShapeStim(
         win=win, name='targ_top_right',
         size=(0.1, 0.1), vertices='circle',
@@ -1225,7 +1241,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-6.0, interpolate=True)
         
-    #creating list of targets to then be randomly called to appear for each trial
+    #creating list of targets to then be randomly called to appear for each trial in First_Routine
     target_list2 = [(targ_top_right2, center_top_right2, targ_top_right_pos2), 
     (targ_mid_right2, center_mid_right2, targ_mid_right_pos2),
     (targ_bot_right2, center_bot_right2, targ_bot_right_pos2),
@@ -1234,8 +1250,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     (targ_top_left2, center_top_left2, targ_top_left_pos2),
     (targ_mid_left2, center_mid_left2, targ_mid_left_pos2), 
     (targ_bot_left2, center_bot_left2, targ_bot_left_pos2)]
-    # create some handy timers
     
+    # create some handy timers
     # global clock to track the time since experiment started
     if globalClock is None:
         # create a clock if not given one
@@ -1268,7 +1284,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     #initialize brush that draws offset from mouse, different offset that Brush2
     brush3 = Brush3(win, lineWidth=3, lineColor=[1, 1, 1,])
     
-    #same targets as above but named differently to work in experiment
+    #same targets as above but named differently to work in Second_Routine
     targ_top_right3 = visual.ShapeStim(
         win=win, name='targ_top_right',
         size=(0.1, 0.1), vertices='circle',
@@ -1374,7 +1390,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
         opacity=None, depth=-6.0, interpolate=True)
 
-    #creating list of targets to then be randomly called to appear for each trial
+    #creating list of targets to then be randomly called to appear for each trial in Second_Routine
     target_list3 = [(targ_top_right3, center_top_right3, targ_top_right_pos3), 
     (targ_mid_right3, center_mid_right3, targ_mid_right_pos3),
     (targ_bot_right3, center_bot_right3, targ_bot_right_pos3),
@@ -1413,6 +1429,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
 ########################################################################
 ########################################################################
 # --- Prepare to start Routine "Instruct" ---
+#This routine displays the instructions for the participant to read before the experiment begins
     continueRoutine = True
     # update component parameters for each repeat
     thisExp.addData('Instruct.started', globalClock.getTime(format='float'))
@@ -1464,7 +1481,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
         if key_resp.status == NOT_STARTED:
             key_resp.status = STARTED
-        
+        #keypress is used to tell PsychoPy when the participant has read the instructions and clicked any key
         if key_resp.status == STARTED:
             keypress = key_resp.getKeys(keyList=None, ignoreKeys = ['escape']) #creates a list of keys that have been pressed and ignores escape as that will end experiment
             if len(keypress) > 0: #if any key is pressed, there will be an element in the list and it will move on to the next routine
@@ -1561,9 +1578,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         routineForceEnded = not continueRoutine
         
         #initialize lists to keep track of position of brush when it is drawing
+        #These data points are used in the csv file later to analyze the participants brush positioning
         brush_points = []
         brush_points_x = []
         brush_points_y = []
+        
+        #This adds a new trial to the trial counter each time the 'trials' for loop runs
+        #trial_counter will be used to display a message before the end of Training_Routine
+        #Tells the participant that there is one trial left before First_Routine begins
         trial_counter += 1
             
         while continueRoutine:
@@ -1600,7 +1622,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 crosshairs_dot.status = STARTED
                 
             if crosshairs_dot.status == STARTED:
-                crosshairs_dot.setAutoDraw(True) #draws center circle
+                crosshairs_dot.setAutoDraw(True) #draws starting circle in center of screen
             
             if target_displayed[0].status == NOT_STARTED: 
                 target_displayed[0].status = STARTED
@@ -1620,44 +1642,45 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if brush.status == NOT_STARTED:
                 brush.status = STARTED
                 
-            mouse.visible = True #makes mouse visible again (after being invisible)
+            mouse.visible = True #makes mouse visible again before participant clicks (after being invisible)
                 
             if brush.status == STARTED:
-                brush.setAutoDraw(True)
+                brush.setAutoDraw(True) #Draws the path of the brush
                 if mouse.getPressed()[0] == 1: #if the mouse is being clicked
                     mouse.visible = False #makes mouse invisible while drawing the line to the target
-                    if clicked == False: 
+                    if clicked == False: #This is used to see how long each trial takes
                         t_swipe1 = brushTimer.getTime() #stores time of click
-                        too_long.setAutoDraw(False)
-                        too_long_error.setAutoDraw(False)
-                        too_long.status = NOT_STARTED
-                        too_long_error.status = NOT_STARTED
-                        missed_target.status = NOT_STARTED
-                        missed_target.setAutoDraw(False)
+                        too_long.setAutoDraw(False) #turns off the error message if it was showing from the previous trial
+                        too_long_error.setAutoDraw(False) #turns off the error message if it was showing from the previous trial
+                        too_long.status = NOT_STARTED #resets the status of the error message
+                        too_long_error.status = NOT_STARTED #resets the status of the error message
+                        missed_target.status = NOT_STARTED #resets the status of the error message
+                        missed_target.setAutoDraw(False) #turns off the error message if it was showing from the previous trial
                     clicked = True #is true after mouse is pressed for the first time each trial
-                    if mouse.isPressedIn(target_displayed[0]):
-                        hit_target = True
-                    brush_points.append(mouse.getPos()) #adds x and y positions of brush to brush_points
-                    thisExp.addData("Brush List", brush_points) #logs brush_points in data file
-                    brush_points_x.append(mouse.getPos()[0]) # adds x position of brush to brush_points_x
-                    brush_points_y.append(mouse.getPos()[1])# adds y position of brush to brush_points_y
-                    thisExp.addData("Brush X Pos", brush_points_x)#logs brush_points_x in data file
-                    thisExp.addData("Brush Y Pos", brush_points_y)#logs brush_points_y in data file
+                    if mouse.isPressedIn(target_displayed[0]): #checks whether the participant hit the target with the brush
+                        hit_target = True #sets boolean to be true so that the error message will not appear
+                    brush_points.append(mouse.getPos()) #adds x and y positions of brush to brush_points (for data analysis)
+                    thisExp.addData("Brush List", brush_points) #logs brush_points in data file (for data analysis)
+                    brush_points_x.append(mouse.getPos()[0]) # adds x position of brush to brush_points_x (for data analysis)
+                    brush_points_y.append(mouse.getPos()[1])# adds y position of brush to brush_points_y (for data analysis)
+                    thisExp.addData("Brush X Pos", brush_points_x)#logs brush_points_x in data file (for data analysis)
+                    thisExp.addData("Brush Y Pos", brush_points_y)#logs brush_points_y in data file (for data analysis)
                 if clicked == True and mouse.getPressed()[0] == 0: #if the mouse has been pressed once and is not currently pressed
-                    brush.status = FINISHED
-                    t_swipe2 = brushTimer.getTime() #stores time that brush ends
-                    brush_end = mouse.getPos() #stores last position of brush
-                    thisExp.addData("Brush Position", brush_end) #logs last position of brush in data file
-                    if hit_target == False:
+                    brush.status = FINISHED #Brush is no longer running
+                    t_swipe2 = brushTimer.getTime() #stores time that brush ends (for too_long error)
+                    brush_end = mouse.getPos() #stores last position of brush (for data analysis)
+                    thisExp.addData("Brush Position", brush_end) #logs last position of brush in data file (for data analysis)
+                    if hit_target == False: #if the participant did not hit the target
                         missed_target.status = STARTED
-                        missed_target.setAutoDraw(True)
+                        missed_target.setAutoDraw(True) #Displays the missed target error message on the window
                         print('error: did not hit target')
-                        error_counter += 1
-                    if t_swipe2 - t_swipe1 > brushTimeDiff:
+                        error_counter += 1 #Adds an error to the error counter
+                        print('error_counter:', error_counter)
+                    if t_swipe2 - t_swipe1 > brushTimeDiff: #Checks if the brush swipe took too long ( > brushTimeDiff (2.5s)
                         too_long.status = STARTED
                         too_long_error.status = STARTED
                         print('too long')
-                        error_counter += 1
+                        error_counter += 1 #Adds an error to the error counter
                         print('error_counter:', error_counter)
                         brush.reset()
                         continueRoutine = False
@@ -1737,12 +1760,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             target_displayed2 = pyrandom.choice(target_list2)
         targets2.append(target_displayed2)
         thisExp.addData("Targets", target_displayed2[2])
-        ###Get rid of old error stimuli if they made an error on the last trial of Training_Routine
+        #Remove old error stimuli from window if they made an error on the last trial of Training_Routine
         missed_target.setAutoDraw(False)
         too_long.setAutoDraw(False)
         too_long_error.setAutoDraw(False)
         
-        #Remove final trial stimulus
+        #Remove final trial stimulus from window
         final_trial.setAutoDraw(False)
         
         # --- Prepare to start Routine "First_Routine" ---
@@ -1765,9 +1788,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         frameN = -1
         clicked2 = False
         # --- Run Routine "First_Routine ---
-        ##SAME AS TRAINING ROUTINE BUT WITH BRUSH2 AND NO FEEDBACK IF TOO LONG
+        ##SAME AS TRAINING ROUTINE BUT WITH BRUSH2 AND NO FEEDBACK IF AN ERROR OCCURS
         routineForceEnded = not continueRoutine
         
+        #initialize lists to keep track of position of brush when it is drawing
+        #These data points are used in the csv file later to analyze the participants brush positioning
         brush_points2 = []
         brush_points_x2 = []
         brush_points_y2 = []
@@ -1779,9 +1804,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             tThisFlipGlobal = win.getFutureFlipTime(clock=None)
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
-            ###################################################################
-            ####################################################################
-        
+            ##Initializing the same way as above (in Training_Routine)
+                #Except there are new names for the stimuli
             if crosshairs_dot2.status == NOT_STARTED:
                 crosshairs_dot2.status = STARTED
                 
@@ -1806,8 +1830,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if brush2.status == STARTED:
                 brush2.setAutoDraw(True)
                 
-            mouse.visible = True #makes mouse visible again (after being inviisible
-                
+            mouse.visible = True #makes mouse visible again before participant clicks (after being invisible)
+        #Below is similar to Training_Routine, just uses different stimuli/variable names
             if mouse.getPressed()[0] == 1:
                 clicked2 = True
                 mouse.visible = False #makes mouse invisible while drawing the line to the target
@@ -1900,7 +1924,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update component parameters for each repeat
         thisExp.addData('Second_Routine.started', globalClock.getTime(format='float'))
         # keep track of which components have finished
-        #First_RoutineComponents = [crosshairs_x, crosshairs_y, crosshairs_dot, brush2, target_displayed]
         Second_RoutineComponents = [crosshairs_dot3, brush3, target_displayed3[0], target_displayed3[1]]
         for thisComponent in Second_RoutineComponents:
             thisComponent.tStart = None
@@ -1916,7 +1939,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         clicked3 = False
         # --- Run Routine "Second_Routine ---
         routineForceEnded = not continueRoutine
-        ##SAME AS FIRST ROUTINE BUT WITH BRUSH3
+        
+        #initialize lists to keep track of position of brush when it is drawing
+        #These data points are used in the csv file later to analyze the participants brush positioning
         brush_points3 = []
         brush_points_x3 = []
         brush_points_y3 = []
@@ -1929,7 +1954,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
             ###################################################################
-            ####################################################################
+            ###################################################################
+            ##Initializing the same way as above (in Training_Routine and First_Routine)
+                #Except there are new names for the stimuli
         
             if crosshairs_dot3.status == NOT_STARTED:
                 crosshairs_dot3.status = STARTED
@@ -1955,8 +1982,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if brush3.status == STARTED:
                 brush3.setAutoDraw(True)
             
-            mouse.visible = True #makes mouse visible again after being invisible
+            mouse.visible = True #makes mouse visible again before participant clicks (after being invisible)
             
+            #Below is similar to Training_Routine and First_Routine, just uses different stimuli/variable names
             if mouse.getPressed()[0] == 1:
                 mouse.visible = False #makes mouse invisible while drawing the line to the target
                 clicked3 = True
@@ -2012,6 +2040,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # mark experiment as finished
     endExperiment(thisExp, win=win)
 
+#Below is just the code for closing the experiment and saving the data
 
 def saveData(thisExp):
     """
