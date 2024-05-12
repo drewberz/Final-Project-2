@@ -908,6 +908,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     thisSession : psychopy.session.Session or None
         Handle of the Session object this experiment is being run from, if any.
     """
+    #No Transition message
     # mark experiment as started
     thisExp.status = STARTED
     # make sure variables created by exec are available globally
