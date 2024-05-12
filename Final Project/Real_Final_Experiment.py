@@ -1110,11 +1110,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     ########################################################################
     
-    ### Initialize transition screen from Training_Routine to First_Routine ###
-  
-    transition_msg = visual.TextBox2(win=win, pos=(0, 0.09), color =[-1, 1, 1], text = 'TRAINING COMPLETE', alignment = 'center')
-    transition_msg2 = visual.TextBox2(win=win, pos=(0, 0), color =[-1, 1, 1], text = 'BEGINNING FIRST ROUTINE /n Press any key to continue', alignment = 'center')
-    key_resp2 = keyboard.Keyboard(deviceName='key_resp2')
     ########################################################################
     # --- Initialize components for Routine "First_Routine" ---
     #Initialize brush draws offset from mouse
@@ -1266,7 +1261,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
 #########################################################
 ############ INITIALIZE Second_Routine ##################
 #########################################################
-   # --- Initialize components for Routine "First_Routine" ---
     #initialize brush that draws offset from mouse, different offset that Brush2
     brush3 = Brush3(win, lineWidth=3, lineColor=[1, 1, 1,])
     
@@ -1740,91 +1734,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         missed_target.setAutoDraw(False)
         too_long.setAutoDraw(False)
         too_long_error.setAutoDraw(False)
-        ################################### START HERE START HERE START HERE ########################
-        # --- Prepare to start Routine "Transition_Message" ---
-        continueRoutine = True
-        # update component parameters for each repeat
-        thisExp.addData('Transition_Message.started', globalClock.getTime(format='float'))
-        # keep track of which components have finished
-        Transition_MessageComponents = [transition_msg, transition_msg2, key_resp2]
-        for thisComponent in Transition_MessageComponents:
-            thisComponent.tStart = None
-            thisComponent.tStop = None
-            thisComponent.tStartRefresh = None
-            thisComponent.tStopRefresh = None
-            if hasattr(thisComponent, 'status'):
-                thisComponent.status = NOT_STARTED
-        # reset timers
-        t = 0
-        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-        frameN = -1
-        # --- Run Routine "Transition_Message" --- ######
-        #### RUN HERE RUN HERE RUN HERE
-    routineForceEnded = not continueRoutine
-    while continueRoutine:
-        # get current time
-        t = routineTimer.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        ####################################################################
-        ####################################################################
-        if transition_msg.status == NOT_STARTED:
-            transition_msg.status = STARTED
-            transition_msg.setAutoDraw(True) #message is drawn every frame after this component has started
-        
-        if transition_msg.status == STARTED:
-            pass
-            
-        if transition_msg2.status == NOT_STARTED:
-            transition_msg2.status = STARTED
-            transition_msg2.setAutoDraw(True) #message is drawn every frame after this component has started
-            
-        if transition_msg2.status == STARTED:
-            pass
-            
-        if key_resp2.status == NOT_STARTED:
-            key_resp2.status = STARTED
-            
-        if key_resp2.status == STARTED:
-            keypress2 = key_resp2.getKeys(keyList=None, ignoreKeys = ['escape']) #creates a list of keys that have been pressed and ignores escape as that will end experiment
-            if len(keypress2) > 0: #if any key is pressed, there will be an element in the list and it will move on to the next routine
-                continueRoutine = False
-        ####################################################################
-        ####################################################################
-        # check for quit (typically the Esc key)
-        if defaultKeyboard.getKeys(keyList=["escape"]):
-            thisExp.status = FINISHED
-        if thisExp.status == FINISHED or endExpNow:
-            endExperiment(thisExp, win=win)
-            return
-            
-            # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            routineForceEnded = True
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in Transition_MessageComponents:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-            
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-        
-        # --- Ending Routine "Transition_Message" ---
-        for thisComponent in Transition_MessageComponents:
-            if hasattr(thisComponent, "setAutoDraw"):
-                thisComponent.setAutoDraw(False)
-        thisExp.addData('Transition_Message.stopped', globalClock.getTime(format='float'))
-        thisExp.nextEntry()
-        # the Routine "Transition_Message" was not non-slip safe, so reset the non-slip timer
-        routineTimer.reset()
-
-        ########################################################## ##################
-        ###### FINISH HERE FINISH HERE FINISH HERE
         
         # --- Prepare to start Routine "First_Routine" ---
         continueRoutine = True
